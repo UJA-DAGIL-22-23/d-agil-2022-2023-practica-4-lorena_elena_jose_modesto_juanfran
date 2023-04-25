@@ -101,6 +101,65 @@
             }
         </script>
 
+<h1>Mundial de ciclismo</h1>
+<!-- Barra de navegación de la aplicación -->
+    <a href="javascript:Plantilla.procesarHome()" class="opcion-principal"
+        title="Llama a la ruta / del MS Plantilla">Home</a>
+    <a href="javascript:Plantilla.procesarAcercaDe()" class="opcion-principal"
+        title="Llama a la ruta /acercade del MS Plantilla">Acerca de</a>
+    <a href="javascript:Plantilla.lista_nombres()" class="opcion-principal"
+        title="HU 2">Lista nombres</a>
+    <a href="javascript:Plantilla.lista_datos()" class="opcion-principal"
+        title="HU 4">Datos Completos</a>
+    <a href="javascript:Plantilla.lista_nombresOrd()" class="opcion-principal"
+        title="HU 3">Lista nombres ordenados</a>
+    <a href="javascript:Plantilla.lista_ciclista('359097846737141965')" class="opcion-principal"
+        title="HU 6">Lista ciclista</a>
+    <a href="javascript:Plantilla.lista_datosEdi()" class="opcion-principal"
+        title="HU 8">Lista ciclistas Editables</a>
+    <a href="javascript:Plantilla.form_nuevoCiclista()" class="opcion-principal"
+        title="HU 16">Añadir Ciclista</a>
+    <a href="javascript:Plantilla.lista_todoOrd()" class="opcion-principal"
+        title="HU 5">Lista ciclistas ordenados por</a>
+        
+        <br></br>
+        <div id="eleccion" style="display: none;">
+            <form >
+                <!-- Frase que sale al lado del formulario -->
+                <label for="cond"> Ordenar por:</label> 
+                <!-- Donde se almacena la condición -->
+                <select id="cond" name="cond"> 
+                    <!-- ORDENAR POR NOMBRE -->
+                    <option value="nombre">Nombre</option>
+                    <!-- ORDENAR POR APELLIDOS -->
+                    <option value="apellidos">Apellidos</option>
+                    <!-- ORDENAR POR EQUIPO -->
+                    <option value="equipos">Equipos</option>
+                    <!-- ORDENAR POR EMAIL -->
+                    <option value="email">Email</option>
+                    <!-- ORDENAR POR FECHA DE NACIMIENTO -->
+                    <option value="f_nac">Fecha de Nacimiento</option>
+                </select>
+                <!-- Botón que manda la condición por la que ordenar
+                -->
+                <button id="btn" type="submit">GO</button>
+            </form>
+        </div>
+    <a href="javascript:Plantilla.buscaNombre()" class="opcion-principal"
+        title="HU 8">Busca por Nombre</a>
+        <br></br>
+        <div id="busqueda" style="display: none;">
+            <form>
+                <!-- Frase que sale al lado del formulario -->
+                <label>Busca un ciclista por nombre</label>
+                <!-- Cuadrito de texto para introducir nombre -->
+                <input type="text" id="nameC" name="buscaNom">
+                <!-- Botón que manda la condición por la que ordenar
+                -->
+                <button type="submit" id="btnBuscar">BUSCAR</button>
+            </form>
+        </div>
+
 
     </nav>
 
@@ -127,11 +186,16 @@
     <!-- Cargamos ficheros JS propios del proyecto -->
     <script src="js/front-end.js"></script>
     <script src="js/ms-tenisDeMesa.js"></script>
+    <script src="js/ms-ciclismo.js"></script>
+
+
 
 
     <!-- Cargamos ficheros spec con los tests -->
     <script src="js/front-end-spec.js"></script>
     <script src="js/ms-tenisDeMesa-spec.js"></script>
+    <script src="js/ms-ciclismo-spec.js"></script>
+    
 
 </body>
 
