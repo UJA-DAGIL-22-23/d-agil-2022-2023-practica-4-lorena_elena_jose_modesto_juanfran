@@ -1,6 +1,6 @@
 /**
- * @file Plantilla.js
- * @description Funciones para el procesamiento de la info enviada por el MS Plantilla
+ * @file Natacion.js
+ * @description Funciones para el procesamiento de la info enviada por el MS Natacion
  * @author Víctor M. Rivas <vrivas@ujaen.es>
  * @date 03-feb-2023
  */
@@ -8,11 +8,11 @@
 "use strict";
 
 /// Creo el espacio de nombres
-let Plantilla = {};
+let Natacion = {};
 
 
-// Plantilla de datosDescargados vacíos
-Plantilla.datosDescargadosNulos = {
+// Natacion de datosDescargados vacíos
+Natacion.datosDescargadosNulos = {
     mensaje: "Datos Descargados No válidos",
     autor: "",
     email: "",
@@ -21,14 +21,14 @@ Plantilla.datosDescargadosNulos = {
 
 
 /**
- * Función que descarga la info MS Plantilla al llamar a una de sus rutas
+ * Función que descarga la info MS Natacion al llamar a una de sus rutas
  * @param {string} ruta Ruta a descargar
  * @param {función} callBackFn Función a la que se llamará una vez recibidos los datos.
  */
-Plantilla.descargarRuta = async function (ruta, callBackFn) {
+Natacion.descargarRuta = async function (ruta, callBackFn) {
     let response = null
 
-    // Intento conectar con el microservicio Plantilla
+    // Intento conectar con el microservicio Natacion
     try {
         const url = Frontend.API_GATEWAY + ruta
         response = await fetch(url)
@@ -48,9 +48,9 @@ Plantilla.descargarRuta = async function (ruta, callBackFn) {
 }
 
 /**
- * Función principal para mostrar los datos enviados por la ruta "home" de MS Plantilla
+ * Función principal para mostrar los datos enviados por la ruta "home" de MS Natacion
  */
-Plantilla.mostrarHome = function (datosDescargados) {
+Natacion.mostrarHome = function (datosDescargados) {
     // Si no se ha proporcionado valor para datosDescargados
     datosDescargados = datosDescargados || this.datosDescargadosNulos
 
@@ -60,13 +60,13 @@ Plantilla.mostrarHome = function (datosDescargados) {
     // Si datos descargados NO contiene el campo mensaje
     if (typeof datosDescargados.mensaje === "undefined") datosDescargados = this.datosDescargadosNulos
 
-    Frontend.Article.actualizar("Plantilla Home", datosDescargados.mensaje)
+    Frontend.Article.actualizar("Natacion Home", datosDescargados.mensaje)
 }
 
 /**
- * Función principal para mostrar los datos enviados por la ruta "acerca de" de MS Plantilla
+ * Función principal para mostrar los datos enviados por la ruta "acerca de" de MS Natacion
  */
-Plantilla.mostrarAcercaDe = function (datosDescargados) {
+Natacion.mostrarAcercaDe = function (datosDescargados) {
     // Si no se ha proporcionado valor para datosDescargados
     datosDescargados = datosDescargados || this.datosDescargadosNulos
 
@@ -89,19 +89,19 @@ Plantilla.mostrarAcercaDe = function (datosDescargados) {
     </ul>
     </div>
     `;
-    Frontend.Article.actualizar("Plantilla Acerca de", mensajeAMostrar)
+    Frontend.Article.actualizar("Natacion Acerca de", mensajeAMostrar)
 }
 
 /**
- * Función que recuperar todos los plantilla llamando al MS plantilla
+ * Función que recuperar todos los Natacion llamando al MS Natacion
  * @param {función} callBackFn Función a la que se llamará una vez recibidos los datos.
  */ 
-Plantilla.recupera = async function (callBackFn) {
+Natacion.recupera = async function (callBackFn) {
     let response = null
 
-    // Intento conectar con el microservicio plantilla
+    // Intento conectar con el microservicio Natacion
     try {
-        const url = Frontend.API_GATEWAY + "/plantilla/getTodos"
+        const url = Frontend.API_GATEWAY + "/Natacion/getTodos"
         response = await fetch(url)
 
     } catch (error) {
@@ -110,24 +110,24 @@ Plantilla.recupera = async function (callBackFn) {
         //throw error
     }
 
-    // Muestro todos los plantilla que se han descargado
-    let vectorPlantilla = null
+    // Muestro todos los Natacion que se han descargado
+    let vectorNatacion = null
     if (response) {
-        vectorPlantilla = await response.json()
-        callBackFn(vectorPlantilla.data)
+        vectorNatacion = await response.json()
+        callBackFn(vectorNatacion.data)
     }
 }
 
 /**
- * Función que recuperar todos los plantilla llamando al MS plantilla
+ * Función que recuperar todos los Natacion llamando al MS Natacion
  * @param {función} callBackFn Función a la que se llamará una vez recibidos los datos.
  */ 
-Plantilla.recuperaAlfabetic = async function (callBackFn) {
+Natacion.recuperaAlfabetic = async function (callBackFn) {
     let response = null
 
-    // Intento conectar con el microservicio plantilla
+    // Intento conectar con el microservicio Natacion
     try {
-        const url = Frontend.API_GATEWAY + "/plantilla/getTodos"
+        const url = Frontend.API_GATEWAY + "/Natacion/getTodos"
         response = await fetch(url)
 
     } catch (error) {
@@ -136,11 +136,11 @@ Plantilla.recuperaAlfabetic = async function (callBackFn) {
         //throw error
     }
 
-    // Muestro todos los plantilla que se han descargado
-    let vectorPlantilla = null
+    // Muestro todos los Natacion que se han descargado
+    let vectorNatacion = null
     if (response) {
-        vectorPlantilla = await response.json()
-        vectorPlantilla.data.sort((a,b) => {
+        vectorNatacion = await response.json()
+        vectorNatacion.data.sort((a,b) => {
             const nomA = a.data.Nombre_completo.Apellidos.toLowerCase();
             const nomB = b.data.Nombre_completo.Apellidos.toLowerCase();
             
@@ -153,7 +153,7 @@ Plantilla.recuperaAlfabetic = async function (callBackFn) {
             return 0;
         });
 
-        callBackFn(vectorPlantilla.data)
+        callBackFn(vectorNatacion.data)
     }
 }
 
@@ -163,14 +163,14 @@ Plantilla.recuperaAlfabetic = async function (callBackFn) {
  * @param {String} idPersona Identificador de la persona a mostrar
  * @param {función} callBackFn Función a la que se llamará una vez recibidos los datos.
  */
-Plantilla.recuperaUnaPersona = async function (idPersona, callBackFn) {
+Natacion.recuperaUnaPersona = async function (idPersona, callBackFn) {
     try {
         console.log(idPersona);
-        const url = Frontend.API_GATEWAY + "/plantilla/getPorId/" + idPersona
+        const url = Frontend.API_GATEWAY + "/Natacion/getPorId/" + idPersona
         const response = await fetch(url);
         if (response) {
-            const plantilla = await response.json()
-            callBackFn(plantilla)
+            const Natacion = await response.json()
+            callBackFn(Natacion)
         }
     } catch (error) {
         alert("Error: No se han podido acceder al API Gateway")
@@ -185,12 +185,12 @@ Plantilla.recuperaUnaPersona = async function (idPersona, callBackFn) {
  * @param {String} nopmbre nombre de la persona a buscar
  * @param {función} callBackFn Función a la que se llamará una vez recibidos los datos.
  */
-Plantilla.recuperaBuscar = async function (callBackFn, nombre) {
+Natacion.recuperaBuscar = async function (callBackFn, nombre) {
     let response = null
     //console.log(nombre);
     // Intento conectar con el microservicio proyectos
     try {
-        const url = Frontend.API_GATEWAY + "/plantilla/getTodos"
+        const url = Frontend.API_GATEWAY + "/Natacion/getTodos"
         response = await fetch(url)
 
     } catch (error) {
@@ -200,11 +200,11 @@ Plantilla.recuperaBuscar = async function (callBackFn, nombre) {
     }
 
     // Filtro el vector de personas para obtener solo la que tiene el nombre pasado como parámetro
-    let vectorPlantilla = null
+    let vectorNatacion = null
     if (response) {
-        vectorPlantilla = await response.json()
-        //console.log(vectorPlantilla.data[0].data)     
-        const filtro = vectorPlantilla.data.filter(persona => persona.data.Nombre_completo.Nombre === nombre);
+        vectorNatacion = await response.json()
+        //console.log(vectorNatacion.data[0].data)     
+        const filtro = vectorNatacion.data.filter(persona => persona.data.Nombre_completo.Nombre === nombre);
         //console.log(filtro)        
         callBackFn(filtro)
     }else{
@@ -222,12 +222,12 @@ Plantilla.recuperaBuscar = async function (callBackFn, nombre) {
  * @param {String} var4 años de participacion en mundial de la persona a buscar
  * @param {función} callBackFn Función a la que se llamará una vez recibidos los datos.
  */
-Plantilla.recuperaBuscarCuatro = async function (callBackFn, var1, var2, var3,var4) {
+Natacion.recuperaBuscarCuatro = async function (callBackFn, var1, var2, var3,var4) {
     let response = null
     //console.log(nombre);
     // Intento conectar con el microservicio proyectos
     try {
-        const url = Frontend.API_GATEWAY + "/plantilla/getTodos"
+        const url = Frontend.API_GATEWAY + "/Natacion/getTodos"
         response = await fetch(url)
 
     } catch (error) {
@@ -256,12 +256,12 @@ Plantilla.recuperaBuscarCuatro = async function (callBackFn, var1, var2, var3,va
  * @param {String} var4 años de participacion en mundial de la persona a buscar
  * @param {función} callBackFn Función a la que se llamará una vez recibidos los datos.
  */
-Plantilla.recuperaBuscarPorUno = async function (callBackFn, var1, var2, var3,var4) {
+Natacion.recuperaBuscarPorUno = async function (callBackFn, var1, var2, var3,var4) {
     let response = null
     //console.log(nombre);
     // Intento conectar con el microservicio proyectos
     try {
-        const url = Frontend.API_GATEWAY + "/plantilla/getTodos"
+        const url = Frontend.API_GATEWAY + "/Natacion/getTodos"
         response = await fetch(url)
 
     } catch (error) {
@@ -288,12 +288,12 @@ Plantilla.recuperaBuscarPorUno = async function (callBackFn, var1, var2, var3,va
  * @param {String} nom dato de la persona a buscar
  * @param {función} callBackFn Función a la que se llamará una vez recibidos los datos.
  */
-Plantilla.recuperaListarPor = async function (callBackFn,nom) {
+Natacion.recuperaListarPor = async function (callBackFn,nom) {
     let response = null
 
-    // Intento conectar con el microservicio plantilla
+    // Intento conectar con el microservicio Natacion
     try {
-        const url = Frontend.API_GATEWAY + "/plantilla/getTodos"
+        const url = Frontend.API_GATEWAY + "/Natacion/getTodos"
         response = await fetch(url)
 
     } catch (error) {
@@ -302,11 +302,11 @@ Plantilla.recuperaListarPor = async function (callBackFn,nom) {
         //throw error
     }
 
-    // Muestro todos los plantilla que se han descargado
-    let vectorPlantilla = null
+    // Muestro todos los Natacion que se han descargado
+    let vectorNatacion = null
     if (response) {
-        vectorPlantilla = await response.json()
-        vectorPlantilla.data.sort((a,b) => {
+        vectorNatacion = await response.json()
+        vectorNatacion.data.sort((a,b) => {
             const campoA = a.data[nom].toLowerCase();
             const campoB = b.data[nom].toLowerCase();
 
@@ -319,7 +319,7 @@ Plantilla.recuperaListarPor = async function (callBackFn,nom) {
             return 0;
         });
 
-        callBackFn(vectorPlantilla.data)
+        callBackFn(vectorNatacion.data)
     }
 }
 
@@ -331,12 +331,12 @@ Plantilla.recuperaListarPor = async function (callBackFn,nom) {
  * @param {String} nom dato de la persona a buscar
  * @param {función} callBackFn Función a la que se llamará una vez recibidos los datos.
  */
-Plantilla.recuperaNumeros = async function (callBackFn, nom) {
+Natacion.recuperaNumeros = async function (callBackFn, nom) {
     let response = null
 
-    // Intento conectar con el microservicio plantilla
+    // Intento conectar con el microservicio Natacion
     try {
-        const url = Frontend.API_GATEWAY + "/plantilla/getTodos"
+        const url = Frontend.API_GATEWAY + "/Natacion/getTodos"
         response = await fetch(url)
 
     } catch (error) {
@@ -345,11 +345,11 @@ Plantilla.recuperaNumeros = async function (callBackFn, nom) {
         //throw error
     }
 
-    // Muestro todos los plantilla que se han descargado
-    let vectorPlantilla = null
+    // Muestro todos los Natacion que se han descargado
+    let vectorNatacion = null
     if (response) {
-        vectorPlantilla = await response.json()
-        vectorPlantilla.data.sort((a,b) => {
+        vectorNatacion = await response.json()
+        vectorNatacion.data.sort((a,b) => {
             const campoA = parseFloat(a.data[nom]);
             const campoB = parseFloat(b.data[nom]);
 
@@ -362,7 +362,7 @@ Plantilla.recuperaNumeros = async function (callBackFn, nom) {
             return 0;
         });
 
-        callBackFn(vectorPlantilla.data)
+        callBackFn(vectorNatacion.data)
     }
 }
 
@@ -375,12 +375,12 @@ Plantilla.recuperaNumeros = async function (callBackFn, nom) {
  * @param {String} nom1 dato de la persona a buscar
  * @param {función} callBackFn Función a la que se llamará una vez recibidos los datos.
  */
-Plantilla.recuperaVarios = async function (callBackFn, nom, nom1) {
+Natacion.recuperaVarios = async function (callBackFn, nom, nom1) {
     let response = null
 
-    // Intento conectar con el microservicio plantilla
+    // Intento conectar con el microservicio Natacion
     try {
-        const url = Frontend.API_GATEWAY + "/plantilla/getTodos"
+        const url = Frontend.API_GATEWAY + "/Natacion/getTodos"
         response = await fetch(url)
 
     } catch (error) {
@@ -389,11 +389,11 @@ Plantilla.recuperaVarios = async function (callBackFn, nom, nom1) {
         //throw error
     }
 
-    // Muestro todos los plantilla que se han descargado
-    let vectorPlantilla = null
+    // Muestro todos los Natacion que se han descargado
+    let vectorNatacion = null
     if (response) {
-        vectorPlantilla = await response.json()
-        vectorPlantilla.data.sort((a,b) => { //descomponiendo los caracteres acentuados
+        vectorNatacion = await response.json()
+        vectorNatacion.data.sort((a,b) => { //descomponiendo los caracteres acentuados
             const campoA = a.data[nom][nom1].toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
             const campoB = b.data[nom][nom1].toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
 
@@ -406,107 +406,107 @@ Plantilla.recuperaVarios = async function (callBackFn, nom, nom1) {
             return 0;
         });
 
-        callBackFn(vectorPlantilla.data)
+        callBackFn(vectorNatacion.data)
     }
 }
 
 
 
 /**
- * Función principal para recuperar los plantilla desde el MS y, posteriormente, imprimir los nombres.
+ * Función principal para recuperar los Natacion desde el MS y, posteriormente, imprimir los nombres.
  * @returns True
  */
-Plantilla.listarNombres = function () {
+Natacion.listarNombres = function () {
     this.recupera(this.imprimeNombres);
 }
 
 /**
- * Función principal para recuperar los plantilla desde el MS y, posteriormente, imprimir los nombres alfabéticamente.
+ * Función principal para recuperar los Natacion desde el MS y, posteriormente, imprimir los nombres alfabéticamente.
  * @returns True
  */
-Plantilla.listarNombresAlfabetic = function () {
+Natacion.listarNombresAlfabetic = function () {
     this.recuperaAlfabetic(this.imprimeNombres);
 }
 
 /**
- * Función principal para recuperar los plantilla desde el MS y, posteriormente, imprimirlos.
+ * Función principal para recuperar los Natacion desde el MS y, posteriormente, imprimirlos.
  * @returns True
  */
-Plantilla.listar = function () {
+Natacion.listar = function () {
     this.recupera(this.imprime);
 }
 
 /**
- * Función principal para recuperar los plantilla desde el MS y, posteriormente, imprimirlos.
+ * Función principal para recuperar los Natacion desde el MS y, posteriormente, imprimirlos.
  * @returns True
  */
-Plantilla.mostrar = function (idPersona) {
+Natacion.mostrar = function (idPersona) {
     this.recuperaUnaPersona(idPersona, this.imprimeUnaPersona);
 }
 
 
 /**
- * Función principal para recuperar los plantilla desde el MS y, posteriormente, imprimirlos.
+ * Función principal para recuperar los Natacion desde el MS y, posteriormente, imprimirlos.
  * @returns True
  */
-Plantilla.listarBuscar = function (buscar) {
+Natacion.listarBuscar = function (buscar) {
     this.recuperaBuscar(this.imprime, buscar);
 }
 
 /**
- * Función principal para recuperar los plantilla desde el MS y, posteriormente, imprimirlos.
+ * Función principal para recuperar los Natacion desde el MS y, posteriormente, imprimirlos.
  * @returns True
  */
-Plantilla.listarBuscarCuatro = function (search1,search2, search3,search4) {
+Natacion.listarBuscarCuatro = function (search1,search2, search3,search4) {
     this.recuperaBuscarCuatro(this.imprime,search1,search2,search3,search4);
 }
 
 /**
- * Función principal para recuperar los plantilla desde el MS y, posteriormente, imprimirlos.
+ * Función principal para recuperar los Natacion desde el MS y, posteriormente, imprimirlos.
  * @returns True
  */
-Plantilla.listarBuscarPorUno = function (search1,search2, search3,search4) {
+Natacion.listarBuscarPorUno = function (search1,search2, search3,search4) {
     this.recuperaBuscarPorUno(this.imprime,search1,search2,search3,search4);
 }
 
 /**
- * Función principal para recuperar los plantilla desde el MS y, posteriormente, imprimirlos.
+ * Función principal para recuperar los Natacion desde el MS y, posteriormente, imprimirlos.
  * @returns True
  */
-Plantilla.listarPor = function (campo) {
+Natacion.listarPor = function (campo) {
     this.recuperaListarPor(this.imprime, campo);
 }
 
 
 /**
- * Función principal para recuperar los plantilla desde el MS y, posteriormente, imprimirlos.
+ * Función principal para recuperar los Natacion desde el MS y, posteriormente, imprimirlos.
  * @returns True
  */
-Plantilla.listarPorNum = function (campo) {
-    Plantilla.recuperaNumeros(this.imprime, campo);
+Natacion.listarPorNum = function (campo) {
+    Natacion.recuperaNumeros(this.imprime, campo);
 }
 
 
 /**
- * Función principal para recuperar los plantilla desde el MS y, posteriormente, imprimirlos.
+ * Función principal para recuperar los Natacion desde el MS y, posteriormente, imprimirlos.
  * @returns True
  */
-Plantilla.listarPorVarios = function (campo, campo1) {
-    Plantilla.recuperaVarios(this.imprime, campo, campo1);
+Natacion.listarPorVarios = function (campo, campo1) {
+    Natacion.recuperaVarios(this.imprime, campo, campo1);
 }
 
 /**
  * Función principal para responder al evento de elegir la opción "Home"
  */
-Plantilla.procesarHome = function () {
-    this.descargarRuta("/plantilla/", this.mostrarHome);
+Natacion.procesarHome = function () {
+    this.descargarRuta("/Natacion/", this.mostrarHome);
 }
 
 /**
  * Función principal para responder al evento de elegir la opción "Acerca de"
  */
-Plantilla.procesarAcercaDe = function () {
-    this.descargarRuta("/plantilla/acercade", this.mostrarAcercaDe);
+Natacion.procesarAcercaDe = function () {
+    this.descargarRuta("/Natacion/acercade", this.mostrarAcercaDe);
 }
 
 
@@ -516,25 +516,25 @@ Plantilla.procesarAcercaDe = function () {
  * Crea la cabecera para mostrar la info como tabla
  * @returns Cabecera de la tabla
  */
-Plantilla.cabeceraTable = function () {
-    return `<table class="listado-plantilla"><thead><th>Nombre</th><th>Apellidos</th><th>Fecha</th><th>Direccion</th><th>Años participación</th><th>Nº participaciones mundiales en JJOO</th><th>Mejor estilo de natación</th></thead><tbody>`;
+Natacion.cabeceraTable = function () {
+    return `<table class="listado-Natacion"><thead><th>Nombre</th><th>Apellidos</th><th>Fecha</th><th>Direccion</th><th>Años participación</th><th>Nº participaciones mundiales en JJOO</th><th>Mejor estilo de natación</th></thead><tbody>`;
 }
 
 /**
  * Crea la cabecera para mostrar la info como tabla de listar nombres
  * @returns Cabecera de la tabla
  */
-Plantilla.cabeceraTableNombres = function () {
-    return `<table class="listado-plantilla"><thead><th>Nombres</th><th>Apellidos</th></thead><tbody>`;
+Natacion.cabeceraTableNombres = function () {
+    return `<table class="listado-Natacion"><thead><th>Nombres</th><th>Apellidos</th></thead><tbody>`;
 }
 
 
 /**
- * Muestra la información de cada plantilla en un elemento TR con sus correspondientes TD
- * @param {plantilla} p Datos del plantilla a mostrar
- * @returns Cadena conteniendo todo el elemento TR que muestra el plantilla.
+ * Muestra la información de cada Natacion en un elemento TR con sus correspondientes TD
+ * @param {Natacion} p Datos del Natacion a mostrar
+ * @returns Cadena conteniendo todo el elemento TR que muestra el Natacion.
  */
-Plantilla.cuerpoTr = function (p) {
+Natacion.cuerpoTr = function (p) {
     const d = p.data
     const nombre = d.Nombre_completo;  
     const fecha = d.Fecha;
@@ -548,11 +548,11 @@ Plantilla.cuerpoTr = function (p) {
 
 
 /**
- * Muestra la información de cada plantilla en un elemento TR con sus correspondientes TD de los nombres 
- * @param {plantilla} p Datos del plantilla a mostrar
- * @returns Cadena conteniendo todo el elemento TR que muestra el plantilla.
+ * Muestra la información de cada Natacion en un elemento TR con sus correspondientes TD de los nombres 
+ * @param {Natacion} p Datos del Natacion a mostrar
+ * @returns Cadena conteniendo todo el elemento TR que muestra el Natacion.
  */
-Plantilla.cuerpoTrNombres = function (p) {
+Natacion.cuerpoTrNombres = function (p) {
     const d = p.data
     const nombre = d.Nombre_completo;  
 
@@ -564,36 +564,36 @@ Plantilla.cuerpoTrNombres = function (p) {
  * Pie de la tabla en la que se muestran las personas
  * @returns Cadena con el pie de la tabla
  */
-Plantilla.pieTable = function () {
+Natacion.pieTable = function () {
   return "</tbody></table>";
 }
 
 /**
- * Función para mostrar en pantalla todos los plantilla que se han recuperado de la BBDD.
- * @param {Vector_de_plantilla} vector Vector con los datos de los plantilla a mostrar
+ * Función para mostrar en pantalla todos los Natacion que se han recuperado de la BBDD.
+ * @param {Vector_de_Natacion} vector Vector con los datos de los Natacion a mostrar
  */
-Plantilla.imprime = function (vector) {
+Natacion.imprime = function (vector) {
     //console.log( vector ) // Para comprobar lo que hay en vector
     let msj = "";
-    msj += Plantilla.cabeceraTable();
-    vector.forEach(e => msj += Plantilla.cuerpoTr(e))
-    msj += Plantilla.pieTable();
+    msj += Natacion.cabeceraTable();
+    vector.forEach(e => msj += Natacion.cuerpoTr(e))
+    msj += Natacion.pieTable();
 
     // Borro toda la info de Article y la sustituyo por la que me interesa
-    Frontend.Article.actualizar( "Listado de plantillas", msj )
+    Frontend.Article.actualizar( "Listado de Natacions", msj )
 }
 
 
 /**
- * Función para mostrar en pantalla todos los nombres de plantilla que se han recuperado de la BBDD.
- * @param {Vector_de_plantilla} vector Vector con los datos de los plantilla a mostrar
+ * Función para mostrar en pantalla todos los nombres de Natacion que se han recuperado de la BBDD.
+ * @param {Vector_de_Natacion} vector Vector con los datos de los Natacion a mostrar
  */
-Plantilla.imprimeNombres = function (vector) {
+Natacion.imprimeNombres = function (vector) {
     //console.log( vector ) // Para comprobar lo que hay en vector
     let msj = "";
-    msj += Plantilla.cabeceraTableNombres();
-    vector.forEach(e => msj += Plantilla.cuerpoTrNombres(e))
-    msj += Plantilla.pieTable();
+    msj += Natacion.cabeceraTableNombres();
+    vector.forEach(e => msj += Natacion.cuerpoTrNombres(e))
+    msj += Natacion.pieTable();
 
     // Borro toda la info de Article y la sustituyo por la que me interesa
     Frontend.Article.actualizar( "Listado de nombres", msj )
@@ -604,11 +604,11 @@ Plantilla.imprimeNombres = function (vector) {
  * Función para mostrar en pantalla los detalles de una persona que se ha recuperado de la BBDD por su id
  * @param {Persona} persona Datos de la persona a mostrar
  */
-Plantilla.imprimeUnaPersona = function (persona) {
+Natacion.imprimeUnaPersona = function (persona) {
     let msj = "";
-    msj += Plantilla.cabeceraTable();
-    msj += Plantilla.cuerpoTr(persona);
-    msj += Plantilla.pieTable();
+    msj += Natacion.cabeceraTable();
+    msj += Natacion.cuerpoTr(persona);
+    msj += Natacion.pieTable();
 
     // Borro toda la info de Article y la sustituyo por la que me interesa
     Frontend.Article.actualizar( "Mostrar una persona", msj )

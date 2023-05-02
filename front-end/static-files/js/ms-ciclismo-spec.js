@@ -1,6 +1,6 @@
 /**
- * @file ms-plantilla-spec.js
- * @description Fichero TDD para probar todo lo relacionado con MS Plantilla en el front-end
+ * @file ms-Ciclismo-spec.js
+ * @description Fichero TDD para probar todo lo relacionado con MS Ciclismo en el front-end
  * @author Víctor M. Rivas <vrivas@ujaen.es>
  * @date 03-feb-2023
  */
@@ -10,8 +10,8 @@
 // Constantes para usar en las pruebas
 const elementoTitulo = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_TITULO)
 const elementoContenido = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_CONTENIDO)
-const TITULO_HOME = "Plantilla Home"
-const TITULO_ACERCA_DE = "Plantilla Acerca de"
+const TITULO_HOME = "Ciclismo Home"
+const TITULO_ACERCA_DE = "Ciclismo Acerca de"
 
 const datosDescargadosPrueba = {
     mensaje: "Mensaje de prueba descargado",
@@ -34,86 +34,86 @@ function esperar(ms) {
 
 // SPECS a probar
 
-describe("Plantilla.mostrarHome: ", function () {
+describe("Ciclismo.mostrarHome: ", function () {
 
     it("muestra datos nulos cuando le pasamos un valor nulo",
         function () {
-            Plantilla.mostrarHome()
+            Ciclismo.mostrarHome()
             expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Plantilla.datosDescargadosNulos.mensaje)
+            expect(elementoContenido.innerHTML).toBe(Ciclismo.datosDescargadosNulos.mensaje)
         })
 
     it("muestra datos nulos cuando le pasamos un valor que no es un objeto",
         function () {
-            Plantilla.mostrarHome(23)
+            Ciclismo.mostrarHome(23)
             expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Plantilla.datosDescargadosNulos.mensaje)
+            expect(elementoContenido.innerHTML).toBe(Ciclismo.datosDescargadosNulos.mensaje)
         })
 
     it("muestra datos nulos cuando le pasamos un objeto que no tiene campo mensaje",
         function () {
             // Objeto vacío
-            Plantilla.mostrarHome({})
+            Ciclismo.mostrarHome({})
             expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Plantilla.datosDescargadosNulos.mensaje)
+            expect(elementoContenido.innerHTML).toBe(Ciclismo.datosDescargadosNulos.mensaje)
 
             // Objeto sin campo mensaje
-            Plantilla.mostrarHome({ foo: "bar" })
+            Ciclismo.mostrarHome({ foo: "bar" })
             expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Plantilla.datosDescargadosNulos.mensaje)
+            expect(elementoContenido.innerHTML).toBe(Ciclismo.datosDescargadosNulos.mensaje)
         })
 
     it("muestra correctamente el título y el mensaje",
         function () {
-            Plantilla.mostrarHome(datosDescargadosPrueba)
+            Ciclismo.mostrarHome(datosDescargadosPrueba)
             expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
             expect(elementoContenido.innerHTML).toBe(datosDescargadosPrueba.mensaje)
         })
 })
 
 
-describe("Plantilla.mostrarAcercaDe: ", function () {
+describe("Ciclismo.mostrarAcercaDe: ", function () {
     it("muestra datos nulos cuando le pasamos un valor nulo",
         function () {
-            Plantilla.mostrarAcercaDe()
+            Ciclismo.mostrarAcercaDe()
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(Ciclismo.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
         })
 
     it("muestra datos nulos cuando le pasamos un valor que no es un objeto",
         function () {
-            Plantilla.mostrarAcercaDe(23)
+            Ciclismo.mostrarAcercaDe(23)
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(Ciclismo.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
         })
 
     it("muestra datos nulos cuando le pasamos un objeto que no tiene campo mensaje o autor o email o fecha ",
         function () {
             // Objeto vacío
-            Plantilla.mostrarAcercaDe({})
+            Ciclismo.mostrarAcercaDe({})
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(Ciclismo.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
 
             // Objeto sin campo mensaje
-            Plantilla.mostrarAcercaDe({ autor: "un autor", email: "un email", fecha: "una fecha" })
+            Ciclismo.mostrarAcercaDe({ autor: "un autor", email: "un email", fecha: "una fecha" })
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(Ciclismo.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
             // Objeto sin campo autor
-            Plantilla.mostrarAcercaDe({ mensaje: "un mensaje", email: "un email", fecha: "una fecha" })
+            Ciclismo.mostrarAcercaDe({ mensaje: "un mensaje", email: "un email", fecha: "una fecha" })
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(Ciclismo.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
             // Objeto sin campo email
-            Plantilla.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", fecha: "una fecha" })
+            Ciclismo.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", fecha: "una fecha" })
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(Ciclismo.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
             // Objeto sin campo fecha
-            Plantilla.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", email: "un email" })
+            Ciclismo.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", email: "un email" })
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(Ciclismo.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
         })
     it("muestra correctamente el título y el mensaje conteniendo el autor, el email y la fecha",
         function () {
-            Plantilla.mostrarAcercaDe(datosDescargadosPrueba)
+            Ciclismo.mostrarAcercaDe(datosDescargadosPrueba)
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
 
             // Comprobamos que al buscar el autor, el email y la fecha de prueba los encuentra dentro del contenido del article
@@ -138,7 +138,7 @@ describe("Comprueba cuperpo primera tabla", function(){
             }
         };
 
-        const resultado=Plantilla.cuerpo1(c);
+        const resultado=Ciclismo.cuerpo1(c);
         expect(resultado).toBe('<tr><td><em>Jose Ballester Marin</em></td></tr>');
 
     });
@@ -167,14 +167,14 @@ describe("Prueba de la función sacaCiclistas que muestra los nombres de los cic
         };
 
         spyOn(Frontend.Article, "actualizar");
-        Plantilla.muestraCiclistas(c);
+        Ciclismo.muestraCiclistas(c);
         expect(Frontend.Article.actualizar).toHaveBeenCalledWith("Nombre de todos los ciclistas", '<table class="op1"><thead><th>Ciclistas</th></thead><tbody><tr><td><em>Juan Ballester Marin</em></td></tr></tbody></table>');
         
         //<tr><td><em>Jose Ballester Marin</em></td></tr>
         
         //expect(Frontend.Article.actualizar).toHaveBeenCalledWith("Nombre de todos los ciclistas", c);
 
-        //const resultado = Plantilla.muestraCiclistas(c);
+        //const resultado = Ciclismo.muestraCiclistas(c);
 
         
 
@@ -200,19 +200,19 @@ describe("Prueba de la función muestraCiclistaID que muestra los datos del cicl
             }
         };
 
-       //const resultado=Plantilla.muestraCiclistaID(c);
+       //const resultado=Ciclismo.muestraCiclistaID(c);
         
        //expect(resultado).toBe('<tr><td>0001</td><td>Jose Ballester Marin</td><td>movistar,vodafone,orange</td><td>16/5/2000</td><td>jbm@uja.es</td></tr>');
 
         spyOn(Frontend.Article, "actualizar");
-        Plantilla.muestraCiclistaID(c);
+        Ciclismo.muestraCiclistaID(c);
         expect(Frontend.Article.actualizar).toHaveBeenCalledWith( 'Datos del ciclista', '<table class="op1"><thead><th>ID</th><th>Ciclistas</th><th>Equipos</th><th>Fecha de Nacimiento</th><th>Email</th></thead><tbody><tr><td>0001</td><td>Jose Ballester Marin</td><td>movistar,vodafone,orange</td><td>16/5/2000</td><td>jbm@uja.es</td></tr></tbody></table>');
         
         //<tr><td><em>Jose Ballester Marin</em></td></tr>
         
         //expect(Frontend.Article.actualizar).toHaveBeenCalledWith("Nombre de todos los ciclistas", c);
 
-        //const resultado = Plantilla.muestraCiclistas(c);
+        //const resultado = Ciclismo.muestraCiclistas(c);
 
         
 
@@ -244,13 +244,13 @@ describe("Prueba de la función muestraCiclistaID que muestra los datos del cicl
 
         //ME FALLA AL QUERER INTRODUCIR EL ID DE LA BASE DE DATOS, NO SE TRAGA LA DOBLE '' '' 
 
-       //const resultado=Plantilla.cuerpoEditable(c);
+       //const resultado=Ciclismo.cuerpoEditable(c);
 
-       //expect(resultado).toBe('<tr><td>0001</td><td>Jose</td><td>Ballester Marin</td><td>movistar</td><td>16/5/2000</td><td>jbm@uja.es</td><td><div class="btn-conf"><a href="javascript:Plantilla.changeNombre(359097846737141965)">MODIFICAR NOMBRE</a></div></td></tr>');
+       //expect(resultado).toBe('<tr><td>0001</td><td>Jose</td><td>Ballester Marin</td><td>movistar</td><td>16/5/2000</td><td>jbm@uja.es</td><td><div class="btn-conf"><a href="javascript:Ciclismo.changeNombre(359097846737141965)">MODIFICAR NOMBRE</a></div></td></tr>');
 
         //spyOn(Frontend.Article, "actualizar");
         
-        //Plantilla.muestraCiclistaID(c);
+        //Ciclismo.muestraCiclistaID(c);
         //expect(Frontend.Article.actualizar).toHaveBeenCalledWith( 'Datos del ciclista', '<table class="op1"><thead><th>ID</th><th>Ciclistas</th><th>Equipos</th><th>Fecha de Nacimiento</th><th>Email</th></thead><tbody><tr><td>0001</td><td>Jose Ballester Marin</td><td>movistar,vodafone,orange</td><td>16/5/2000</td><td>jbm@uja.es</td></tr></tbody></table>');
                
 
@@ -281,7 +281,7 @@ describe("Comprueba cuperpo de la tabla de todos los datos", function(){
             }
         };
 
-        const resultado=Plantilla.cuerpo2(c);
+        const resultado=Ciclismo.cuerpo2(c);
         expect(resultado).toBe('<tr><td>0001</td><td>Jose Ballester Marin</td><td>movistar,vodafone,orange</td><td>16/5/2000</td><td>jbm@uja.es</td></tr>');
 
     });
@@ -328,7 +328,7 @@ describe("Prueba de la función todosDatos que muestra los datos de los ciclista
         };
 
         spyOn(Frontend.Article, "actualizar");
-        Plantilla.todosDatos(c);
+        Ciclismo.todosDatos(c);
         expect(Frontend.Article.actualizar).toHaveBeenCalledWith("Datos de todos los ciclistas", '<table class="op1"><thead><th>ID</th><th>Ciclistas</th><th>Equipos</th><th>Fecha de Nacimiento</th><th>Email</th></thead><tbody><tr><td>0002</td><td>Jose Ballester Marin</td><td>movistar,vodafone,orange</td><td>16/5/2000</td><td>jbm@uja.es</td></tr></tbody></table>');
         
     })
@@ -357,14 +357,14 @@ describe("Prueba de la función muestraCiclistasOrd que muestra los nombres de l
         };
 
         spyOn(Frontend.Article, "actualizar");
-        Plantilla.muestraCiclistasOrd(c);
+        Ciclismo.muestraCiclistasOrd(c);
         expect(Frontend.Article.actualizar).toHaveBeenCalledWith("Nombre de todos los ciclistas ordenados alfabéticamente", '<table class="op1"><thead><th>Ciclistas</th></thead><tbody><tr><td><em>Alex Ballester Marin</em></td></tr></tbody></table>');
         
         //<tr><td><em>Jose Ballester Marin</em></td></tr>
         
         //expect(Frontend.Article.actualizar).toHaveBeenCalledWith("Nombre de todos los ciclistas", c);
 
-        //const resultado = Plantilla.muestraCiclistas(c);
+        //const resultado = Ciclismo.muestraCiclistas(c);
 
         //const prueba = resultado.getElementsByTagName('tbody')[0];
 
@@ -416,23 +416,23 @@ describe("Prueba de la función muestraCampo que muestra los datos de los ciclis
          //expect(Frontend.Article.actualizar).toHaveBeenCalledWith("Datos de los ciclistas ordenados", '<table class="op1"><thead><th>ID</th><th>Ciclistas</th><th>Equipos</th><th>Fecha de Nacimiento</th><th>Email</th></thead><tbody><tr><td>0002</td><td>Angel Garcia Marin</td><td>movistar,orange</td><td>16/8/2030</td><td>agm@uja.es</td></tr></tbody></table>');
 
         //PRUEBA DEL NOMBRE
-        Plantilla.muestraCampo("nombre",ciclistass);
+        Ciclismo.muestraCampo("nombre",ciclistass);
         expect(elementoContenido.getElementsByTagName("td")[0].innerText.includes('0002')).toBeTrue()
 
         //PRUEBA DEL APELLIDO
-        Plantilla.muestraCampo("apellidos",ciclistass);
+        Ciclismo.muestraCampo("apellidos",ciclistass);
         expect(elementoContenido.getElementsByTagName("td")[0].innerText.includes('0001')).toBeTrue()
 
         //PRUEBA DEL EQUIPO
-        Plantilla.muestraCampo("equipos",ciclistass);
+        Ciclismo.muestraCampo("equipos",ciclistass);
         expect(elementoContenido.getElementsByTagName("td")[0].innerText.includes('0002')).toBeTrue()
 
         //PRUEBA DEL EMAIL
-        Plantilla.muestraCampo("email",ciclistass);
+        Ciclismo.muestraCampo("email",ciclistass);
         expect(elementoContenido.getElementsByTagName("td")[0].innerText.includes('0002')).toBeTrue()
 
         //PRUEBA DE LA FECHA DE NACIMIENTO
-        Plantilla.muestraCampo("f_nac",ciclistass);
+        Ciclismo.muestraCampo("f_nac",ciclistass);
         expect(elementoContenido.getElementsByTagName("td")[0].innerText.includes('0001')).toBeTrue()
         
     })
@@ -441,7 +441,7 @@ describe("Prueba de la función muestraCampo que muestra los datos de los ciclis
 describe("Prueba de la función form_nuevoCiclista que añade un nuevo ciclista a la BBDD", function(){
 
     it("Se completan correctmente los campos", () => {
-        Plantilla.form_nuevoCiclista();
+        Ciclismo.form_nuevoCiclista();
 
         document.getElementById("id-ciclista").value="0012";
         document.getElementById("nombre-ciclista").value="Jose";
@@ -462,7 +462,7 @@ describe("Prueba de la función form_nuevoCiclista que añade un nuevo ciclista 
 
 
     it("Devuelve el código HTML neceseario para realizar el formulario", () =>{
-        Plantilla.form_nuevoCiclista();
+        Ciclismo.form_nuevoCiclista();
 
         expect(document.getElementById("id-ciclista")).toBeTruthy();
         expect(document.getElementById("nombre-ciclista")).toBeTruthy();
@@ -506,7 +506,7 @@ describe("Prueba de la función buscar que busca en la BBDD las coincidencias de
           };
 
           let nombre= "Angel";
-          Plantilla.buscar(nombre,ciclistas);
+          Ciclismo.buscar(nombre,ciclistas);
           
 
           expect(elementoContenido.getElementsByTagName("td")[1].innerText.includes('Angel Garcia Marin')).toBeTrue();
@@ -516,7 +516,7 @@ describe("Prueba de la función buscar que busca en la BBDD las coincidencias de
           expect(elementoContenido.getElementsByTagName("td")[4].innerText.includes('agm@uja.es')).toBeTrue()
 
           let nombre2= "Jose";
-          Plantilla.buscar(nombre2,ciclistas);
+          Ciclismo.buscar(nombre2,ciclistas);
           
 
           expect(elementoContenido.getElementsByTagName("td")[1].innerText.includes('Jose Ballester Marin')).toBeTrue();
@@ -536,9 +536,9 @@ IMPORTANTE
 Las pruebas TDD que se encargan de probar las conexiones con el microservicio desde el cliente son difíciles de probar 
 dado que requieren solucionar temas de sincronización. 
 Esto afecta a los métodos:
- - Plantilla.descargarRuta
- - Plantilla.procesarAcercaDe
- - Plantilla.procesarHome
+ - Ciclismo.descargarRuta
+ - Ciclismo.procesarAcercaDe
+ - Ciclismo.procesarHome
 
  Las soluciones propuestas en distintos sitios web no han producido el resultado esperado, 
  por tanto: para esta práctica, se pueden dejar SIN HACER.

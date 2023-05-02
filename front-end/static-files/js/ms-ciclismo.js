@@ -1,6 +1,6 @@
 /**
- * @file Plantilla.js
- * @description Funciones para el procesamiento de la info enviada por el MS Plantilla
+ * @file Ciclismo.js
+ * @description Funciones para el procesamiento de la info enviada por el MS Ciclismo
  * @author Víctor M. Rivas <vrivas@ujaen.es>
  * @date 03-feb-2023
  */
@@ -10,10 +10,10 @@
 //const { response } = require("express");
 
 /// Creo el espacio de nombres
-let Plantilla = {};
+let Ciclismo = {};
 
-// Plantilla de datosDescargados vacíos
-Plantilla.datosDescargadosNulos = {
+// Ciclismo de datosDescargados vacíos
+Ciclismo.datosDescargadosNulos = {
     mensaje: "Datos Descargados No válidos",
     autor: "",
     email: "",
@@ -23,14 +23,14 @@ Plantilla.datosDescargadosNulos = {
 
 
 /**
- * Función que descarga la info MS Plantilla al llamar a una de sus rutas
+ * Función que descarga la info MS Ciclismo al llamar a una de sus rutas
  * @param {string} ruta Ruta a descargar
  * @param {función} callBackFn Función a la que se llamará una vez recibidos los datos.
  */
-Plantilla.descargarRuta = async function (ruta, callBackFn) {
+Ciclismo.descargarRuta = async function (ruta, callBackFn) {
     let response = null
 
-    // Intento conectar con el microservicio Plantilla
+    // Intento conectar con el microservicio Ciclismo
     try {
         const url = Frontend.API_GATEWAY + ruta
         response = await fetch(url)
@@ -51,9 +51,9 @@ Plantilla.descargarRuta = async function (ruta, callBackFn) {
 
 
 /**
- * Función principal para mostrar los datos enviados por la ruta "home" de MS Plantilla
+ * Función principal para mostrar los datos enviados por la ruta "home" de MS Ciclismo
  */
-Plantilla.mostrarHome = function (datosDescargados) {
+Ciclismo.mostrarHome = function (datosDescargados) {
     // Si no se ha proporcionado valor para datosDescargados
     datosDescargados = datosDescargados || this.datosDescargadosNulos
 
@@ -63,13 +63,13 @@ Plantilla.mostrarHome = function (datosDescargados) {
     // Si datos descargados NO contiene el campo mensaje
     if (typeof datosDescargados.mensaje === "undefined") datosDescargados = this.datosDescargadosNulos
 
-    Frontend.Article.actualizar("Plantilla Home", datosDescargados.mensaje)
+    Frontend.Article.actualizar("Ciclismo Home", datosDescargados.mensaje)
 }
 
 /**
- * Función principal para mostrar los datos enviados por la ruta "acerca de" de MS Plantilla
+ * Función principal para mostrar los datos enviados por la ruta "acerca de" de MS Ciclismo
  */
-Plantilla.mostrarAcercaDe = function (datosDescargados) {
+Ciclismo.mostrarAcercaDe = function (datosDescargados) {
     // Si no se ha proporcionado valor para datosDescargados
     datosDescargados = datosDescargados || this.datosDescargadosNulos
 
@@ -92,7 +92,7 @@ Plantilla.mostrarAcercaDe = function (datosDescargados) {
     </ul>
     </div>
     `;
-    Frontend.Article.actualizar("Plantilla Acerca de", mensajeAMostrar)
+    Frontend.Article.actualizar("Ciclismo Acerca de", mensajeAMostrar)
 }
 
 /**
@@ -104,7 +104,7 @@ Plantilla.mostrarAcercaDe = function (datosDescargados) {
  */
 
 
-Plantilla.cuerpo1 = function(c){
+Ciclismo.cuerpo1 = function(c){
     const ciclista= c.data;
 
     return `<tr><td><em>${ciclista.nombre} ${ciclista.apellidos}</em></td></tr>`;
@@ -121,7 +121,7 @@ Plantilla.cuerpo1 = function(c){
  * TDD HECHO
  */
 
-Plantilla.cuerpo2 = function(c){
+Ciclismo.cuerpo2 = function(c){
     const ciclista= c.data;
     //console.log("OTRO")
     //console.log(ciclista)
@@ -142,12 +142,12 @@ Plantilla.cuerpo2 = function(c){
  * TDD HECHO
  */
 
-Plantilla.muestraCiclistas = function(vector){
+Ciclismo.muestraCiclistas = function(vector){
 
     let x= "";
 
     x += `<table class="op1"><thead><th>Ciclistas</th></thead><tbody>`;
-    vector.data.forEach(element => x += Plantilla.cuerpo1(element))
+    vector.data.forEach(element => x += Ciclismo.cuerpo1(element))
     x += `</tbody></table>`;
 
     Frontend.Article.actualizar("Nombre de todos los ciclistas",x);
@@ -166,13 +166,13 @@ Plantilla.muestraCiclistas = function(vector){
  */
 
 
-Plantilla.todosDatos = function(vector){
+Ciclismo.todosDatos = function(vector){
     
    
     let x = "";
 
     x += `<table class="op1"><thead><th>ID</th><th>Ciclistas</th><th>Equipos</th><th>Fecha de Nacimiento</th><th>Email</th></thead><tbody>`;
-    vector.data.forEach(element => x += Plantilla.cuerpo2(element))
+    vector.data.forEach(element => x += Ciclismo.cuerpo2(element))
     x += `</tbody></table>`;
 
     Frontend.Article.actualizar("Datos de todos los ciclistas",x);
@@ -188,7 +188,7 @@ Plantilla.todosDatos = function(vector){
  * TDD HECHO
  */
 
-Plantilla.muestraCiclistasOrd = function(vector){
+Ciclismo.muestraCiclistasOrd = function(vector){
 
     let x= "";
     let aux=vector.data.sort((a, b) => a.data.nombre>b.data.nombre?1:-1);
@@ -196,7 +196,7 @@ Plantilla.muestraCiclistasOrd = function(vector){
 
     x += `<table class="op1"><thead><th>Ciclistas</th></thead><tbody>`;
     
-    aux.forEach(element => x += Plantilla.cuerpo1(element));
+    aux.forEach(element => x += Ciclismo.cuerpo1(element));
     x += `</tbody></table>`;
 
     Frontend.Article.actualizar("Nombre de todos los ciclistas ordenados alfabéticamente",x);
@@ -210,9 +210,9 @@ Plantilla.muestraCiclistasOrd = function(vector){
  * 
  * NO TDD ES ASYNC
  */
-Plantilla.muestraID = async function(idCiclista, callBackFn){
+Ciclismo.muestraID = async function(idCiclista, callBackFn){
     try{
-        const ruta= Frontend.API_GATEWAY+"/plantilla/sacaCiclista/"+idCiclista
+        const ruta= Frontend.API_GATEWAY+"/Ciclismo/sacaCiclista/"+idCiclista
         const respuesta= await fetch(ruta);
         if(respuesta){
             const ciclista = await respuesta.json()
@@ -232,9 +232,9 @@ Plantilla.muestraID = async function(idCiclista, callBackFn){
  * 
  * NO TDD ES ASYNC
  */
-Plantilla.sacaCiclistasMS = async function(cond, callBackFn){
+Ciclismo.sacaCiclistasMS = async function(cond, callBackFn){
     try{
-        const ruta= Frontend.API_GATEWAY+"/plantilla/sacaCiclistas"
+        const ruta= Frontend.API_GATEWAY+"/Ciclismo/sacaCiclistas"
         const respuesta= await fetch(ruta);
         if(respuesta){
             const ciclistas = await respuesta.json()
@@ -258,13 +258,13 @@ Plantilla.sacaCiclistasMS = async function(cond, callBackFn){
  * TDD HECHO
  */
 
-Plantilla.buscar = async function (nombre, ciclistas){
+Ciclismo.buscar = async function (nombre, ciclistas){
     
     const coincidencias= ciclistas.data.filter(element => element.data.nombre === nombre);
     let x = "";
 
     x += `<table class="op1"><thead><th>ID</th><th>Ciclistas</th><th>Equipos</th><th>Fecha de Nacimiento</th><th>Email</th></thead><tbody>`;
-    coincidencias.forEach(element => x += Plantilla.cuerpo2(element))
+    coincidencias.forEach(element => x += Ciclismo.cuerpo2(element))
     x += `</tbody></table>`;
 
     Frontend.Article.actualizar("Ciclistas encontrados",x);
@@ -281,11 +281,11 @@ Plantilla.buscar = async function (nombre, ciclistas){
  * TDD HECHO
  */
 
-Plantilla.muestraCiclistaID = function (ciclista){
+Ciclismo.muestraCiclistaID = function (ciclista){
     let x = "";
 
     x += `<table class="op1"><thead><th>ID</th><th>Ciclistas</th><th>Equipos</th><th>Fecha de Nacimiento</th><th>Email</th></thead><tbody>`;
-    x += Plantilla.cuerpo2(ciclista)
+    x += Ciclismo.cuerpo2(ciclista)
     x += `</tbody></table>`;
 
     Frontend.Article.actualizar("Datos del ciclista",x)
@@ -303,7 +303,7 @@ Plantilla.muestraCiclistaID = function (ciclista){
  * TDD HECHO
  */
 
-Plantilla.muestraCampo = function (cond, ciclistas){
+Ciclismo.muestraCampo = function (cond, ciclistas){
     let x = "";
 
     //AÑADO LA CABECERA
@@ -323,7 +323,7 @@ Plantilla.muestraCampo = function (cond, ciclistas){
     });
 
     //POR CADA CICLISTA MUESTRO TODOS SUS DATOS
-    auxiliar.forEach(element => x += Plantilla.cuerpo2(element));
+    auxiliar.forEach(element => x += Ciclismo.cuerpo2(element));
 
     // PIE DE TABLA
     x += `</tbody></table>`;
@@ -335,7 +335,7 @@ Plantilla.muestraCampo = function (cond, ciclistas){
 
 /**
  * 
- * PLANTILLA QUE HACE EL CUERPO DE LA TABLA PERO CON UN BOTÓN PARA EDITAR
+ * Ciclismo QUE HACE EL CUERPO DE LA TABLA PERO CON UN BOTÓN PARA EDITAR
  * 
  * @param {*} c CICLISTA
  * @returns 
@@ -343,10 +343,10 @@ Plantilla.muestraCampo = function (cond, ciclistas){
  * TDD HECHO
  */
 
-Plantilla.cuerpoEditable = function(c){
+Ciclismo.cuerpoEditable = function(c){
     const ciclista= c.data;
 
-    return `<tr><td>${ciclista.id}</td><td>${ciclista.nombre}</td><td>${ciclista.apellidos}</td><td>${ciclista.equipos}</td><td>${ciclista.f_nac.dia}/${ciclista.f_nac.mes}/${ciclista.f_nac.anio}</td><td>${ciclista.email}</td><td><div class="btn-conf"><a href="javascript:Plantilla.changeNombre('${c.ref['@ref'].id}')">MODIFICAR NOMBRE</a></div></td></tr>`;                              
+    return `<tr><td>${ciclista.id}</td><td>${ciclista.nombre}</td><td>${ciclista.apellidos}</td><td>${ciclista.equipos}</td><td>${ciclista.f_nac.dia}/${ciclista.f_nac.mes}/${ciclista.f_nac.anio}</td><td>${ciclista.email}</td><td><div class="btn-conf"><a href="javascript:Ciclismo.changeNombre('${c.ref['@ref'].id}')">MODIFICAR NOMBRE</a></div></td></tr>`;                              
 }
 
 /**
@@ -358,12 +358,12 @@ Plantilla.cuerpoEditable = function(c){
  * TDD HECHO
  */
 
-Plantilla.todosDatosEditables = function(vector){
+Ciclismo.todosDatosEditables = function(vector){
     
     let x = "";
 
     x += `<table class="op1"><thead><th>ID</th><th>Ciclistas</th><th>Apellidos</th><th>Equipos</th><th>Fecha de Nacimiento</th><th>Email</th></thead><tbody>`;
-    vector.data.forEach(element => x += Plantilla.cuerpoEditable(element))
+    vector.data.forEach(element => x += Ciclismo.cuerpoEditable(element))
     x += `</tbody></table>`;
 
     Frontend.Article.actualizar("Datos de todos los ciclistas",x);
@@ -378,7 +378,7 @@ Plantilla.todosDatosEditables = function(vector){
  * TDD HECHO
  */
 
-Plantilla.modNombre = function(ciclista){
+Ciclismo.modNombre = function(ciclista){
     //const aux= ciclista.data;
     let c= `<form method='post' action=''> <table class="op1"><thead><th>ID</th><th>Ciclista</th><th>Apellidos</th><th>Equipos</th><th>Fecha de Nacimiento</th><th>Email</th></thead><tbody>
                 <tr> <td> <input type="text" disabled id="id_c" value="${ciclista.data.id}" name="id_ciclista"/> </td>
@@ -388,7 +388,7 @@ Plantilla.modNombre = function(ciclista){
                      <td> <input type="text" disabled id="f_nac_c" value="${ciclista.data.f_nac.dia}/${ciclista.data.f_nac.mes}/${ciclista.data.f_nac.anio}" name="apellidos_ciclista"/> </td>
                      <td> <input type="text" disabled id="em_c" required value="${ciclista.data.email}" name="email_ciclista"/> </td>
 
-                    <td><div class="btn-conf"><a href="javascript:Plantilla.save('359097846737141965')">Confirmar</a></div></td>
+                    <td><div class="btn-conf"><a href="javascript:Ciclismo.save('359097846737141965')">Confirmar</a></div></td>
                 </tr>
                 </tbody>
                 </table>
@@ -403,9 +403,9 @@ Plantilla.modNombre = function(ciclista){
  * 
  * NO DD ES ASYNC
  */
-Plantilla.nuevoCiclista = async function () {
+Ciclismo.nuevoCiclista = async function () {
     try{
-        let ruta = Frontend.API_GATEWAY + "/plantilla/newCiclista";
+        let ruta = Frontend.API_GATEWAY + "/Ciclismo/newCiclista";
         const respuesta = await fetch(ruta, {
             method: 'POST', // *GET, POST, PUT, DELETE, etc.
             mode: 'no-cors', // no-cors, cors, *same-origin
@@ -425,7 +425,7 @@ Plantilla.nuevoCiclista = async function () {
                 "email_ciclista": document.getElementById("email-ciclista").value,
             })
         });
-        Plantilla.mostarTodos();
+        Ciclismo.mostarTodos();
     } catch (error) {
         alert("Error: No se ha podido acceder al API Gateway " + error);
     }
@@ -438,7 +438,7 @@ Plantilla.nuevoCiclista = async function () {
  * TDD HECHO
  */
 
-Plantilla.form_nuevoCiclista = function () {
+Ciclismo.form_nuevoCiclista = function () {
     let ciclista = ` <form method='post' action=''> <table class="op1"><thead><th>ID</th><th>Ciclista</th><th>Apellidos</th><th>Equipos</th><th>Fecha de Nacimiento</th><th>Email</th></thead><tbody>
     <tr> <td> <input type="number"  id="id-ciclista"  placeholder="ID" name="id_ciclista"/> </td>
          <td> <input type="text"  id="nombre-ciclista" placeholder="Nombre" name="nombre_ciclista"/> </td> 
@@ -447,7 +447,7 @@ Plantilla.form_nuevoCiclista = function () {
          <td> <input type="date"  id="f_nac-ciclista" placeholder="dd/mm/aaaa" name="f_nac__ciclista"/> </td>
          <td> <input type="text"  id="email-ciclista" placeholder="Email" name="email_ciclista"/> </td>
 
-        <td><div class="btn-conf"><a href="javascript:Plantilla.nuevoCiclista()">Confirmar</a></div></td>
+        <td><div class="btn-conf"><a href="javascript:Ciclismo.nuevoCiclista()">Confirmar</a></div></td>
     </tr>
     </tbody>
     </table>
@@ -462,39 +462,39 @@ Plantilla.form_nuevoCiclista = function () {
  * Función principal para responder al evento de elegir la opción "Lista nombres"
  */
 
-Plantilla.lista_nombres = function (){
-    this.descargarRuta("/plantilla/sacaCiclistas", this.muestraCiclistas);
+Ciclismo.lista_nombres = function (){
+    this.descargarRuta("/Ciclismo/sacaCiclistas", this.muestraCiclistas);
 }
 
 /**
  * Función para mostrar todos los datos de todos los ciclistas
  */
-Plantilla.mostarTodos = function(){
-    this.descargarRuta("/plantilla/sacaCiclistas", this.todosDatos);
+Ciclismo.mostarTodos = function(){
+    this.descargarRuta("/Ciclismo/sacaCiclistas", this.todosDatos);
 }
 
 /**
  * Función principal para responder al evento de elegir la opción "Home"
  */
 
-Plantilla.procesarHome = function () {
-    this.descargarRuta("/plantilla/", this.mostrarHome);
+Ciclismo.procesarHome = function () {
+    this.descargarRuta("/Ciclismo/", this.mostrarHome);
 }
 
 /**
  * Función principal para responder al evento de elegir la opción "Acerca de"
  */
 
-Plantilla.procesarAcercaDe = function () {
-    this.descargarRuta("/plantilla/acercade", this.mostrarAcercaDe);
+Ciclismo.procesarAcercaDe = function () {
+    this.descargarRuta("/Ciclismo/acercade", this.mostrarAcercaDe);
 }
 
 /**
  * Función principal para responder al evento de "Datos Completos"
  */
 
-Plantilla.lista_datos = function (){
-    this.descargarRuta("/plantilla/sacaCiclistas", this.todosDatos);
+Ciclismo.lista_datos = function (){
+    this.descargarRuta("/Ciclismo/sacaCiclistas", this.todosDatos);
 }
 
 
@@ -502,15 +502,15 @@ Plantilla.lista_datos = function (){
  * Función principal para responder al evento de "Lista Nombres Ordenados"
  */
 
-Plantilla.lista_nombresOrd= function(){
-    this.descargarRuta("/plantilla/sacaCiclistas", this.muestraCiclistasOrd);
+Ciclismo.lista_nombresOrd= function(){
+    this.descargarRuta("/Ciclismo/sacaCiclistas", this.muestraCiclistasOrd);
 }
 
 /**
  * Función principal para responder al evento de "Lista Ciclista"
  */
 
-Plantilla.lista_ciclista = function(ciclista){
+Ciclismo.lista_ciclista = function(ciclista){
     this.muestraID(ciclista,this.muestraCiclistaID);
 }
 
@@ -519,7 +519,7 @@ Plantilla.lista_ciclista = function(ciclista){
  * Función principal para responder al evento de "Lista Ciclistas Ordenados Por"
  */
 
-Plantilla.lista_todoOrd= function (){
+Ciclismo.lista_todoOrd= function (){
 
     //OBTENGO LA CONDICIÓN POR LA QUE ORDENAR
     const condition = document.querySelector('#cond').value;
@@ -554,8 +554,8 @@ Plantilla.lista_todoOrd= function (){
 /**
  * Función que muestra la tabla de todos los datos con el botón de editar
  */
-Plantilla.lista_datosEdi = function (){
-    this.descargarRuta("/plantilla/sacaCiclistas", this.todosDatosEditables);
+Ciclismo.lista_datosEdi = function (){
+    this.descargarRuta("/Ciclismo/sacaCiclistas", this.todosDatosEditables);
 }
 
 /**
@@ -565,7 +565,7 @@ Plantilla.lista_datosEdi = function (){
  * @param {*} id ID del ciclistas
  */
 
-Plantilla.changeNombre = function (id){
+Ciclismo.changeNombre = function (id){
     this.muestraID(id, this.modNombre)
 }
 
@@ -576,9 +576,9 @@ Plantilla.changeNombre = function (id){
  * @param {*} id_ciclista id del ciclista
  */
 
-Plantilla.save = async function (id_ciclista) {
+Ciclismo.save = async function (id_ciclista) {
     try{
-        let enlace = Frontend.API_GATEWAY + "/plantilla/setCiclista/"
+        let enlace = Frontend.API_GATEWAY + "/Ciclismo/setCiclista/"
         let id = id_ciclista
         const response = await fetch(enlace, {
             method: 'POST', // *GET, POST, PUT, DELETE, etc.
@@ -598,7 +598,7 @@ Plantilla.save = async function (id_ciclista) {
                 "equipos_ciclista": document.getElementById("equipos_c").value,
             }),
         });
-        Plantilla.lista_ciclista(id_ciclista);
+        Ciclismo.lista_ciclista(id_ciclista);
     } catch (error) {
         alert("Error guardando: No se ha podido acceder al API Gateway " + error)
     }
@@ -608,7 +608,7 @@ Plantilla.save = async function (id_ciclista) {
  * Función que busca el nombre de un ciclista en la BBDD 
  */
 
-Plantilla.buscaNombre = function (){
+Ciclismo.buscaNombre = function (){
     //const name = document.querySelector('#busqueda').value;
 
     //OBTENGO EL VALOR DEL FORMULARIO

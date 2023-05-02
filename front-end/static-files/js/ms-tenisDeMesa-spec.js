@@ -1,6 +1,6 @@
 /**
- * @file ms-plantilla-spec.js
- * @description Fichero TDD para probar todo lo relacionado con MS Plantilla en el front-end
+ * @file ms-TenisDMesa-spec.js
+ * @description Fichero TDD para probar todo lo relacionado con MS TenisDMesa en el front-end
  * @author Víctor M. Rivas <vrivas@ujaen.es>
  * @date 03-feb-2023
  */
@@ -10,8 +10,8 @@
 // Constantes para usar en las pruebas
 const elementoTitulo = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_TITULO)
 const elementoContenido = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_CONTENIDO)
-const TITULO_HOME = "Plantilla Home"
-const TITULO_ACERCA_DE = "Plantilla Acerca de"
+const TITULO_HOME = "TenisDMesa Home"
+const TITULO_ACERCA_DE = "TenisDMesa Acerca de"
 
 const datosDescargadosPrueba = {
     mensaje: "Mensaje de prueba descargado",
@@ -34,86 +34,86 @@ function esperar(ms) {
 
 // SPECS a probar
 
-describe("Plantilla.mostrarHome: ", function () {
+describe("TenisDMesa.mostrarHome: ", function () {
 
     it("muestra datos nulos cuando le pasamos un valor nulo",
         function () {
-            Plantilla.mostrarHome()
+            TenisDMesa.mostrarHome()
             expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Plantilla.datosDescargadosNulos.mensaje)
+            expect(elementoContenido.innerHTML).toBe(TenisDMesa.datosDescargadosNulos.mensaje)
         })
 
     it("muestra datos nulos cuando le pasamos un valor que no es un objeto",
         function () {
-            Plantilla.mostrarHome(23)
+            TenisDMesa.mostrarHome(23)
             expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Plantilla.datosDescargadosNulos.mensaje)
+            expect(elementoContenido.innerHTML).toBe(TenisDMesa.datosDescargadosNulos.mensaje)
         })
 
     it("muestra datos nulos cuando le pasamos un objeto que no tiene campo mensaje",
         function () {
             // Objeto vacío
-            Plantilla.mostrarHome({})
+            TenisDMesa.mostrarHome({})
             expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Plantilla.datosDescargadosNulos.mensaje)
+            expect(elementoContenido.innerHTML).toBe(TenisDMesa.datosDescargadosNulos.mensaje)
 
             // Objeto sin campo mensaje
-            Plantilla.mostrarHome({ foo: "bar" })
+            TenisDMesa.mostrarHome({ foo: "bar" })
             expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Plantilla.datosDescargadosNulos.mensaje)
+            expect(elementoContenido.innerHTML).toBe(TenisDMesa.datosDescargadosNulos.mensaje)
         })
 
     it("muestra correctamente el título y el mensaje",
         function () {
-            Plantilla.mostrarHome(datosDescargadosPrueba)
+            TenisDMesa.mostrarHome(datosDescargadosPrueba)
             expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
             expect(elementoContenido.innerHTML).toBe(datosDescargadosPrueba.mensaje)
         })
 })
 
 
-describe("Plantilla.mostrarAcercaDe: ", function () {
+describe("TenisDMesa.mostrarAcercaDe: ", function () {
     it("muestra datos nulos cuando le pasamos un valor nulo",
         function () {
-            Plantilla.mostrarAcercaDe()
+            TenisDMesa.mostrarAcercaDe()
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(TenisDMesa.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
         })
 
     it("muestra datos nulos cuando le pasamos un valor que no es un objeto",
         function () {
-            Plantilla.mostrarAcercaDe(23)
+            TenisDMesa.mostrarAcercaDe(23)
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(TenisDMesa.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
         })
 
     it("muestra datos nulos cuando le pasamos un objeto que no tiene campo mensaje o autor o email o fecha ",
         function () {
             // Objeto vacío
-            Plantilla.mostrarAcercaDe({})
+            TenisDMesa.mostrarAcercaDe({})
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(TenisDMesa.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
 
             // Objeto sin campo mensaje
-            Plantilla.mostrarAcercaDe({ autor: "un autor", email: "un email", fecha: "una fecha" })
+            TenisDMesa.mostrarAcercaDe({ autor: "un autor", email: "un email", fecha: "una fecha" })
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(TenisDMesa.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
             // Objeto sin campo autor
-            Plantilla.mostrarAcercaDe({ mensaje: "un mensaje", email: "un email", fecha: "una fecha" })
+            TenisDMesa.mostrarAcercaDe({ mensaje: "un mensaje", email: "un email", fecha: "una fecha" })
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(TenisDMesa.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
             // Objeto sin campo email
-            Plantilla.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", fecha: "una fecha" })
+            TenisDMesa.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", fecha: "una fecha" })
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(TenisDMesa.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
             // Objeto sin campo fecha
-            Plantilla.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", email: "un email" })
+            TenisDMesa.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", email: "un email" })
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(TenisDMesa.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
         })
     it("muestra correctamente el título y el mensaje conteniendo el autor, el email y la fecha",
         function () {
-            Plantilla.mostrarAcercaDe(datosDescargadosPrueba)
+            TenisDMesa.mostrarAcercaDe(datosDescargadosPrueba)
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
 
             // Comprobamos que al buscar el autor, el email y la fecha de prueba los encuentra dentro del contenido del article
@@ -131,9 +131,9 @@ IMPORTANTE
 Las pruebas TDD que se encargan de probar las conexiones con el microservicio desde el cliente son difíciles de probar 
 dado que requieren solucionar temas de sincronización. 
 Esto afecta a los métodos:
- - Plantilla.descargarRuta
- - Plantilla.procesarAcercaDe
- - Plantilla.procesarHome
+ - TenisDMesa.descargarRuta
+ - TenisDMesa.procesarAcercaDe
+ - TenisDMesa.procesarHome
 
  Las soluciones propuestas en distintos sitios web no han producido el resultado esperado, 
  por tanto: para esta práctica, se pueden dejar SIN HACER.
@@ -141,33 +141,33 @@ Esto afecta a los métodos:
  */
 
 //Prueba funcion pie de tabla
-describe("Plantilla.Pie ", function () {
+describe("TenisDMesa.Pie ", function () {
     it("debería devolver las etiquetas HTML para el pie de tabla",
         function () {
-            expect(Plantilla.pie()).toBe("</tbody></table>");
+            expect(TenisDMesa.pie()).toBe("</tbody></table>");
         });
     it("debería devolver las etiquetas HTML para el pie de tabla al pasarle un valor vacío", function() {
-            expect(Plantilla.pie()).not.toBe("");
+            expect(TenisDMesa.pie()).not.toBe("");
         });
   
 });
 
 
 //Prueba funcion cabecera_nombres
-describe("Plantilla.Cabecera_nombres ", function () {
+describe("TenisDMesa.Cabecera_nombres ", function () {
     it("debería devolver las etiquetas HTML para la cabecera_nombres de tabla",
         function () {
-            expect(Plantilla.cabecera_nombres()).toBe(`<table class="listado-plantilla"><thead><th>Nombre</th></thead><tbody>` );
+            expect(TenisDMesa.cabecera_nombres()).toBe(`<table class="listado-TenisDMesa"><thead><th>Nombre</th></thead><tbody>` );
         });
     it("debería devolver las etiquetas HTML para la cabecera de tabla nombres al pasarle un valor vacío", function() {
-            expect(Plantilla.cabecera_nombres()).not.toBe("");
+            expect(TenisDMesa.cabecera_nombres()).not.toBe("");
         });
     
 });
 
 
 //Prueba funcion cuerpo_nombres
-describe("Plantilla.Cuerpo_nombres ", function () {
+describe("TenisDMesa.Cuerpo_nombres ", function () {
 
     // Preparo los datos
     let p = {
@@ -180,10 +180,10 @@ describe("Plantilla.Cuerpo_nombres ", function () {
     // Realizo los expect
     it("debería devolver las etiquetas HTML para el cuerpo_nombres de tabla",
         function () {
-            expect(Plantilla.cuerpo_nombres(p)).toBe(`<tr title="${p.ref['@ref'].id}"><td>${p.data.nombre}</td></tr>`);
+            expect(TenisDMesa.cuerpo_nombres(p)).toBe(`<tr title="${p.ref['@ref'].id}"><td>${p.data.nombre}</td></tr>`);
         });
     it("debería devolver las etiquetas HTML para el cuerpo de la tabla nombres al pasarle un valor vacío", function() {
-            expect(Plantilla.cuerpo_nombres(p)).not.toBe("");
+            expect(TenisDMesa.cuerpo_nombres(p)).not.toBe("");
         });
   
 });
@@ -191,20 +191,20 @@ describe("Plantilla.Cuerpo_nombres ", function () {
 
 
 //Prueba funcion cabecera
-describe("Plantilla.Cabecera ", function () {
+describe("TenisDMesa.Cabecera ", function () {
     it("debería devolver las etiquetas HTML para la cabecera de tabla",
         function () {
-            expect(Plantilla.cabecera()).toBe(`<table class="listado-plantilla"><thead><th>Nombre</th><th>Fecha</th><th>Direccion</th><th>Años participacion mundial</th><th>Numero de participaciones</th><th>Lateralidad</th></thead><tbody>` );
+            expect(TenisDMesa.cabecera()).toBe(`<table class="listado-TenisDMesa"><thead><th>Nombre</th><th>Fecha</th><th>Direccion</th><th>Años participacion mundial</th><th>Numero de participaciones</th><th>Lateralidad</th></thead><tbody>` );
         });
     it("debería devolver las etiquetas HTML para la cabecera de tabla al pasarle un valor vacío", function() {
-            expect(Plantilla.cabecera()).not.toBe("");
+            expect(TenisDMesa.cabecera()).not.toBe("");
         });
 });
 
 
 
 //Prueba funcion cuerpo
-describe("Plantilla.Cuerpo ", function () {
+describe("TenisDMesa.Cuerpo ", function () {
 
     // Preparo los datos
     let p = {
@@ -222,7 +222,7 @@ describe("Plantilla.Cuerpo ", function () {
     // Realizo los expect
     it("debería devolver las etiquetas HTML para el cuerpo de tabla",
         function () {
-            let msj = Plantilla.cuerpo(p)
+            let msj = TenisDMesa.cuerpo(p)
             expect(msj.includes(p.data.nombre)).toBeTrue();
             expect(msj.includes(p.data.fecha.dia)).toBeTrue();
             expect(msj.includes(p.data.fecha.mes)).toBeTrue();
@@ -237,13 +237,13 @@ describe("Plantilla.Cuerpo ", function () {
 
         });
     it("debería devolver las etiquetas HTML para el cuerpo de la tabla al pasarle un valor vacío", function() {
-            expect(Plantilla.cuerpo(p)).not.toBe("");
+            expect(TenisDMesa.cuerpo(p)).not.toBe("");
         });
 });
 
 
 //Prueba funcion listadoNombres
-describe("Plantilla.listadoNombres ", function () {
+describe("TenisDMesa.listadoNombres ", function () {
     // Realizo los expect
   it("debería imprimir por pantalla la tabla de los nombres de los jugadores",
       function () {
@@ -258,9 +258,9 @@ describe("Plantilla.listadoNombres ", function () {
               }
           ];
           
-      const expectedMsj = Plantilla.cabecera_nombres() + Plantilla.cuerpo_nombres(vector[0]) + Plantilla.cuerpo_nombres(vector[1]) + Plantilla.pie();
+      const expectedMsj = TenisDMesa.cabecera_nombres() + TenisDMesa.cuerpo_nombres(vector[0]) + TenisDMesa.cuerpo_nombres(vector[1]) + TenisDMesa.pie();
       spyOn(Frontend.Article, 'actualizar');
-      Plantilla.listadoNombres(vector);
+      TenisDMesa.listadoNombres(vector);
       expect(Frontend.Article.actualizar).toHaveBeenCalledWith('Listado de jugadores por nombre', expectedMsj);
   });
   
@@ -268,7 +268,7 @@ describe("Plantilla.listadoNombres ", function () {
 
 
 //Prueba funcion listadoTodos
-describe("Plantilla.listadoTodos ", function () {
+describe("TenisDMesa.listadoTodos ", function () {
     // Realizo los expect
   it("debería imprimir por pantalla la tabla de todos los datos de los jugadores",
       function () {
@@ -323,16 +323,16 @@ describe("Plantilla.listadoTodos ", function () {
               }
           ];
           
-      const expectedMsj = Plantilla.cabecera() + Plantilla.cuerpo(vector[0]) + Plantilla.cuerpo(vector[1]) + Plantilla.pie();
+      const expectedMsj = TenisDMesa.cabecera() + TenisDMesa.cuerpo(vector[0]) + TenisDMesa.cuerpo(vector[1]) + TenisDMesa.pie();
       spyOn(Frontend.Article, 'actualizar');
-      Plantilla.listadoTodos(vector);
+      TenisDMesa.listadoTodos(vector);
       expect(Frontend.Article.actualizar).toHaveBeenCalledWith('Listado de jugadores', expectedMsj);
   });
 });
 
 
 //Prueba listarUnJugador
-describe("Plantilla.listarUnJugador", function () {
+describe("TenisDMesa.listarUnJugador", function () {
     it("debería imprimir por pantalla los datos de un jugador", function () {
       const jugador = {
         ref: { "@ref": { id: "ref persona 1" } },
@@ -358,9 +358,9 @@ describe("Plantilla.listarUnJugador", function () {
           lateralidad: "diestro"
         }
       };
-      const expectedMsj = Plantilla.cabecera() + Plantilla.cuerpo(jugador) + Plantilla.pie();
+      const expectedMsj = TenisDMesa.cabecera() + TenisDMesa.cuerpo(jugador) + TenisDMesa.pie();
       spyOn(Frontend.Article, 'actualizar');
-      Plantilla.listarUnJugador(jugador);
+      TenisDMesa.listarUnJugador(jugador);
       expect(Frontend.Article.actualizar).toHaveBeenCalledWith('Jugador mostrado', expectedMsj);
     });
   });

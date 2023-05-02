@@ -22,30 +22,30 @@
     <h1>Aplicación Microservicios Plantilla</h1>
     <!-- Barra de navegación de la aplicación -->
     <nav>
-        <a href="javascript:Plantilla.procesarHome()" class="opcion-principal"
+        <a href="javascript:TenisDMesa.procesarHome()" class="opcion-principal"
             title="Llama a la ruta / del MS Plantilla">Home</a>
-        <a href="javascript:Plantilla.procesarAcercaDe()" class="opcion-principal"
+        <a href="javascript:TenisDMesa.procesarAcercaDe()" class="opcion-principal"
             title="Llama a la ruta /acercade del MS Plantilla">Acerca de</a>
-        <a href="javascript:Plantilla.muestraTodos()" class="opcion-principal"
+        <a href="javascript:TenisDMesa.muestraTodos()" class="opcion-principal"
             title="Llama a la ruta /getTodos del MS Plantilla">Listado jugadores</a>
-        <a href="javascript:Plantilla.muestraNombres()" class="opcion-principal"
+        <a href="javascript:TenisDMesa.muestraNombres()" class="opcion-principal"
             title="Llama a la ruta /getTodos del MS Plantilla">Listado jugadores por nombre</a>
-        <a href="javascript:Plantilla.muestraNombresAlfabeticamente()" class="opcion-principal"
+        <a href="javascript:TenisDMesa.muestraNombresAlfabeticamente()" class="opcion-principal"
             title="Llama a la ruta /getTodos del MS Plantilla y muestra nombres alfabeticamente">Listado nombres alfabeticamente</a>
         
         <br></br>
         <div class="dropdown">
             <h2>Listado ordenado por:</h2>
             <div class="dropdown-content">
-                <a href="javascript:Plantilla.muestraDatosCampo('nombre')" class="opcion-principal" title="Realiza un listado de todos los jugadores ordenados por nombre">Nombre</a>
-                <a href="javascript:Plantilla.muestraDatosCampoCompuesto('direccion', 'calle')" class="opcion-principal" title="Realiza un listado de todos los jugadores ordenados por direccion">Direccion</a>
-                <a href="javascript:Plantilla.muestraDatosCampoNumerico('numero_participaciones_jo')" class="opcion-principal" title="Realiza un listado de todos los jugadores ordenados por numero de participaciones en los jjoo">Participaciones juegos olímpicos</a>
-                <a href="javascript:Plantilla.muestraDatosCampo('lateralidad')" class="opcion-principal" title="Realiza un listado de todos los jugadores ordenados por lateralidad">Lateralidad</a>
+                <a href="javascript:TenisDMesa.muestraDatosCampo('nombre')" class="opcion-principal" title="Realiza un listado de todos los jugadores ordenados por nombre">Nombre</a>
+                <a href="javascript:TenisDMesa.muestraDatosCampoCompuesto('direccion', 'calle')" class="opcion-principal" title="Realiza un listado de todos los jugadores ordenados por direccion">Direccion</a>
+                <a href="javascript:TenisDMesa.muestraDatosCampoNumerico('numero_participaciones_jo')" class="opcion-principal" title="Realiza un listado de todos los jugadores ordenados por numero de participaciones en los jjoo">Participaciones juegos olímpicos</a>
+                <a href="javascript:TenisDMesa.muestraDatosCampo('lateralidad')" class="opcion-principal" title="Realiza un listado de todos los jugadores ordenados por lateralidad">Lateralidad</a>
             </div>
         </div>
         <br></br>
         <h2>Listar jugador dado su id:</h2>
-        <a href="javascript:Plantilla.muestraUnJugador('358543439432777933')" class="opcion-principal"
+        <a href="javascript:TenisDMesa.muestraUnJugador('358543439432777933')" class="opcion-principal"
             title="Llama a la ruta /getTodos del MS Plantilla y muestra todos los datos de un jugador">Listar datos de un jugador</a>
   
 
@@ -60,7 +60,7 @@
       <script>
         function buscar1() {
             var buscar = document.getElementById("buscar").value;
-            Plantilla.muestraDatosDadoNombre(buscar);
+            TenisDMesa.muestraDatosDadoNombre(buscar);
         }
       </script>
     
@@ -78,7 +78,7 @@
                 var d2 = document.getElementById("loc").value;
                 var d3 = document.getElementById("part").value;
                 var d4 = document.getElementById("lat").value;
-                Plantilla.muestraDatosDadoVarios(d1,d2,d3,d4);
+                TenisDMesa.muestraDatosDadoVarios(d1,d2,d3,d4);
             }
         </script>
     
@@ -97,69 +97,9 @@
                 var d22 = document.getElementById("loc2").value;
                 var d32 = document.getElementById("part2").value;
                 var d42 = document.getElementById("lat2").value;
-                Plantilla.muestraDatosDadoVarios2(d12,d22,d32,d42);
+                TenisDMesa.muestraDatosDadoVarios2(d12,d22,d32,d42);
             }
         </script>
-
-<h1>Mundial de ciclismo</h1>
-<!-- Barra de navegación de la aplicación -->
-    <a href="javascript:Plantilla.procesarHome()" class="opcion-principal"
-        title="Llama a la ruta / del MS Plantilla">Home</a>
-    <a href="javascript:Plantilla.procesarAcercaDe()" class="opcion-principal"
-        title="Llama a la ruta /acercade del MS Plantilla">Acerca de</a>
-    <a href="javascript:Plantilla.lista_nombres()" class="opcion-principal"
-        title="HU 2">Lista nombres</a>
-    <a href="javascript:Plantilla.lista_datos()" class="opcion-principal"
-        title="HU 4">Datos Completos</a>
-    <a href="javascript:Plantilla.lista_nombresOrd()" class="opcion-principal"
-        title="HU 3">Lista nombres ordenados</a>
-    <a href="javascript:Plantilla.lista_ciclista('359097846737141965')" class="opcion-principal"
-        title="HU 6">Lista ciclista</a>
-    <a href="javascript:Plantilla.lista_datosEdi()" class="opcion-principal"
-        title="HU 8">Lista ciclistas Editables</a>
-    <a href="javascript:Plantilla.form_nuevoCiclista()" class="opcion-principal"
-        title="HU 16">Añadir Ciclista</a>
-    <a href="javascript:Plantilla.lista_todoOrd()" class="opcion-principal"
-        title="HU 5">Lista ciclistas ordenados por</a>
-        
-        <br></br>
-        <div id="eleccion" style="display: none;">
-            <form >
-                <!-- Frase que sale al lado del formulario -->
-                <label for="cond"> Ordenar por:</label> 
-                <!-- Donde se almacena la condición -->
-                <select id="cond" name="cond"> 
-                    <!-- ORDENAR POR NOMBRE -->
-                    <option value="nombre">Nombre</option>
-                    <!-- ORDENAR POR APELLIDOS -->
-                    <option value="apellidos">Apellidos</option>
-                    <!-- ORDENAR POR EQUIPO -->
-                    <option value="equipos">Equipos</option>
-                    <!-- ORDENAR POR EMAIL -->
-                    <option value="email">Email</option>
-                    <!-- ORDENAR POR FECHA DE NACIMIENTO -->
-                    <option value="f_nac">Fecha de Nacimiento</option>
-                </select>
-                <!-- Botón que manda la condición por la que ordenar
-                -->
-                <button id="btn" type="submit">GO</button>
-            </form>
-        </div>
-    <a href="javascript:Plantilla.buscaNombre()" class="opcion-principal"
-        title="HU 8">Busca por Nombre</a>
-        <br></br>
-        <div id="busqueda" style="display: none;">
-            <form>
-                <!-- Frase que sale al lado del formulario -->
-                <label>Busca un ciclista por nombre</label>
-                <!-- Cuadrito de texto para introducir nombre -->
-                <input type="text" id="nameC" name="buscaNom">
-                <!-- Botón que manda la condición por la que ordenar
-                -->
-                <button type="submit" id="btnBuscar">BUSCAR</button>
-            </form>
-        </div>
-
 
     </nav>
 

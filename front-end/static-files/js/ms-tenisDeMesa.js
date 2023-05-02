@@ -1,6 +1,6 @@
 /**
- * @file Plantilla.js
- * @description Funciones para el procesamiento de la info enviada por el MS Plantilla
+ * @file TenisDMesa.js
+ * @description Funciones para el procesamiento de la info enviada por el MS TenisDMesa
  * @author Víctor M. Rivas <vrivas@ujaen.es>
  * @date 03-feb-2023
  */
@@ -8,12 +8,12 @@
 "use strict";
 
 /// Creo el espacio de nombres
-let Plantilla = {};
+let TenisDMesa = {};
 
 
 
-// Plantilla de datosDescargados vacíos
-Plantilla.datosDescargadosNulos = {
+// TenisDMesa de datosDescargados vacíos
+TenisDMesa.datosDescargadosNulos = {
     mensaje: "Datos Descargados No válidos",
     autor: "",
     email: "",
@@ -21,7 +21,7 @@ Plantilla.datosDescargadosNulos = {
 }
 
 // Tags que voy a usar para sustituir los campos
-Plantilla.plantillaTags = {
+TenisDMesa.TenisDMesaTags = {
     "ID": "### ID ###",
     "NOMBRE": "### NOMBRE ###",
     "FECHA": "### FECHA ###",
@@ -38,26 +38,26 @@ Plantilla.plantillaTags = {
     "LATERALIDAD": "### LATERALIDAD ###"
 }
 
-Plantilla.sustituyeTags = function (plantilla, persona) {
-    return plantilla
-        .replace(new RegExp(Plantilla.plantillaTags.ID, 'g'), persona.ref['@ref'].id)
-        .replace(new RegExp(Plantilla.plantillaTags.NOMBRE, 'g'), persona.data.nombre)
-        .replace(new RegExp(Plantilla.plantillaTags.FECHA, 'g'), persona.data.fecha)
-        .replace(new RegExp(Plantilla.plantillaTags.DIA, 'g'), persona.data.fecha.dia)
-        .replace(new RegExp(Plantilla.plantillaTags.MES, 'g'), persona.data.fecha.mes)
-        .replace(new RegExp(Plantilla.plantillaTags.ANIO, 'g'), persona.data.fecha.anio)
-        .replace(new RegExp(Plantilla.plantillaTags.DIRECCION, 'g'), persona.data.direccion)
-        .replace(new RegExp(Plantilla.plantillaTags.CALLE, 'g'), persona.data.direccion.calle)
-        .replace(new RegExp(Plantilla.plantillaTags.LOCALIDAD, 'g'), persona.data.direccion.localidad)
-        .replace(new RegExp(Plantilla.plantillaTags.PROVINCIA, 'g'), persona.data.direccion.provincia)
-        .replace(new RegExp(Plantilla.plantillaTags.PAIS, 'g'), persona.data.direccion.pais)
-        .replace(new RegExp(Plantilla.plantillaTags["PARTICIPACION MUNDIAL"], 'g'), persona.data.participacion_mundial)
-        .replace(new RegExp(Plantilla.plantillaTags.NUMERO_PARTICIPACIONES_JJOO, 'g'), persona.data.numero_participaciones_jo)
-        .replace(new RegExp(Plantilla.plantillaTags.LATERALIDAD, 'g'), persona.data.lateralidad)
+TenisDMesa.sustituyeTags = function (TenisDMesa, persona) {
+    return TenisDMesa
+        .replace(new RegExp(TenisDMesa.TenisDMesaTags.ID, 'g'), persona.ref['@ref'].id)
+        .replace(new RegExp(TenisDMesa.TenisDMesaTags.NOMBRE, 'g'), persona.data.nombre)
+        .replace(new RegExp(TenisDMesa.TenisDMesaTags.FECHA, 'g'), persona.data.fecha)
+        .replace(new RegExp(TenisDMesa.TenisDMesaTags.DIA, 'g'), persona.data.fecha.dia)
+        .replace(new RegExp(TenisDMesa.TenisDMesaTags.MES, 'g'), persona.data.fecha.mes)
+        .replace(new RegExp(TenisDMesa.TenisDMesaTags.ANIO, 'g'), persona.data.fecha.anio)
+        .replace(new RegExp(TenisDMesa.TenisDMesaTags.DIRECCION, 'g'), persona.data.direccion)
+        .replace(new RegExp(TenisDMesa.TenisDMesaTags.CALLE, 'g'), persona.data.direccion.calle)
+        .replace(new RegExp(TenisDMesa.TenisDMesaTags.LOCALIDAD, 'g'), persona.data.direccion.localidad)
+        .replace(new RegExp(TenisDMesa.TenisDMesaTags.PROVINCIA, 'g'), persona.data.direccion.provincia)
+        .replace(new RegExp(TenisDMesa.TenisDMesaTags.PAIS, 'g'), persona.data.direccion.pais)
+        .replace(new RegExp(TenisDMesa.TenisDMesaTags["PARTICIPACION MUNDIAL"], 'g'), persona.data.participacion_mundial)
+        .replace(new RegExp(TenisDMesa.TenisDMesaTags.NUMERO_PARTICIPACIONES_JJOO, 'g'), persona.data.numero_participaciones_jo)
+        .replace(new RegExp(TenisDMesa.TenisDMesaTags.LATERALIDAD, 'g'), persona.data.lateralidad)
 }
 
-Plantilla.actualiza = function (persona) {
-    return Plantilla.sustituyeTags(this.cuerpo, persona)
+TenisDMesa.actualiza = function (persona) {
+    return TenisDMesa.sustituyeTags(this.cuerpo, persona)
 }
 
 //FUNCIONES PARA CREAR TABLA CON TODOS LOS DATOS DE LOS JUGADORES
@@ -66,8 +66,8 @@ Plantilla.actualiza = function (persona) {
  * Crea la cabecera para mostrar la info como tabla
  * @returns Cabecera de la tabla
  */
-Plantilla.cabecera = function () {
-    return `<table class="listado-plantilla"><thead><th>Nombre</th><th>Fecha</th><th>Direccion</th><th>Años participacion mundial</th><th>Numero de participaciones</th><th>Lateralidad</th></thead><tbody>`;
+TenisDMesa.cabecera = function () {
+    return `<table class="listado-TenisDMesa"><thead><th>Nombre</th><th>Fecha</th><th>Direccion</th><th>Años participacion mundial</th><th>Numero de participaciones</th><th>Lateralidad</th></thead><tbody>`;
 }
 
 
@@ -76,7 +76,7 @@ Plantilla.cabecera = function () {
  * @param {jugador} p Datos del jugador a mostrar
  * @returns Cadena conteniendo toda la informacion referente a un jugador.
  */
-Plantilla.cuerpo = function (p) {
+TenisDMesa.cuerpo = function (p) {
     const d = p.data
     const fecha = d.fecha;
     const direccion = d.direccion;
@@ -97,7 +97,7 @@ Plantilla.cuerpo = function (p) {
  * Pie de la tabla en la que se muestran las personas
  * @returns Cadena con el pie de la tabla
  */
-Plantilla.pie = function () {
+TenisDMesa.pie = function () {
     return "</tbody></table>";
 }
 
@@ -110,8 +110,8 @@ Plantilla.pie = function () {
  * Crea la cabecera de la tabla nombres para mostrar la info como tabla
  * @returns Cabecera de la tabla nombres
  */
-Plantilla.cabecera_nombres = function () {
-    return `<table class="listado-plantilla"><thead><th>Nombre</th></thead><tbody>`;
+TenisDMesa.cabecera_nombres = function () {
+    return `<table class="listado-TenisDMesa"><thead><th>Nombre</th></thead><tbody>`;
 }
 
 
@@ -120,7 +120,7 @@ Plantilla.cabecera_nombres = function () {
  * @param {jugador} p Datos del jugador a mostrar
  * @returns Cadena conteniendo el nombre del jugador.
  */
-Plantilla.cuerpo_nombres = function (p) {
+TenisDMesa.cuerpo_nombres = function (p) {
     const d = p.data
 
     return `<tr title="${p.ref['@ref'].id}"><td>${d.nombre}</td></tr>`;
@@ -131,14 +131,14 @@ Plantilla.cuerpo_nombres = function (p) {
 //FUNCIONES PARA DESCARGAR RUTAS
 
 /**
- * Función que descarga la info MS Plantilla al llamar a una de sus rutas
+ * Función que descarga la info MS TenisDMesa al llamar a una de sus rutas
  * @param {string} ruta Ruta a descargar
  * @param {función} callBackFn Función a la que se llamará una vez recibidos los datos.
  */
-Plantilla.descargarRuta = async function (ruta, callBackFn) {
+TenisDMesa.descargarRuta = async function (ruta, callBackFn) {
     let response = null
 
-    // Intento conectar con el microservicio Plantilla
+    // Intento conectar con el microservicio TenisDMesa
     try {
         const url = Frontend.API_GATEWAY + ruta
         response = await fetch(url)
@@ -167,12 +167,12 @@ Plantilla.descargarRuta = async function (ruta, callBackFn) {
  * @param {función} callBackFn Función a la que se llamará una vez recibidos los datos.
  */
 
-Plantilla.recupera = async function (callBackFn) {
+TenisDMesa.recupera = async function (callBackFn) {
     let response = null
 
     // Intento conectar con el microservicio personas
     try {
-        const url = Frontend.API_GATEWAY + "/plantilla/getTodas"
+        const url = Frontend.API_GATEWAY + "/TenisDMesa/getTodas"
         response = await fetch(url)
 
     } catch (error) {
@@ -193,11 +193,11 @@ Plantilla.recupera = async function (callBackFn) {
  * Función que recuperar los datos y muestra los nombres de los jugadores en orden alfabetico
  * @param {función} callBackFn Función a la que se llamará una vez recibidos los datos.
  */ 
-Plantilla.ordenaAlfabeticamente = async function (callBackFn) {
+TenisDMesa.ordenaAlfabeticamente = async function (callBackFn) {
     let response = null
 
     try {
-        const url = Frontend.API_GATEWAY + "/plantilla/getTodas"
+        const url = Frontend.API_GATEWAY + "/TenisDMesa/getTodas"
         response = await fetch(url)
 
     } catch (error) {
@@ -206,7 +206,7 @@ Plantilla.ordenaAlfabeticamente = async function (callBackFn) {
         //throw error
     }
 
-    // Muestro todos los plantilla que se han descargado
+    // Muestro todos los TenisDMesa que se han descargado
     let vectorPersonas = null
     if (response) {
         vectorPersonas = await response.json()
@@ -231,12 +231,12 @@ Plantilla.ordenaAlfabeticamente = async function (callBackFn) {
  * Función que recuperar los datos y los muestra ordenados por un campo indicado
  * @param {función} callBackFn Función a la que se llamará una vez recibidos los datos.
  */ 
-Plantilla.ordenaPorCampo = async function (campo, callBackFn) {
+TenisDMesa.ordenaPorCampo = async function (campo, callBackFn) {
     let response = null
 
-    // Intento conectar con el microservicio plantilla
+    // Intento conectar con el microservicio TenisDMesa
     try {
-        const url = Frontend.API_GATEWAY + "/plantilla/getTodas"
+        const url = Frontend.API_GATEWAY + "/TenisDMesa/getTodas"
         response = await fetch(url)
 
     } catch (error) {
@@ -245,7 +245,7 @@ Plantilla.ordenaPorCampo = async function (campo, callBackFn) {
         //throw error
     }
 
-    // Muestro todos los plantilla que se han descargado
+    // Muestro todos los TenisDMesa que se han descargado
     let vectorPersonas = null
     if (response) {
         vectorPersonas = await response.json()
@@ -267,12 +267,12 @@ Plantilla.ordenaPorCampo = async function (campo, callBackFn) {
 }
 
 
-Plantilla.ordenaPorCampoCompuesto = async function (campo,campo1, callBackFn) {
+TenisDMesa.ordenaPorCampoCompuesto = async function (campo,campo1, callBackFn) {
     let response = null
 
-    // Intento conectar con el microservicio plantilla
+    // Intento conectar con el microservicio TenisDMesa
     try {
-        const url = Frontend.API_GATEWAY + "/plantilla/getTodas"
+        const url = Frontend.API_GATEWAY + "/TenisDMesa/getTodas"
         response = await fetch(url)
 
     } catch (error) {
@@ -281,7 +281,7 @@ Plantilla.ordenaPorCampoCompuesto = async function (campo,campo1, callBackFn) {
         //throw error
     }
 
-    // Muestro todos los plantilla que se han descargado
+    // Muestro todos los TenisDMesa que se han descargado
     let vectorPersonas = null
     if (response) {
         vectorPersonas = await response.json()
@@ -302,12 +302,12 @@ Plantilla.ordenaPorCampoCompuesto = async function (campo,campo1, callBackFn) {
     }
 }
 
-Plantilla.ordenaPorCampoNumerico = async function (campo, callBackFn) {
+TenisDMesa.ordenaPorCampoNumerico = async function (campo, callBackFn) {
     let response = null
 
-    // Intento conectar con el microservicio plantilla
+    // Intento conectar con el microservicio TenisDMesa
     try {
-        const url = Frontend.API_GATEWAY + "/plantilla/getTodas"
+        const url = Frontend.API_GATEWAY + "/TenisDMesa/getTodas"
         response = await fetch(url)
 
     } catch (error) {
@@ -316,7 +316,7 @@ Plantilla.ordenaPorCampoNumerico = async function (campo, callBackFn) {
         //throw error
     }
 
-    // Muestro todos los plantilla que se han descargado
+    // Muestro todos los TenisDMesa que se han descargado
     let vectorPersonas = null
     if (response) {
         vectorPersonas = await response.json()
@@ -338,9 +338,9 @@ Plantilla.ordenaPorCampoNumerico = async function (campo, callBackFn) {
 }
 
 
-Plantilla.recuperaUnJugador = async function (idJugador, callBackFn) {
+TenisDMesa.recuperaUnJugador = async function (idJugador, callBackFn) {
     try {
-        const url = Frontend.API_GATEWAY + "/plantilla/getPorId/" + idJugador
+        const url = Frontend.API_GATEWAY + "/TenisDMesa/getPorId/" + idJugador
         const response = await fetch(url);
         if (response) {
             const jugador = await response.json()
@@ -353,11 +353,11 @@ Plantilla.recuperaUnJugador = async function (idJugador, callBackFn) {
 }
 
 
-Plantilla.buscarPorNombre = async function (callBackFn, nombre) {
+TenisDMesa.buscarPorNombre = async function (callBackFn, nombre) {
     let response = null
     // Intento conectar con el microservicio proyectos
     try {
-        const url = Frontend.API_GATEWAY + "/plantilla/getTodas"
+        const url = Frontend.API_GATEWAY + "/TenisDMesa/getTodas"
         response = await fetch(url)
 
     } catch (error) {
@@ -375,11 +375,11 @@ Plantilla.buscarPorNombre = async function (callBackFn, nombre) {
     }
 }
 
-Plantilla.buscarPorVarios = async function (callBackFn, nombre, localidad, participaciones, lateralidad) {
+TenisDMesa.buscarPorVarios = async function (callBackFn, nombre, localidad, participaciones, lateralidad) {
     let response = null
     // Intento conectar con el microservicio proyectos
     try {
-        const url = Frontend.API_GATEWAY + "/plantilla/getTodas"
+        const url = Frontend.API_GATEWAY + "/TenisDMesa/getTodas"
         response = await fetch(url)
 
     } catch (error) {
@@ -399,11 +399,11 @@ Plantilla.buscarPorVarios = async function (callBackFn, nombre, localidad, parti
     }
 }
 
-Plantilla.buscarPorVarios2 = async function (callBackFn, nombre, localidad, participaciones, lateralidad) {
+TenisDMesa.buscarPorVarios2 = async function (callBackFn, nombre, localidad, participaciones, lateralidad) {
     let response = null
     // Intento conectar con el microservicio proyectos
     try {
-        const url = Frontend.API_GATEWAY + "/plantilla/getTodas"
+        const url = Frontend.API_GATEWAY + "/TenisDMesa/getTodas"
         response = await fetch(url)
 
     } catch (error) {
@@ -429,9 +429,9 @@ Plantilla.buscarPorVarios2 = async function (callBackFn, nombre, localidad, part
 //FUNCIONES PARA MOSTRAR
 
 /**
- * Función principal para mostrar los datos enviados por la ruta "home" de MS Plantilla
+ * Función principal para mostrar los datos enviados por la ruta "home" de MS TenisDMesa
  */
-Plantilla.mostrarHome = function (datosDescargados) {
+TenisDMesa.mostrarHome = function (datosDescargados) {
     // Si no se ha proporcionado valor para datosDescargados
     datosDescargados = datosDescargados || this.datosDescargadosNulos
 
@@ -441,13 +441,13 @@ Plantilla.mostrarHome = function (datosDescargados) {
     // Si datos descargados NO contiene el campo mensaje
     if (typeof datosDescargados.mensaje === "undefined") datosDescargados = this.datosDescargadosNulos
 
-    Frontend.Article.actualizar("Plantilla Home", datosDescargados.mensaje)
+    Frontend.Article.actualizar("TenisDMesa Home", datosDescargados.mensaje)
 }
 
 /**
- * Función principal para mostrar los datos enviados por la ruta "acerca de" de MS Plantilla
+ * Función principal para mostrar los datos enviados por la ruta "acerca de" de MS TenisDMesa
  */
-Plantilla.mostrarAcercaDe = function (datosDescargados) {
+TenisDMesa.mostrarAcercaDe = function (datosDescargados) {
     // Si no se ha proporcionado valor para datosDescargados
     datosDescargados = datosDescargados || this.datosDescargadosNulos
 
@@ -470,16 +470,16 @@ Plantilla.mostrarAcercaDe = function (datosDescargados) {
     </ul>
     </div>
     `;
-    Frontend.Article.actualizar("Plantilla Acerca de", mensajeAMostrar)
+    Frontend.Article.actualizar("TenisDMesa Acerca de", mensajeAMostrar)
 }
 
 
-Plantilla.listadoTodos = function (vector) {
+TenisDMesa.listadoTodos = function (vector) {
     //console.log( vector ) // Para comprobar lo que hay en vector
     let msj = "";
-    msj += Plantilla.cabecera();
-    vector.forEach(e => msj += Plantilla.cuerpo(e))
-    msj += Plantilla.pie();
+    msj += TenisDMesa.cabecera();
+    vector.forEach(e => msj += TenisDMesa.cuerpo(e))
+    msj += TenisDMesa.pie();
 
     // Borro toda la info de Article y la sustituyo por la que me interesa
     Frontend.Article.actualizar( "Listado de jugadores", msj )
@@ -487,12 +487,12 @@ Plantilla.listadoTodos = function (vector) {
 }
 
 
-Plantilla.listadoNombres = function (vector) {
+TenisDMesa.listadoNombres = function (vector) {
     //console.log( vector ) // Para comprobar lo que hay en vector
     let msj = "";
-    msj += Plantilla.cabecera_nombres();
-    vector.forEach(e => msj += Plantilla.cuerpo_nombres(e))
-    msj += Plantilla.pie();
+    msj += TenisDMesa.cabecera_nombres();
+    vector.forEach(e => msj += TenisDMesa.cuerpo_nombres(e))
+    msj += TenisDMesa.pie();
 
     // Borro toda la info de Article y la sustituyo por la que me interesa
     Frontend.Article.actualizar( "Listado de jugadores por nombre", msj )
@@ -500,11 +500,11 @@ Plantilla.listadoNombres = function (vector) {
 }
 
 
-Plantilla.listarUnJugador = function (jugador) {
+TenisDMesa.listarUnJugador = function (jugador) {
     let msj = "";
-    msj += Plantilla.cabecera();
-    msj += Plantilla.cuerpo(jugador)
-    msj += Plantilla.pie();
+    msj += TenisDMesa.cabecera();
+    msj += TenisDMesa.cuerpo(jugador)
+    msj += TenisDMesa.pie();
 
     // Borro toda la info de Article y la sustituyo por la que me interesa
     Frontend.Article.actualizar( "Jugador mostrado", msj )
@@ -518,76 +518,76 @@ Plantilla.listarUnJugador = function (jugador) {
 /**
  * Función principal para responder al evento de elegir la opción "Home"
  */
-Plantilla.procesarHome = function () {
-    this.descargarRuta("/plantilla/", this.mostrarHome);
+TenisDMesa.procesarHome = function () {
+    this.descargarRuta("/TenisDMesa/", this.mostrarHome);
 }
 
 /**
  * Función principal para responder al evento de elegir la opción "Acerca de"
  */
-Plantilla.procesarAcercaDe = function () {
-    this.descargarRuta("/plantilla/acercade", this.mostrarAcercaDe);
+TenisDMesa.procesarAcercaDe = function () {
+    this.descargarRuta("/TenisDMesa/acercade", this.mostrarAcercaDe);
 }
 
 /**
  * Función principal para responder al evento de elegir la opción "Listado jugadores"
  */
-Plantilla.muestraTodos = function () {
-    //this.descargarRuta("/plantilla/getTodos", this.listadoTodos());
+TenisDMesa.muestraTodos = function () {
+    //this.descargarRuta("/TenisDMesa/getTodos", this.listadoTodos());
     this.recupera(this.listadoTodos);
 }
 
 /**
  * Función principal para responder al evento de elegir la opción "Listado jugadores por nombre"
  */
-Plantilla.muestraNombres = function () {
-    //this.descargarRuta("/plantilla/getTodos", this.listadoTodos());
+TenisDMesa.muestraNombres = function () {
+    //this.descargarRuta("/TenisDMesa/getTodos", this.listadoTodos());
     this.recupera(this.listadoNombres);
 }
 
 /**
  * Función principal para responder al evento de elegir la opción "Listado nombres alfabeticamente"
  */
-Plantilla.muestraNombresAlfabeticamente = function () {
+TenisDMesa.muestraNombresAlfabeticamente = function () {
     this.ordenaAlfabeticamente(this.listadoNombres);
 }
 
 /**
  * Función principal para responder al evento de elegir la opción "Nombre, lateralidad"
  */
-Plantilla.muestraDatosCampo = function (variable) {
-    Plantilla.ordenaPorCampo(variable,Plantilla.listadoTodos);
+TenisDMesa.muestraDatosCampo = function (variable) {
+    TenisDMesa.ordenaPorCampo(variable,TenisDMesa.listadoTodos);
 }
 
 /**
  * Función principal para responder al evento de elegir la opción "Direccion"
  */
-Plantilla.muestraDatosCampoCompuesto = function (variable,variable1) {
-    Plantilla.ordenaPorCampoCompuesto(variable,variable1,Plantilla.listadoTodos);
+TenisDMesa.muestraDatosCampoCompuesto = function (variable,variable1) {
+    TenisDMesa.ordenaPorCampoCompuesto(variable,variable1,TenisDMesa.listadoTodos);
 }
 
 /**
  * Función principal para responder al evento de elegir la opción "Participaciones juegos olimpicos"
  */
-Plantilla.muestraDatosCampoNumerico = function (variable) {
-    Plantilla.ordenaPorCampoNumerico(variable,Plantilla.listadoTodos);
+TenisDMesa.muestraDatosCampoNumerico = function (variable) {
+    TenisDMesa.ordenaPorCampoNumerico(variable,TenisDMesa.listadoTodos);
 }
 
 
-Plantilla.muestraUnJugador = function (idJugador) {
+TenisDMesa.muestraUnJugador = function (idJugador) {
     this.recuperaUnJugador(idJugador, this.listarUnJugador);
 }
 
 
-Plantilla.muestraDatosDadoNombre = function (buscar) {
+TenisDMesa.muestraDatosDadoNombre = function (buscar) {
     this.buscarPorNombre(this.listadoTodos, buscar);
 }
 
-Plantilla.muestraDatosDadoVarios = function (dato1,dato2,dato3,dato4) {
+TenisDMesa.muestraDatosDadoVarios = function (dato1,dato2,dato3,dato4) {
     this.buscarPorVarios(this.listadoTodos,dato1,dato2,dato3,dato4);
 }
 
-Plantilla.muestraDatosDadoVarios2 = function (dato1,dato2,dato3,dato4) {
+TenisDMesa.muestraDatosDadoVarios2 = function (dato1,dato2,dato3,dato4) {
     this.buscarPorVarios2(this.listadoTodos,dato1,dato2,dato3,dato4);
 }
 

@@ -1,7 +1,7 @@
 
 /**
- * @file Plantilla.js
- * @description Funciones para el procesamiento de la info enviada por el MS Plantilla
+ * @file Escalada.js
+ * @description Funciones para el procesamiento de la info enviada por el MS Escalada
  * @author Víctor M. Rivas <vrivas@ujaen.es>
  * @date 03-feb-2023
  */
@@ -9,10 +9,10 @@
 "use strict";
 
 /// Creo el espacio de nombres
-let Plantilla = {};
+let Escalada = {};
 
-// Plantilla de dDescargados vacíos
-Plantilla.dDescargadosNulos = {
+// Escalada de dDescargados vacíos
+Escalada.dDescargadosNulos = {
     mensaje: "Datos Descargados No válidos",
     autor: "",
     email: "",
@@ -21,14 +21,14 @@ Plantilla.dDescargadosNulos = {
 
 
 /**
- * Función que descarga la info MS Plantilla al llamar a una de sus rutas
+ * Función que descarga la info MS Escalada al llamar a una de sus rutas
  * @param {string} ruta Ruta a descargar
  * @param {función} callBackFn Función a la que se llamará una vez recibidos los d.
  */
-Plantilla.descargarRuta = async function (ruta, callBackFn) {
+Escalada.descargarRuta = async function (ruta, callBackFn) {
     let response = null
 
-    // Intento conectar con el microservicio Plantilla
+    // Intento conectar con el microservicio Escalada
     try {
         const url = Frontend.API_GATEWAY + ruta
         response = await fetch(url)
@@ -49,9 +49,9 @@ Plantilla.descargarRuta = async function (ruta, callBackFn) {
 
 
 /**
- * Función principal para mostrar los d enviados por la ruta "home" de MS Plantilla
+ * Función principal para mostrar los d enviados por la ruta "home" de MS Escalada
  */
-Plantilla.mostrarHome = function (dDescargados) {
+Escalada.mostrarHome = function (dDescargados) {
     // Si no se ha proporcionado valor para dDescargados
     dDescargados = dDescargados || this.dDescargadosNulos
 
@@ -61,13 +61,13 @@ Plantilla.mostrarHome = function (dDescargados) {
     // Si d descargados NO contiene el campo mensaje
     if (typeof dDescargados.mensaje === "undefined") dDescargados = this.dDescargadosNulos
 
-    Frontend.Article.actualizar("Plantilla Home", dDescargados.mensaje)
+    Frontend.Article.actualizar("Escalada Home", dDescargados.mensaje)
 }
 
 /**
- * Función principal para mostrar los d enviados por la ruta "acerca de" de MS Plantilla
+ * Función principal para mostrar los d enviados por la ruta "acerca de" de MS Escalada
  */
-Plantilla.mostrarAcercaDe = function (dDescargados) {
+Escalada.mostrarAcercaDe = function (dDescargados) {
     // Si no se ha proporcionado valor para dDescargados
     dDescargados = dDescargados || this.dDescargadosNulos
 
@@ -90,34 +90,34 @@ Plantilla.mostrarAcercaDe = function (dDescargados) {
     </ul>
     </div>
     `;
-    Frontend.Article.actualizar("Plantilla Acerca de", mensajeAMostrar)
+    Frontend.Article.actualizar("Escalada Acerca de", mensajeAMostrar)
 }
 
 
 /**
  * Función principal para responder al evento de elegir la opción "Home"
  */
-Plantilla.procesarHome = function () {
-    this.descargarRuta("/plantilla/", this.mostrarHome);
+Escalada.procesarHome = function () {
+    this.descargarRuta("/Escalada/", this.mostrarHome);
 }
 
 /**
  * Función principal para responder al evento de elegir la opción "Acerca de"
  */
-Plantilla.procesarAcercaDe = function () {
-    this.descargarRuta("/plantilla/acercade", this.mostrarAcercaDe);
+Escalada.procesarAcercaDe = function () {
+    this.descargarRuta("/Escalada/acercade", this.mostrarAcercaDe);
 }
 
 /**
  * Función que recuperar todos los proyectos llamando al MS Proyectos
  * @param {función} callBackFn Función a la que se llamará una vez recibidos los d.
  */
-Plantilla.recupera = async function (callBackFn) {
+Escalada.recupera = async function (callBackFn) {
     let response = null
 
     // Intento conectar con el microservicio proyectos
     try {
-        const url = Frontend.API_GATEWAY + "/plantilla/getTodas"
+        const url = Frontend.API_GATEWAY + "/Escalada/getTodas"
         response = await fetch(url)
 
     } catch (error) {
@@ -134,12 +134,12 @@ Plantilla.recupera = async function (callBackFn) {
     }
 }
 
-Plantilla.recuperaBuscar = async function (callBackFn, nombre) {
+Escalada.recuperaBuscar = async function (callBackFn, nombre) {
     let response = null
     //console.log(nombre);
     // Intento conectar con el microservicio proyectos
     try {
-        const url = Frontend.API_GATEWAY + "/plantilla/getTodas"
+        const url = Frontend.API_GATEWAY + "/Escalada/getTodas"
         response = await fetch(url)
 
     } catch (error) {
@@ -159,12 +159,12 @@ Plantilla.recuperaBuscar = async function (callBackFn, nombre) {
     }
 }
 
-Plantilla.recuperaBuscarTip = async function (callBackFn, nombre,tipo,num,calle) {
+Escalada.recuperaBuscarTip = async function (callBackFn, nombre,tipo,num,calle) {
     let response = null
     //console.log(nombre);
     // Intento conectar con el microservicio proyectos
     try {
-        const url = Frontend.API_GATEWAY + "/plantilla/getTodas"
+        const url = Frontend.API_GATEWAY + "/Escalada/getTodas"
         response = await fetch(url)
 
     } catch (error) {
@@ -184,12 +184,12 @@ Plantilla.recuperaBuscarTip = async function (callBackFn, nombre,tipo,num,calle)
     }
 }
 
-Plantilla.recuperaBuscarMas = async function (callBackFn, var1, var2, var3,var4) {
+Escalada.recuperaBuscarMas = async function (callBackFn, var1, var2, var3,var4) {
     let response = null
     //console.log(nombre);
     // Intento conectar con el microservicio proyectos
     try {
-        const url = Frontend.API_GATEWAY + "/plantilla/getTodas"
+        const url = Frontend.API_GATEWAY + "/Escalada/getTodas"
         response = await fetch(url)
 
     } catch (error) {
@@ -215,7 +215,7 @@ Plantilla.recuperaBuscarMas = async function (callBackFn, var1, var2, var3,var4)
  * Crea la cabecera para mostrar la info como tabla
  * @returns Cabecera de la tabla
  */
-Plantilla.cabeceraTable = function () {
+Escalada.cabeceraTable = function () {
     return `<table class="listado-personas">
         <thead>
         <th>ID</th><th>Nombre</th><th>Apellidos</th><th>Dirección</th><th>Años participación</th><th>Número participaciones</th><th>Tipo</th> 
@@ -224,7 +224,7 @@ Plantilla.cabeceraTable = function () {
     `;
 }
 
-Plantilla.cabeceraTableNombres = function () {
+Escalada.cabeceraTableNombres = function () {
     return `<table class="listado-personas"><thead><th>ID</th><th>Nombre</th><th>Apellidos</th></thead><tbody>`;
 }
 
@@ -233,7 +233,7 @@ Plantilla.cabeceraTableNombres = function () {
  * @param {persona} p d del proyecto a mostrar
  * @returns Cadena conteniendo todo el elemento TR que muestra el proyecto.
  */
-Plantilla.cuerpoTr = function (p) {
+Escalada.cuerpoTr = function (p) {
     const d = p.data;
     const nombre = d.nombre;
     const apellidos = d.apellido;
@@ -253,7 +253,7 @@ Plantilla.cuerpoTr = function (p) {
     </tr>`;
 }
 
-Plantilla.cuerpoTrNombres = function (p) {
+Escalada.cuerpoTrNombres = function (p) {
     const d = p.data;
     const nombre = d.nombre;
     const apellidos = d.apellido;
@@ -272,7 +272,7 @@ Plantilla.cuerpoTrNombres = function (p) {
  * Pie de la tabla en la que se muestran las personas
  * @returns Cadena con el pie de la tabla
  */
-Plantilla.pieTable = function () {
+Escalada.pieTable = function () {
     return "</tbody></table>";
 }
 
@@ -281,23 +281,23 @@ Plantilla.pieTable = function () {
  * Función para mostrar en pantalla todos los proyectos que se han recuperado de la BBDD.
  * @param {Vector_de_proyectos} vector Vector con los d de los proyectos a mostrar
  */
-Plantilla.imprime = function (vector) {
+Escalada.imprime = function (vector) {
     console.log( vector ) // Para comprobar lo que hay en vector
     let msj = "";
-    msj += Plantilla.cabeceraTable();
-    vector.forEach(e => msj += Plantilla.cuerpoTr(e))
-    msj += Plantilla.pieTable();
+    msj += Escalada.cabeceraTable();
+    vector.forEach(e => msj += Escalada.cuerpoTr(e))
+    msj += Escalada.pieTable();
 
     // Borro toda la info de Article y la sustituyo por la que me interesa
     Frontend.Article.actualizar( "Listado de personas", msj )
 
 }
 
-Plantilla.imprimeMostrar = function (persona) {
+Escalada.imprimeMostrar = function (persona) {
     let msj = "";
-    msj += Plantilla.cabeceraTable();
-    msj += Plantilla.cuerpoTr(persona)
-    msj += Plantilla.pieTable();
+    msj += Escalada.cabeceraTable();
+    msj += Escalada.cuerpoTr(persona)
+    msj += Escalada.pieTable();
 
     // Borro toda la info de Article y la sustituyo por la que me interesa
     Frontend.Article.actualizar( "Persona mostrada", msj )
@@ -305,12 +305,12 @@ Plantilla.imprimeMostrar = function (persona) {
 }
 
 
-Plantilla.imprimeNombres = function (vector) {
+Escalada.imprimeNombres = function (vector) {
     //console.log( vector ) // Para comprobar lo que hay en vector
     let msj = "";
-    msj += Plantilla.cabeceraTableNombres();
-    vector.forEach(e => msj += Plantilla.cuerpoTrNombres(e))
-    msj += Plantilla.pieTable();
+    msj += Escalada.cabeceraTableNombres();
+    vector.forEach(e => msj += Escalada.cuerpoTrNombres(e))
+    msj += Escalada.pieTable();
 
     // Borro toda la info de Article y la sustituyo por la que me interesa
     Frontend.Article.actualizar( "Listado de nombre de personas", msj )
@@ -319,15 +319,15 @@ Plantilla.imprimeNombres = function (vector) {
 
 
 /**
- * Función que recuperar todos los plantilla llamando al MS plantilla
+ * Función que recuperar todos los Escalada llamando al MS Escalada
  * @param {función} callBackFn Función a la que se llamará una vez recibidos los datos.
  */ 
-Plantilla.recuperaAlfabetic = async function (callBackFn) {
+Escalada.recuperaAlfabetic = async function (callBackFn) {
     let response = null
 
-    // Intento conectar con el microservicio plantilla
+    // Intento conectar con el microservicio Escalada
     try {
-        const url = Frontend.API_GATEWAY + "/plantilla/getTodas"
+        const url = Frontend.API_GATEWAY + "/Escalada/getTodas"
         response = await fetch(url)
 
     } catch (error) {
@@ -336,11 +336,11 @@ Plantilla.recuperaAlfabetic = async function (callBackFn) {
         //throw error
     }
 
-    // Muestro todos los plantilla que se han descargado
-    let vectorPlantilla = null
+    // Muestro todos los Escalada que se han descargado
+    let vectorEscalada = null
     if (response) {
-        vectorPlantilla = await response.json()
-        vectorPlantilla.data.sort((a,b) => {
+        vectorEscalada = await response.json()
+        vectorEscalada.data.sort((a,b) => {
             const nombreA = a.data.nombre.toLowerCase();
             const nombreB = b.data.nombre.toLowerCase();
 
@@ -353,7 +353,7 @@ Plantilla.recuperaAlfabetic = async function (callBackFn) {
             return 0;
         });
 
-        callBackFn(vectorPlantilla.data)
+        callBackFn(vectorEscalada.data)
     }
 }
 
@@ -361,29 +361,29 @@ Plantilla.recuperaAlfabetic = async function (callBackFn) {
  * Función principal para recuperar los proyectos desde el MS y, posteriormente, imprimirlos.
  * @returns True
  */
-Plantilla.listar = function () {
+Escalada.listar = function () {
     this.recupera(this.imprime);
 }
 
-Plantilla.listarNombres = function () {
+Escalada.listarNombres = function () {
     this.recupera(this.imprimeNombres);
 }
 
-Plantilla.listarBuscar = function (search) {
+Escalada.listarBuscar = function (search) {
     this.recuperaBuscar(this.imprime,search);
 }
 
 
-Plantilla.listarBuscarTip = function (search1,search2, search3, search4) {
+Escalada.listarBuscarTip = function (search1,search2, search3, search4) {
     this.recuperaBuscarTip(this.imprime,search1,search2, search3, search4);
 }
 
-Plantilla.listarBuscarMas = function (search1,search2, search3,search4) {
+Escalada.listarBuscarMas = function (search1,search2, search3,search4) {
     this.recuperaBuscarMas(this.imprime,search1,search2,search3,search4);
 }
 
 
-Plantilla.listarNombreAlfa = function () {
+Escalada.listarNombreAlfa = function () {
     this.recuperaAlfabetic(this.imprimeNombres);
 }
 /**
@@ -392,9 +392,9 @@ Plantilla.listarNombreAlfa = function () {
  * @param {String} idPersona Identificador de la persona a mostrar
  * @param {función} callBackFn Función a la que se llamará una vez recibidos los datos.
  */
-Plantilla.recuperaUnaPersona = async function (idPersona, callBackFn) {
+Escalada.recuperaUnaPersona = async function (idPersona, callBackFn) {
     try {
-        const url = Frontend.API_GATEWAY + "/plantilla/getPorId/" + idPersona
+        const url = Frontend.API_GATEWAY + "/Escalada/getPorId/" + idPersona
         const response = await fetch(url);
         if (response) {
             const persona = await response.json()
@@ -406,12 +406,12 @@ Plantilla.recuperaUnaPersona = async function (idPersona, callBackFn) {
     }
 }
 
-Plantilla.recuperaAlfabeticVarios = async function (campo, callBackFn) {
+Escalada.recuperaAlfabeticVarios = async function (campo, callBackFn) {
     let response = null
 
-    // Intento conectar con el microservicio plantilla
+    // Intento conectar con el microservicio Escalada
     try {
-        const url = Frontend.API_GATEWAY + "/plantilla/getTodas"
+        const url = Frontend.API_GATEWAY + "/Escalada/getTodas"
         response = await fetch(url)
 
     } catch (error) {
@@ -420,11 +420,11 @@ Plantilla.recuperaAlfabeticVarios = async function (campo, callBackFn) {
         //throw error
     }
 
-    // Muestro todos los plantilla que se han descargado
-    let vectorPlantilla = null
+    // Muestro todos los Escalada que se han descargado
+    let vectorEscalada = null
     if (response) {
-        vectorPlantilla = await response.json()
-        vectorPlantilla.data.sort((a,b) => {
+        vectorEscalada = await response.json()
+        vectorEscalada.data.sort((a,b) => {
             const campoA = a.data[campo].toLowerCase();
             const campoB = b.data[campo].toLowerCase();
 
@@ -437,16 +437,16 @@ Plantilla.recuperaAlfabeticVarios = async function (campo, callBackFn) {
             return 0;
         });
 
-        callBackFn(vectorPlantilla.data)
+        callBackFn(vectorEscalada.data)
     }
 }
 
-Plantilla.recuperaAlfabeticVarios2 = async function (campo,campo1, callBackFn) {
+Escalada.recuperaAlfabeticVarios2 = async function (campo,campo1, callBackFn) {
     let response = null
 
-    // Intento conectar con el microservicio plantilla
+    // Intento conectar con el microservicio Escalada
     try {
-        const url = Frontend.API_GATEWAY + "/plantilla/getTodas"
+        const url = Frontend.API_GATEWAY + "/Escalada/getTodas"
         response = await fetch(url)
 
     } catch (error) {
@@ -455,11 +455,11 @@ Plantilla.recuperaAlfabeticVarios2 = async function (campo,campo1, callBackFn) {
         //throw error
     }
 
-    // Muestro todos los plantilla que se han descargado
-    let vectorPlantilla = null
+    // Muestro todos los Escalada que se han descargado
+    let vectorEscalada = null
     if (response) {
-        vectorPlantilla = await response.json()
-        vectorPlantilla.data.sort((a,b) => {
+        vectorEscalada = await response.json()
+        vectorEscalada.data.sort((a,b) => {
             const campoA = a.data[campo][campo1].toLowerCase();
             const campoB = b.data[campo][campo1].toLowerCase();
 
@@ -472,17 +472,17 @@ Plantilla.recuperaAlfabeticVarios2 = async function (campo,campo1, callBackFn) {
             return 0;
         });
 
-        callBackFn(vectorPlantilla.data)
+        callBackFn(vectorEscalada.data)
     }
 }
 
 
-Plantilla.recuperaNumericamenteVarios = async function (campo, callBackFn) {
+Escalada.recuperaNumericamenteVarios = async function (campo, callBackFn) {
     let response = null
 
-    // Intento conectar con el microservicio plantilla
+    // Intento conectar con el microservicio Escalada
     try {
-        const url = Frontend.API_GATEWAY + "/plantilla/getTodas"
+        const url = Frontend.API_GATEWAY + "/Escalada/getTodas"
         response = await fetch(url)
 
     } catch (error) {
@@ -491,11 +491,11 @@ Plantilla.recuperaNumericamenteVarios = async function (campo, callBackFn) {
         //throw error
     }
 
-    // Muestro todos los plantilla que se han descargado
-    let vectorPlantilla = null
+    // Muestro todos los Escalada que se han descargado
+    let vectorEscalada = null
     if (response) {
-        vectorPlantilla = await response.json()
-        vectorPlantilla.data.sort((a,b) => {
+        vectorEscalada = await response.json()
+        vectorEscalada.data.sort((a,b) => {
             const campoA = parseFloat(a.data[campo]);
             const campoB = parseFloat(b.data[campo]);
 
@@ -508,7 +508,7 @@ Plantilla.recuperaNumericamenteVarios = async function (campo, callBackFn) {
             return 0;
         });
 
-        callBackFn(vectorPlantilla.data)
+        callBackFn(vectorEscalada.data)
     }
 }
 
@@ -516,20 +516,20 @@ Plantilla.recuperaNumericamenteVarios = async function (campo, callBackFn) {
  * Función principal para mostrar los datos de una persona desde el MS y, posteriormente, imprimirla.
  * @param {String} idPersona Identificador de la persona a mostrar
  */
-Plantilla.mostrar = function (idPersona) {
+Escalada.mostrar = function (idPersona) {
     this.recuperaUnaPersona(idPersona, this.imprimeMostrar);
 }
 
-Plantilla.listarOrden = function (variable) {
-    Plantilla.recuperaAlfabeticVarios(variable,Plantilla.imprime);
+Escalada.listarOrden = function (variable) {
+    Escalada.recuperaAlfabeticVarios(variable,Escalada.imprime);
 }
 
-Plantilla.listarOrden2 = function (variable) {
-    Plantilla.recuperaNumericamenteVarios(variable,Plantilla.imprime);
+Escalada.listarOrden2 = function (variable) {
+    Escalada.recuperaNumericamenteVarios(variable,Escalada.imprime);
 }
 
-Plantilla.listarOrden3 = function (variable,variable1) {
-    Plantilla.recuperaAlfabeticVarios2(variable,variable1,Plantilla.imprime);
+Escalada.listarOrden3 = function (variable,variable1) {
+    Escalada.recuperaAlfabeticVarios2(variable,variable1,Escalada.imprime);
 }
 
 

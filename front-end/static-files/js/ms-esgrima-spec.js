@@ -1,6 +1,6 @@
 /**
- * @file ms-plantilla-spec.js
- * @description Fichero TDD para probar todo lo relacionado con MS Plantilla en el front-end
+ * @file ms-Esgrima-spec.js
+ * @description Fichero TDD para probar todo lo relacionado con MS Esgrima en el front-end
  * @author Víctor M. Rivas <vrivas@ujaen.es>
  * @date 03-feb-2023
  */
@@ -10,8 +10,8 @@
 // Constantes para usar en las pruebas
 const elementoTitulo = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_TITULO)
 const elementoContenido = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_CONTENIDO)
-const TITULO_HOME = "Plantilla Home"
-const TITULO_ACERCA_DE = "Plantilla Acerca de"
+const TITULO_HOME = "Esgrima Home"
+const TITULO_ACERCA_DE = "Esgrima Acerca de"
 
 const datosDescargadosPrueba = {
     mensaje: "Mensaje de prueba descargado",
@@ -34,86 +34,86 @@ function esperar(ms) {
 
 // SPECS a probar
 
-describe("Plantilla.mostrarHome: ", function () {
+describe("Esgrima.mostrarHome: ", function () {
 
     it("muestra datos nulos cuando le pasamos un valor nulo",
         function () {
-            Plantilla.mostrarHome()
+            Esgrima.mostrarHome()
             expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Plantilla.datosDescargadosNulos.mensaje)
+            expect(elementoContenido.innerHTML).toBe(Esgrima.datosDescargadosNulos.mensaje)
         })
 
     it("muestra datos nulos cuando le pasamos un valor que no es un objeto",
         function () {
-            Plantilla.mostrarHome(23)
+            Esgrima.mostrarHome(23)
             expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Plantilla.datosDescargadosNulos.mensaje)
+            expect(elementoContenido.innerHTML).toBe(Esgrima.datosDescargadosNulos.mensaje)
         })
 
     it("muestra datos nulos cuando le pasamos un objeto que no tiene campo mensaje",
         function () {
             // Objeto vacío
-            Plantilla.mostrarHome({})
+            Esgrima.mostrarHome({})
             expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Plantilla.datosDescargadosNulos.mensaje)
+            expect(elementoContenido.innerHTML).toBe(Esgrima.datosDescargadosNulos.mensaje)
 
             // Objeto sin campo mensaje
-            Plantilla.mostrarHome({ foo: "bar" })
+            Esgrima.mostrarHome({ foo: "bar" })
             expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Plantilla.datosDescargadosNulos.mensaje)
+            expect(elementoContenido.innerHTML).toBe(Esgrima.datosDescargadosNulos.mensaje)
         })
 
     it("muestra correctamente el título y el mensaje",
         function () {
-            Plantilla.mostrarHome(datosDescargadosPrueba)
+            Esgrima.mostrarHome(datosDescargadosPrueba)
             expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
             expect(elementoContenido.innerHTML).toBe(datosDescargadosPrueba.mensaje)
         })
 })
 
 
-describe("Plantilla.mostrarAcercaDe: ", function () {
+describe("Esgrima.mostrarAcercaDe: ", function () {
     it("muestra datos nulos cuando le pasamos un valor nulo",
         function () {
-            Plantilla.mostrarAcercaDe()
+            Esgrima.mostrarAcercaDe()
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(Esgrima.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
         })
 
     it("muestra datos nulos cuando le pasamos un valor que no es un objeto",
         function () {
-            Plantilla.mostrarAcercaDe(23)
+            Esgrima.mostrarAcercaDe(23)
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(Esgrima.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
         })
 
     it("muestra datos nulos cuando le pasamos un objeto que no tiene campo mensaje o autor o email o fecha ",
         function () {
             // Objeto vacío
-            Plantilla.mostrarAcercaDe({})
+            Esgrima.mostrarAcercaDe({})
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(Esgrima.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
 
             // Objeto sin campo mensaje
-            Plantilla.mostrarAcercaDe({ autor: "un autor", email: "un email", fecha: "una fecha" })
+            Esgrima.mostrarAcercaDe({ autor: "un autor", email: "un email", fecha: "una fecha" })
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(Esgrima.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
             // Objeto sin campo autor
-            Plantilla.mostrarAcercaDe({ mensaje: "un mensaje", email: "un email", fecha: "una fecha" })
+            Esgrima.mostrarAcercaDe({ mensaje: "un mensaje", email: "un email", fecha: "una fecha" })
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(Esgrima.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
             // Objeto sin campo email
-            Plantilla.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", fecha: "una fecha" })
+            Esgrima.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", fecha: "una fecha" })
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(Esgrima.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
             // Objeto sin campo fecha
-            Plantilla.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", email: "un email" })
+            Esgrima.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", email: "un email" })
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(Esgrima.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
         })
     it("muestra correctamente el título y el mensaje conteniendo el autor, el email y la fecha",
         function () {
-            Plantilla.mostrarAcercaDe(datosDescargadosPrueba)
+            Esgrima.mostrarAcercaDe(datosDescargadosPrueba)
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
 
             // Comprobamos que al buscar el autor, el email y la fecha de prueba los encuentra dentro del contenido del article
@@ -125,7 +125,7 @@ describe("Plantilla.mostrarAcercaDe: ", function () {
 
 describe("convertirParticipacion ", function () {
     let part=["2002,-2002"]
-    let msj=Plantilla.convertirParticipacion(part)
+    let msj=Esgrima.convertirParticipacion(part)
     it("debería devolver texto no vacio y dentro del rango",
         function () {
             expect(msj.length>0).toBeTrue();
@@ -165,7 +165,7 @@ describe("actualiza ", function () {
     }
     it("debería devolver una persona correcta",
         function () {
-            let msj = Plantilla.plantillaTablaPersonas.actualiza(d)
+            let msj = Esgrima.EsgrimaTablaPersonas.actualiza(d)
 
             expect(msj.includes(d.data.nombre)).toBeTrue();
             expect(msj.includes(d.data.fecha_nacimiento.año)).toBeTrue();
@@ -207,7 +207,7 @@ describe("actualizaSoloNombres ", function () {
       }
     it("debería devolver una persona correcta",
         function () {
-            let msj = Plantilla.plantillaTablaPersonas.actualizaSoloNombres(d)
+            let msj = Esgrima.EsgrimaTablaPersonas.actualizaSoloNombres(d)
             expect(msj.includes(d.data.nombre)).toBeTrue();
         });
 });
@@ -215,12 +215,12 @@ describe("actualizaSoloNombres ", function () {
 describe("Pie table ", function () {
     it("debería devolver las etiquetas HTML para el pie de tabla",
         function () {
-            expect(Plantilla.plantillaTablaPersonas.pie).toBe("</tbody></table>");
+            expect(Esgrima.EsgrimaTablaPersonas.pie).toBe("</tbody></table>");
         });
 });
 
 describe("Cabecera Tabla ", function () {
-    const plantillaEsperada = `<table width="100%" class="listado-personas">
+    const EsgrimaEsperada = `<table width="100%" class="listado-personas">
                     <tr>
                         <th width="10%">ID</th>
                         <th width="10%">Nombre</th>
@@ -239,13 +239,13 @@ describe("Cabecera Tabla ", function () {
     `;
     it("debería devolver las etiquetas HTML para cabecera de tabla",
         function () {
-            const plantillaGenerada = Plantilla.plantillaTablaPersonas.cabecera;
-            expect(plantillaGenerada).toBe(plantillaEsperada);
+            const EsgrimaGenerada = Esgrima.EsgrimaTablaPersonas.cabecera;
+            expect(EsgrimaGenerada).toBe(EsgrimaEsperada);
         });
 });
 
 describe("Cabecera Tabla Solo Nombres ", function () {
-    const plantillaEsperada = `<table width="100%" class="listado-personas">
+    const EsgrimaEsperada = `<table width="100%" class="listado-personas">
                 <thead>
                     <th width="100%">Nombre</th> 
                 </thead>
@@ -253,8 +253,8 @@ describe("Cabecera Tabla Solo Nombres ", function () {
 `;
     it("debería devolver las etiquetas HTML para cabecera de tabla de solo nombres",
         function () {
-            const plantillaGenerada = Plantilla.plantillaTablaPersonas.cabeceraNombre;
-            expect(plantillaGenerada).toBe(plantillaEsperada);
+            const EsgrimaGenerada = Esgrima.EsgrimaTablaPersonas.cabeceraNombre;
+            expect(EsgrimaGenerada).toBe(EsgrimaEsperada);
         });
 });
 
@@ -281,7 +281,7 @@ describe("Imprime Solo Nombres ", function () {
             }
         }
       ];
-      const plantillaEsperada = 
+      const EsgrimaEsperada = 
     `<table width="100%" class="listado-personas">
                 <thead>
                     <tr><th width="100%">Nombre</th> 
@@ -298,10 +298,10 @@ describe("Imprime Solo Nombres ", function () {
 </tbody></table>`;
     it("debería devolver correctamente solo los nombres",
         function () {
-            Plantilla.imprimeSoloNombres(vector);
+            Esgrima.imprimeSoloNombres(vector);
             let tit=elementoContenido.innerHTML
             expect(elementoTitulo.innerHTML).toBe("Listado de nombres");
-            expect(elementoContenido.innerHTML).toBe(plantillaEsperada);
+            expect(elementoContenido.innerHTML).toBe(EsgrimaEsperada);
         });
 });
 
@@ -328,7 +328,7 @@ describe("Imprime Solo Nombres Ordenados", function () {
             }
         }
       ];
-      const plantillaEsperada = 
+      const EsgrimaEsperada = 
     `<table width="100%" class="listado-personas">
                 <thead>
                     <tr><th width="100%">Nombre</th> 
@@ -345,10 +345,10 @@ describe("Imprime Solo Nombres Ordenados", function () {
 </tbody></table>`;
     it("debería devolver correctamente solo los nombres",
         function () {
-            Plantilla.imprimeSoloNombresOrdenados(vector);
+            Esgrima.imprimeSoloNombresOrdenados(vector);
             let tit=elementoContenido.innerHTML
             expect(elementoTitulo.innerHTML).toBe("Listado de nombres");
-            expect(elementoContenido.innerHTML).toBe(plantillaEsperada);
+            expect(elementoContenido.innerHTML).toBe(EsgrimaEsperada);
         });
 });
 
@@ -387,7 +387,7 @@ describe("Imprime", function () {
       
     it("debería devolver correctamente todos los datos del vector de personas",
         function () {
-            Plantilla.imprime(vector);
+            Esgrima.imprime(vector);
             let tit=elementoContenido.innerHTML
             expect(elementoTitulo.innerHTML).toBe("Listado de nombres");
             expect(tit.includes("Juan Francisco Escudero Toribio")).toBeTrue();
@@ -433,7 +433,7 @@ describe("Imprime Una persona", function () {
     }
     it("debería devolver correctamente todos los datos del vector de personas",
         function () {
-            Plantilla.imprimeUnaPersona(d);
+            Esgrima.imprimeUnaPersona(d);
             let tit=elementoContenido.innerHTML
             expect(elementoTitulo.innerHTML).toBe("Mostrar una persona");
             expect(tit.includes("Juan Francisco Escudero Toribio")).toBeTrue();
@@ -475,11 +475,11 @@ describe("Persona como tabla ", function () {
     it("debería devolver correctamente la persona como una tabla",
         function () {
             console.log(d.data)
-            const msjEsperado = Plantilla.plantillaTablaPersonas.cabecera
-            + Plantilla.plantillaTablaPersonas.actualiza(d.data)
-            + Plantilla.plantillaTablaPersonas.pie;
+            const msjEsperado = Esgrima.EsgrimaTablaPersonas.cabecera
+            + Esgrima.EsgrimaTablaPersonas.actualiza(d.data)
+            + Esgrima.EsgrimaTablaPersonas.pie;
             
-            const msjGenerado = Plantilla.personaComoTabla(d.data);
+            const msjGenerado = Esgrima.personaComoTabla(d.data);
             console.log(msjGenerado)
             expect(msjGenerado).toBe(msjEsperado);
         });
@@ -511,8 +511,8 @@ describe("Persona almacenada ", function () {
       }
     it("debe almacenar los datos de la persona en la variable personaMostrada",
         function () {
-            Plantilla.almacenaDatos(persona);
-            expect(Plantilla.personaMostrada).toBe(persona);
+            Esgrima.almacenaDatos(persona);
+            expect(Esgrima.personaMostrada).toBe(persona);
         });
 });
 
@@ -524,7 +524,7 @@ describe("CuerpoSoloNombre", function () {
 `;
     it("debe tener el formato correcto",
         function () {
-            expect(Plantilla.plantillaTablaPersonas.cuerpoSoloNombre).toBe(expected);
+            expect(Esgrima.EsgrimaTablaPersonas.cuerpoSoloNombre).toBe(expected);
         });
 });
 
@@ -543,26 +543,26 @@ describe("Cuerpo", function () {
         <td>### SEXO ###</td>
         <td>### VICTORIAS ###</td>
         <td>
-                    <div><a href="javascript:Plantilla.mostrar('### ID ###')" class="opcion-secundaria mostrar">Mostrar</a></div>
+                    <div><a href="javascript:Esgrima.mostrar('### ID ###')" class="opcion-secundaria mostrar">Mostrar</a></div>
         </td>
         
     </tr>
     `;
     it("debe tener el formato correcto",
         function () {
-            expect(Plantilla.plantillaTablaPersonas.cuerpo).toBe(expected);
+            expect(Esgrima.EsgrimaTablaPersonas.cuerpo).toBe(expected);
         });
 });
 
-describe('Plantilla.sustituyeNombres', function () {
-    it('debería reemplazar todos los marcadores de posición de nombre en la plantilla', function () {
-        PlantillapW = `
-            <tr title="${Plantilla.plantillaTags.ID}">
-                <td>${Plantilla.plantillaTags.NOMBRE}</td>
+describe('Esgrima.sustituyeNombres', function () {
+    it('debería reemplazar todos los marcadores de posición de nombre en la Esgrima', function () {
+        EsgrimapW = `
+            <tr title="${Esgrima.EsgrimaTags.ID}">
+                <td>${Esgrima.EsgrimaTags.NOMBRE}</td>
             </tr>
             `;
-        PlantillaEsperado = `
-            <tr title="${Plantilla.plantillaTags.ID}">
+        EsgrimaEsperado = `
+            <tr title="${Esgrima.EsgrimaTags.ID}">
                 <td>"Juan Francisco Escudero Toribio"</td>
             </tr>
             `;
@@ -588,24 +588,24 @@ describe('Plantilla.sustituyeNombres', function () {
               "victorias": 43
             }
           }
-        let resultado = Plantilla.sustituyeNombres(PlantillapW, persona)
+        let resultado = Esgrima.sustituyeNombres(EsgrimapW, persona)
         expect(resultado.includes("Juan Francisco Escudero Toribio")).toBeTrue();
       })
   })
 
-describe('Plantilla.sustituyeTags', function () {
-    let plantilla = `
-<tr title="${Plantilla.plantillaTags.ID}">
-    <td>${Plantilla.plantillaTags.NOMBRE}</td>
-    <td>${Plantilla.plantillaTags.FECHA_NACIMIENTO}</td>
-    <td>${Plantilla.plantillaTags.NACIONALIDAD}</td>
-    <td>${Plantilla.plantillaTags.PESO}</td>
-    <td>${Plantilla.plantillaTags.ALTURA}</td>
-    <td>${Plantilla.plantillaTags.PARTICIPACIONJJOO}</td>
-    <td>${Plantilla.plantillaTags.FEDERADO}</td>
-    <td>${Plantilla.plantillaTags.PESO_ESPADA}</td>
-    <td>${Plantilla.plantillaTags.SEXO}</td>
-    <td>${Plantilla.plantillaTags.VICTORIAS}</td>
+describe('Esgrima.sustituyeTags', function () {
+    let Esgrima = `
+<tr title="${Esgrima.EsgrimaTags.ID}">
+    <td>${Esgrima.EsgrimaTags.NOMBRE}</td>
+    <td>${Esgrima.EsgrimaTags.FECHA_NACIMIENTO}</td>
+    <td>${Esgrima.EsgrimaTags.NACIONALIDAD}</td>
+    <td>${Esgrima.EsgrimaTags.PESO}</td>
+    <td>${Esgrima.EsgrimaTags.ALTURA}</td>
+    <td>${Esgrima.EsgrimaTags.PARTICIPACIONJJOO}</td>
+    <td>${Esgrima.EsgrimaTags.FEDERADO}</td>
+    <td>${Esgrima.EsgrimaTags.PESO_ESPADA}</td>
+    <td>${Esgrima.EsgrimaTags.SEXO}</td>
+    <td>${Esgrima.EsgrimaTags.VICTORIAS}</td>
 </tr>
 `;
 let persona = {
@@ -627,8 +627,8 @@ let persona = {
         victorias: 15
     }
 };
-    it('debería reemplazar todos los marcadores de posición de nombre en la plantilla', function () {
-        let resultadoObtenido = Plantilla.sustituyeTags(plantilla, persona);
+    it('debería reemplazar todos los marcadores de posición de nombre en la Esgrima', function () {
+        let resultadoObtenido = Esgrima.sustituyeTags(Esgrima, persona);
         expect(resultadoObtenido.includes("123456")).toBeTrue();
         expect(resultadoObtenido.includes("Juan")).toBeTrue();
         expect(resultadoObtenido.includes("Española")).toBeTrue();
@@ -648,9 +648,9 @@ IMPORTANTE
 Las pruebas TDD que se encargan de probar las conexiones con el microservicio desde el cliente son difíciles de probar 
 dado que requieren solucionar temas de sincronización. 
 Esto afecta a los métodos:
- - Plantilla.descargarRuta
- - Plantilla.procesarAcercaDe
- - Plantilla.procesarHome
+ - Esgrima.descargarRuta
+ - Esgrima.procesarAcercaDe
+ - Esgrima.procesarHome
 
  Las soluciones propuestas en distintos sitios web no han producido el resultado esperado, 
  por tanto: para esta práctica, se pueden dejar SIN HACER.

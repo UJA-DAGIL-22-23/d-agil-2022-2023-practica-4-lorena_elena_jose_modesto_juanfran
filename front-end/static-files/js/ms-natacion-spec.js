@@ -1,6 +1,6 @@
 /**
- * @file ms-plantilla-spec.js
- * @description Fichero TDD para probar todo lo relacionado con MS Plantilla en el front-end
+ * @file ms-Natacion-spec.js
+ * @description Fichero TDD para probar todo lo relacionado con MS Natacion en el front-end
  * @author Víctor M. Rivas <vrivas@ujaen.es>
  * @date 03-feb-2023
  */
@@ -10,9 +10,9 @@
 // Constantes para usar en las pruebas
 const elementoTitulo = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_TITULO)
 const elementoContenido = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_CONTENIDO)
-const TITULO_HOME = "Plantilla Home"
-const TITULO_ACERCA_DE = "Plantilla Acerca de"
-const TITULO_PLANTILLA = "Listado de plantillas"
+const TITULO_HOME = "Natacion Home"
+const TITULO_ACERCA_DE = "Natacion Acerca de"
+const TITULO_Natacion = "Listado de Natacions"
 const TITULO_NOMBRES = "Listado de nombres"
 
 const datosDescargadosPrueba = {
@@ -36,87 +36,87 @@ function esperar(ms) {
 
 // SPECS a probar
 
-describe("Plantilla.mostrarHome: ", function () {
+describe("Natacion.mostrarHome: ", function () {
 
     it("muestra datos nulos cuando le pasamos un valor nulo",
         function () {
-            Plantilla.mostrarHome()
+            Natacion.mostrarHome()
             expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Plantilla.datosDescargadosNulos.mensaje)
+            expect(elementoContenido.innerHTML).toBe(Natacion.datosDescargadosNulos.mensaje)
         })
 
     it("muestra datos nulos cuando le pasamos un valor que no es un objeto",
         function () {
-            Plantilla.mostrarHome(23)
+            Natacion.mostrarHome(23)
             expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Plantilla.datosDescargadosNulos.mensaje)
+            expect(elementoContenido.innerHTML).toBe(Natacion.datosDescargadosNulos.mensaje)
         })
 
     it("muestra datos nulos cuando le pasamos un objeto que no tiene campo mensaje",
         function () {
             // Objeto vacío
-            Plantilla.mostrarHome({})
+            Natacion.mostrarHome({})
             expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Plantilla.datosDescargadosNulos.mensaje)
+            expect(elementoContenido.innerHTML).toBe(Natacion.datosDescargadosNulos.mensaje)
 
             // Objeto sin campo mensaje
-            Plantilla.mostrarHome({ foo: "bar" })
+            Natacion.mostrarHome({ foo: "bar" })
             expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Plantilla.datosDescargadosNulos.mensaje)
+            expect(elementoContenido.innerHTML).toBe(Natacion.datosDescargadosNulos.mensaje)
         })
 
     it("muestra correctamente el título y el mensaje",
         function () {
-            Plantilla.mostrarHome(datosDescargadosPrueba)
+            Natacion.mostrarHome(datosDescargadosPrueba)
             expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
             expect(elementoContenido.innerHTML).toBe(datosDescargadosPrueba.mensaje)
         })
 })
 
 
-describe("Plantilla.mostrarAcercaDe: ", function () {
+describe("Natacion.mostrarAcercaDe: ", function () {
     it("muestra datos nulos cuando le pasamos un valor nulo",
         function () {
-            Plantilla.mostrarAcercaDe()
+            Natacion.mostrarAcercaDe()
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(Natacion.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
         })
 
     it("muestra datos nulos cuando le pasamos un valor que no es un objeto",
         function () {
-            Plantilla.mostrarAcercaDe(23)
+            Natacion.mostrarAcercaDe(23)
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(Natacion.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
         })
 
     it("muestra datos nulos cuando le pasamos un objeto que no tiene campo mensaje o autor o email o fecha ",
         function () {
             // Objeto vacío
-            Plantilla.mostrarAcercaDe({})
+            Natacion.mostrarAcercaDe({})
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(Natacion.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
 
             // Objeto sin campo mensaje
-            Plantilla.mostrarAcercaDe({ autor: "un autor", email: "un email", fecha: "una fecha" })
+            Natacion.mostrarAcercaDe({ autor: "un autor", email: "un email", fecha: "una fecha" })
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(Natacion.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
             // Objeto sin campo autor
-            Plantilla.mostrarAcercaDe({ mensaje: "un mensaje", email: "un email", fecha: "una fecha" })
+            Natacion.mostrarAcercaDe({ mensaje: "un mensaje", email: "un email", fecha: "una fecha" })
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(Natacion.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
             // Objeto sin campo email
-            Plantilla.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", fecha: "una fecha" })
+            Natacion.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", fecha: "una fecha" })
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(Natacion.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
             // Objeto sin campo fecha
-            Plantilla.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", email: "un email" })
+            Natacion.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", email: "un email" })
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(Natacion.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
         })
 
     it("muestra correctamente el título y el mensaje conteniendo el autor, el email y la fecha",
         function () {
-            Plantilla.mostrarAcercaDe(datosDescargadosPrueba)
+            Natacion.mostrarAcercaDe(datosDescargadosPrueba)
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
 
             // Comprobamos que al buscar el autor, el email y la fecha de prueba los encuentra dentro del contenido del article
@@ -136,9 +136,9 @@ IMPORTANTE
 Las pruebas TDD que se encargan de probar las conexiones con el microservicio desde el cliente son difíciles de probar 
 dado que requieren solucionar temas de sincronización. 
 Esto afecta a los métodos:
- - Plantilla.descargarRuta
- - Plantilla.procesarAcercaDe
- - Plantilla.procesarHome
+ - Natacion.descargarRuta
+ - Natacion.procesarAcercaDe
+ - Natacion.procesarHome
 
  Las soluciones propuestas en distintos sitios web no han producido el resultado esperado, 
  por tanto: para esta práctica, se pueden dejar SIN HACER.
@@ -148,37 +148,37 @@ Esto afecta a los métodos:
 // SPECS para Jasmine
 
 //TDD para la Historia de Usuario 2 y 3 (HU 2 y HU 3)
-describe("Plantilla.pieTable ", function () {
+describe("Natacion.pieTable ", function () {
     it("debería devolver las etiquetas HTML para el pie de tabla cuando se le pasa un valor nulo", function() {
-        expect(Plantilla.pieTable()).not.toBe(null);
+        expect(Natacion.pieTable()).not.toBe(null);
     });
     it("debería devolver las etiquetas HTML para el pie de tabla cuando se le pasa un valor vacío", function() {
-        expect(Plantilla.pieTable()).not.toBe("");
+        expect(Natacion.pieTable()).not.toBe("");
     });
     it("debería devolver las etiquetas HTML para el pie de tabla",
         function () {
-            expect(Plantilla.pieTable()).toBe("</tbody></table>");
+            expect(Natacion.pieTable()).toBe("</tbody></table>");
         });
 });
 
 
-describe("Plantilla.TableNombres", function () {
+describe("Natacion.TableNombres", function () {
     it("debería devolver un string vacío si se le pasa un valor nulo",
     function () {
-        expect(Plantilla.cabeceraTableNombres()).not.toBe(null);
+        expect(Natacion.cabeceraTableNombres()).not.toBe(null);
     });
     it("debería devolver un string vacío si se le pasa un valor vacío",
     function () {
-        expect(Plantilla.cabeceraTableNombres()).not.toBe("");
+        expect(Natacion.cabeceraTableNombres()).not.toBe("");
     });
     it("debería devolver las etiquetas HTML para la cabecera de tabla",
         function () {
-            expect(Plantilla.cabeceraTableNombres()).toBe(`<table class="listado-plantilla"><thead><th>Nombres</th><th>Apellidos</th></thead><tbody>`);
+            expect(Natacion.cabeceraTableNombres()).toBe(`<table class="listado-Natacion"><thead><th>Nombres</th><th>Apellidos</th></thead><tbody>`);
         });
 });
 
 
-describe('Plantilla.cuerpoTrNombres', function () {
+describe('Natacion.cuerpoTrNombres', function () {
     // Preparar los datos de la prueba
     const p = {
         ref: { "@ref": { id: "ref persona 1" } },
@@ -188,21 +188,21 @@ describe('Plantilla.cuerpoTrNombres', function () {
     }
     // Realizar los expect
     it("debería devolver una cadena vacía si se le pasa un valor nulo", function () {
-        expect(Plantilla.cuerpoTrNombres(p)).not.toBe(null);
+        expect(Natacion.cuerpoTrNombres(p)).not.toBe(null);
     });
 
     it("debería devolver una cadena vacía si se le pasa una cadena vacía", function () {
-        expect(Plantilla.cuerpoTrNombres(p)).not.toBe("");
+        expect(Natacion.cuerpoTrNombres(p)).not.toBe("");
     });
-    it("debería devolver una cadena que contenga los nombres de la plantilla",
+    it("debería devolver una cadena que contenga los nombres de la Natacion",
         function () {
-            expect(Plantilla.cuerpoTrNombres(p)).toBe(`<tr title="${p.ref['@ref'].id}"><td>${p.data.Nombre_completo.Nombre}</td><td>${p.data.Nombre_completo.Apellidos}</td></tr>`);
+            expect(Natacion.cuerpoTrNombres(p)).toBe(`<tr title="${p.ref['@ref'].id}"><td>${p.data.Nombre_completo.Nombre}</td><td>${p.data.Nombre_completo.Apellidos}</td></tr>`);
         });
 });
 
 
 
-describe('Plantilla.imprimeNombres', function () {
+describe('Natacion.imprimeNombres', function () {
     // Preparar los datos de la prueba
     const vector = [
         {
@@ -216,34 +216,34 @@ describe('Plantilla.imprimeNombres', function () {
     ];
 
     // Realizo los expect
-    it("debería mostrar una tabla con los nombres de las plantillas en Frontend.Article",
+    it("debería mostrar una tabla con los nombres de las Natacions en Frontend.Article",
         function () {
-            const expectedMsj = Plantilla.cabeceraTableNombres() + Plantilla.cuerpoTrNombres(vector[0]) + Plantilla.cuerpoTrNombres(vector[1]) + Plantilla.pieTable();
+            const expectedMsj = Natacion.cabeceraTableNombres() + Natacion.cuerpoTrNombres(vector[0]) + Natacion.cuerpoTrNombres(vector[1]) + Natacion.pieTable();
             spyOn(Frontend.Article, 'actualizar');
-            Plantilla.imprimeNombres(vector);
+            Natacion.imprimeNombres(vector);
             expect(Frontend.Article.actualizar).toHaveBeenCalledWith('Listado de nombres', expectedMsj);
         });
 });
 
 
 //TDD para la Historia de Usuario 4 (HU 4)
-describe("Plantilla.cabeceraTable", function () {
+describe("Natacion.cabeceraTable", function () {
     // Realizo los expect
     it("debería devolver una cadena vacía si se le pasa un valor nulo", function () {
-        expect(Plantilla.cabeceraTable()).not.toBe(null);
+        expect(Natacion.cabeceraTable()).not.toBe(null);
     });
 
     it("debería devolver una cadena vacía si se le pasa una cadena vacía", function () {
-        expect(Plantilla.cabeceraTable()).not.toBe("");
+        expect(Natacion.cabeceraTable()).not.toBe("");
     });
     it("debería devolver las etiquetas HTML para la cabecera de tabla",
         function () {
-            expect(Plantilla.cabeceraTable()).toBe(`<table class="listado-plantilla"><thead><th>Nombre</th><th>Apellidos</th><th>Fecha</th><th>Direccion</th><th>Años participación</th><th>Nº participaciones mundiales en JJOO</th><th>Mejor estilo de natación</th></thead><tbody>`);
+            expect(Natacion.cabeceraTable()).toBe(`<table class="listado-Natacion"><thead><th>Nombre</th><th>Apellidos</th><th>Fecha</th><th>Direccion</th><th>Años participación</th><th>Nº participaciones mundiales en JJOO</th><th>Mejor estilo de natación</th></thead><tbody>`);
         });
 });
 
 
-describe('Plantilla.cuerpoTr', function () {
+describe('Natacion.cuerpoTr', function () {
     // Preparar los datos de la prueba
     const p = {
         ref: { "@ref": { id: "ref persona 1" } },
@@ -264,21 +264,21 @@ describe('Plantilla.cuerpoTr', function () {
 
     // Realizo los expect
     it("debería devolver una cadena vacía si se le pasa un valor nulo", function () {
-    expect(Plantilla.cuerpoTr(p)).not.toBe(null);
+    expect(Natacion.cuerpoTr(p)).not.toBe(null);
     });
 
     it("debería devolver una cadena vacía si se le pasa una cadena vacía", function () {
-        expect(Plantilla.cuerpoTr(p)).not.toBe("");
+        expect(Natacion.cuerpoTr(p)).not.toBe("");
     });
 
-    it("debería devolver una cadena que contenga todos los datos de la plantilla de personas",
+    it("debería devolver una cadena que contenga todos los datos de la Natacion de personas",
         function () {
-            expect(Plantilla.cuerpoTr(p)).toBe(`<tr title="${p.ref['@ref'].id}"><td>${p.data.Nombre_completo.Nombre}</td><td>${p.data.Nombre_completo.Apellidos}</td><td>${p.data.Fecha.dia}/${p.data.Fecha.mes}/${p.data.Fecha.año}</td><td>${p.data.Direccion.calle}, ${p.data.Direccion.localidad}, ${p.data.Direccion.provincia}, ${p.data.Direccion.pais}</td><td>${p.data.Anios_participacion_en_mundial}</td><td>${p.data.Num_participaciones_mundiales_JJOO}</td><td>${p.data.Mejor_estilo_natacion}</td></tr>`);
+            expect(Natacion.cuerpoTr(p)).toBe(`<tr title="${p.ref['@ref'].id}"><td>${p.data.Nombre_completo.Nombre}</td><td>${p.data.Nombre_completo.Apellidos}</td><td>${p.data.Fecha.dia}/${p.data.Fecha.mes}/${p.data.Fecha.año}</td><td>${p.data.Direccion.calle}, ${p.data.Direccion.localidad}, ${p.data.Direccion.provincia}, ${p.data.Direccion.pais}</td><td>${p.data.Anios_participacion_en_mundial}</td><td>${p.data.Num_participaciones_mundiales_JJOO}</td><td>${p.data.Mejor_estilo_natacion}</td></tr>`);
         });
 });
 
 
-describe('Plantilla.imprime', function () {
+describe('Natacion.imprime', function () {
     // Preparar los datos de la prueba
     const vector = [
         {
@@ -316,18 +316,18 @@ describe('Plantilla.imprime', function () {
     ];
 
     // Realizo los expect  
-    it("debería mostrar una tabla con todos los datos de las plantillas de personas en Frontend.Article",
+    it("debería mostrar una tabla con todos los datos de las Natacions de personas en Frontend.Article",
         function () { 
-            const expectedMsj = Plantilla.cabeceraTable() + Plantilla.cuerpoTr(vector[0]) + Plantilla.cuerpoTr(vector[1]) + Plantilla.pieTable();
+            const expectedMsj = Natacion.cabeceraTable() + Natacion.cuerpoTr(vector[0]) + Natacion.cuerpoTr(vector[1]) + Natacion.pieTable();
             spyOn(Frontend.Article, 'actualizar');
-            Plantilla.imprime(vector);
-            expect(Frontend.Article.actualizar).toHaveBeenCalledWith('Listado de plantillas', expectedMsj);
+            Natacion.imprime(vector);
+            expect(Frontend.Article.actualizar).toHaveBeenCalledWith('Listado de Natacions', expectedMsj);
         });
 });
 
 
 //TDD para la Historia de Usuario 6 (HU 6)
-describe('Plantilla.imprimeUnaPersona', function () {
+describe('Natacion.imprimeUnaPersona', function () {
     // Preparar los datos de la prueba
     const p = {
         ref: { "@ref": { id: "ref persona 1" } },
@@ -348,9 +348,9 @@ describe('Plantilla.imprimeUnaPersona', function () {
     // Realizo los expect
     it("debería mostrar una tabla con todos los datos de una persona en Frontend.Article",
         function () {
-            const expectedMsj = Plantilla.cabeceraTable() + Plantilla.cuerpoTr(p) + Plantilla.pieTable();
+            const expectedMsj = Natacion.cabeceraTable() + Natacion.cuerpoTr(p) + Natacion.pieTable();
             spyOn(Frontend.Article, 'actualizar');
-            Plantilla.imprimeUnaPersona(p);
+            Natacion.imprimeUnaPersona(p);
             expect(Frontend.Article.actualizar).toHaveBeenCalledWith('Mostrar una persona', expectedMsj);
         });
 });

@@ -1,6 +1,6 @@
 /**
- * @file ms-plantilla-spec.js
- * @description Fichero TDD para probar todo lo relacionado con MS Plantilla en el front-end
+ * @file ms-Escalada-spec.js
+ * @description Fichero TDD para probar todo lo relacionado con MS Escalada en el front-end
  * @author Víctor M. Rivas <vrivas@ujaen.es>
  * @date 03-feb-2023
  */
@@ -10,8 +10,8 @@
 // Constantes para usar en las pruebas
 const elementoTitulo = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_TITULO)
 const elementoContenido = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_CONTENIDO)
-const TITULO_HOME = "Plantilla Home"
-const TITULO_ACERCA_DE = "Plantilla Acerca de"
+const TITULO_HOME = "Escalada Home"
+const TITULO_ACERCA_DE = "Escalada Acerca de"
 
 const datosDescargadosPrueba = {
     mensaje: "Mensaje de prueba descargado",
@@ -33,87 +33,87 @@ function esperar(ms) {
 
 // SPECS a probar
 
-describe("Plantilla.mostrarHome: ", function () {
+describe("Escalada.mostrarHome: ", function () {
 
     it("muestra datos nulos cuando le pasamos un valor nulo",
         function () {
-            Plantilla.mostrarHome()
+            Escalada.mostrarHome()
             expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Plantilla.dDescargadosNulos.mensaje)
+            expect(elementoContenido.innerHTML).toBe(Escalada.dDescargadosNulos.mensaje)
         })
 
     it("muestra datos nulos cuando le pasamos un valor que no es un objeto",
         function () {
-            Plantilla.mostrarHome(23)
+            Escalada.mostrarHome(23)
             expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Plantilla.dDescargadosNulos.mensaje)
+            expect(elementoContenido.innerHTML).toBe(Escalada.dDescargadosNulos.mensaje)
         })
 
     it("muestra datos nulos cuando le pasamos un objeto que no tiene campo mensaje",
         function () {
             // Objeto vacío
-            Plantilla.mostrarHome({})
+            Escalada.mostrarHome({})
             expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Plantilla.dDescargadosNulos.mensaje)
+            expect(elementoContenido.innerHTML).toBe(Escalada.dDescargadosNulos.mensaje)
 
             // Objeto sin campo mensaje
-            Plantilla.mostrarHome({ foo: "bar" })
+            Escalada.mostrarHome({ foo: "bar" })
             expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Plantilla.dDescargadosNulos.mensaje)
+            expect(elementoContenido.innerHTML).toBe(Escalada.dDescargadosNulos.mensaje)
         })
 
     it("muestra correctamente el título y el mensaje",
         function () {
-            Plantilla.mostrarHome(datosDescargadosPrueba)
+            Escalada.mostrarHome(datosDescargadosPrueba)
             expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
             expect(elementoContenido.innerHTML).toBe(datosDescargadosPrueba.mensaje)
         })
 })
 
 
-describe("Plantilla.mostrarAcercaDe: ", function () {
+describe("Escalada.mostrarAcercaDe: ", function () {
     it("muestra datos nulos cuando le pasamos un valor nulo",
         function () {
-            Plantilla.mostrarAcercaDe()
+            Escalada.mostrarAcercaDe()
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.dDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(Escalada.dDescargadosNulos.mensaje) >= 0).toBeTrue()
         })
 
     it("muestra datos nulos cuando le pasamos un valor que no es un objeto",
         function () {
-            Plantilla.mostrarAcercaDe(23)
+            Escalada.mostrarAcercaDe(23)
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.dDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(Escalada.dDescargadosNulos.mensaje) >= 0).toBeTrue()
         })
 
     it("muestra datos nulos cuando le pasamos un objeto que no tiene campo mensaje o autor o email o fecha ",
         function () {
             // Objeto vacío
-            Plantilla.mostrarAcercaDe({})
+            Escalada.mostrarAcercaDe({})
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.dDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(Escalada.dDescargadosNulos.mensaje) >= 0).toBeTrue()
 
             // Objeto sin campo mensaje
-            Plantilla.mostrarAcercaDe({ autor: "un autor", email: "un email", fecha: "una fecha" })
+            Escalada.mostrarAcercaDe({ autor: "un autor", email: "un email", fecha: "una fecha" })
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.dDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(Escalada.dDescargadosNulos.mensaje) >= 0).toBeTrue()
             // Objeto sin campo autor
-            Plantilla.mostrarAcercaDe({ mensaje: "un mensaje", email: "un email", fecha: "una fecha" })
+            Escalada.mostrarAcercaDe({ mensaje: "un mensaje", email: "un email", fecha: "una fecha" })
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.dDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(Escalada.dDescargadosNulos.mensaje) >= 0).toBeTrue()
             // Objeto sin campo email
-            Plantilla.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", fecha: "una fecha" })
+            Escalada.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", fecha: "una fecha" })
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.dDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(Escalada.dDescargadosNulos.mensaje) >= 0).toBeTrue()
             // Objeto sin campo fecha
-            Plantilla.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", email: "un email" })
+            Escalada.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", email: "un email" })
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.dDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(Escalada.dDescargadosNulos.mensaje) >= 0).toBeTrue()
         })
 
     it("muestra correctamente el título y el mensaje conteniendo el autor, el email y la fecha",
         function () {
-            Plantilla.mostrarAcercaDe(datosDescargadosPrueba)
+            Escalada.mostrarAcercaDe(datosDescargadosPrueba)
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
             
             // Comprobamos que al buscar el autor, el email y la fecha de prueba los encuentra dentro del contenido del article
@@ -132,29 +132,29 @@ IMPORTANTE
 Las pruebas TDD que se encargan de probar las conexiones con el microservicio desde el cliente son difíciles de probar 
 dado que requieren solucionar temas de sincronización. 
 Esto afecta a los métodos:
- - Plantilla.descargarRuta
- - Plantilla.procesarAcercaDe
- - Plantilla.procesarHome
+ - Escalada.descargarRuta
+ - Escalada.procesarAcercaDe
+ - Escalada.procesarHome
 
  Las soluciones propuestas en distintos sitios web no han producido el resultado esperado, 
  por tanto: para esta práctica, se pueden dejar SIN HACER.
 
  */
- describe("Plantilla.pieTable  ", function () {
+ describe("Escalada.pieTable  ", function () {
     it("debería devolver las etiquetas HTML para el pie de tabla",
         function () {
-            expect(Plantilla.pieTable()).toBe("</tbody></table>");
+            expect(Escalada.pieTable()).toBe("</tbody></table>");
         });
 });
 
-describe("Plantilla.cabeceraTableNombres", function () {
+describe("Escalada.cabeceraTableNombres", function () {
     it("debería devolver las etiquetas HTML para la cabecera de tabla",
         function () {
-            expect(Plantilla.cabeceraTableNombres()).toBe(`<table class="listado-personas"><thead><th>ID</th><th>Nombre</th><th>Apellidos</th></thead><tbody>`);
+            expect(Escalada.cabeceraTableNombres()).toBe(`<table class="listado-personas"><thead><th>ID</th><th>Nombre</th><th>Apellidos</th></thead><tbody>`);
         });
 });
 
-describe("Plantilla.cuerpoTr", function () {
+describe("Escalada.cuerpoTr", function () {
     it("debería comprobar que lo que muestra no esta vacío",
         function () {
             const p = {
@@ -186,12 +186,12 @@ describe("Plantilla.cuerpoTr", function () {
             <td>3</td>
             <td>Deportista</td>
             </tr>`;
-            expect(Plantilla.cuerpoTr(p)).not.toBe('');
+            expect(Escalada.cuerpoTr(p)).not.toBe('');
         });
 });
 
 
-describe("Plantilla.imprimeNombres", function () {
+describe("Escalada.imprimeNombres", function () {
     let vector;
     beforeEach(function () {
         // Crear un mock para el objeto Frontend.Article
@@ -201,21 +201,21 @@ describe("Plantilla.imprimeNombres", function () {
     });
 
     it("debería generar el mensaje correcto para el listado de nombres", function () {
-        // Mockear las funciones Plantilla.cabeceraTableNombres y Plantilla.pieTable
-        spyOn(Plantilla, "cabeceraTableNombres");
-        spyOn(Plantilla, "pieTable");
+        // Mockear las funciones Escalada.cabeceraTableNombres y Escalada.pieTable
+        spyOn(Escalada, "cabeceraTableNombres");
+        spyOn(Escalada, "pieTable");
 
         // Llamar a la función a probar
-        spyOn(Plantilla, "cuerpoTrNombres").and.callFake(function() {
+        spyOn(Escalada, "cuerpoTrNombres").and.callFake(function() {
             return true;
         });
 
-        Plantilla.imprimeNombres(vector);
+        Escalada.imprimeNombres(vector);
 
         // Comprobar que se llamaron a las funciones de cabeceraTableNombres, cuerpoTrNombres y pieTable
-        expect(Plantilla.cabeceraTableNombres).toHaveBeenCalled();
-        expect(Plantilla.cuerpoTrNombres).toHaveBeenCalledTimes(vector.length);
-        expect(Plantilla.pieTable).toHaveBeenCalled();
+        expect(Escalada.cabeceraTableNombres).toHaveBeenCalled();
+        expect(Escalada.cuerpoTrNombres).toHaveBeenCalledTimes(vector.length);
+        expect(Escalada.pieTable).toHaveBeenCalled();
 
         // Comprobar que se llamó a la función de Frontend.Article.actualizar con los argumentos correctos
         expect(Frontend.Article.actualizar).toHaveBeenCalledWith("Listado de nombre de personas", jasmine.any(String));
@@ -223,7 +223,7 @@ describe("Plantilla.imprimeNombres", function () {
 });
  
 
-describe("Plantilla.imprimeMostrar", function () {
+describe("Escalada.imprimeMostrar", function () {
     beforeEach(function () {
         // Mock de la función Frontend.Article.actualizar()
         spyOn(Frontend.Article, 'actualizar');
@@ -250,15 +250,15 @@ describe("Plantilla.imprimeMostrar", function () {
                 }
             }
         };
-        let expectedMsj = Plantilla.cabeceraTable() + Plantilla.cuerpoTr(p) + Plantilla.pieTable();
+        let expectedMsj = Escalada.cabeceraTable() + Escalada.cuerpoTr(p) + Escalada.pieTable();
         
-        Plantilla.imprimeMostrar(p);
+        Escalada.imprimeMostrar(p);
         
         expect(Frontend.Article.actualizar).toHaveBeenCalledWith("Persona mostrada", expectedMsj);
     });
 });
 
-describe(" Plantilla.imprime", function () {
+describe(" Escalada.imprime", function () {
     beforeEach(function () {
         // Mock de la función Frontend.Article.actualizar()
         spyOn(Frontend.Article, 'actualizar');
@@ -330,14 +330,14 @@ describe(" Plantilla.imprime", function () {
         ];
         
         // Llamamos a la función que genera el mensaje de impresión y mostrado de personas
-        Plantilla.imprime(vectorPersonas);
+        Escalada.imprime(vectorPersonas);
         
         // Verificamos que la función de actualización haya sido llamada con los argumentos correctos
         expect(Frontend.Article.actualizar).toHaveBeenCalledWith("Listado de personas", jasmine.any(String));
     });
 });
 
-describe("Plantilla.cuerpoTrNombres", function () {
+describe("Escalada.cuerpoTrNombres", function () {
     it("debería devolver la cadena HTML correcta para una fila de tabla con nombres",
         function () {
             const p = {
@@ -356,11 +356,11 @@ describe("Plantilla.cuerpoTrNombres", function () {
     <td>Juan</td>
     <td> Pérez</td>
     </tr>`;
-            expect(Plantilla.cuerpoTrNombres(p)).toBe(expected);
+            expect(Escalada.cuerpoTrNombres(p)).toBe(expected);
         });
 });
 
-describe("Plantilla.cabeceraTable", function () {
+describe("Escalada.cabeceraTable", function () {
     it("debería devolver la etiqueta HTML para la cabecera de la tabla", function () {
         var expectedOutput = `<table class="listado-personas">
         <thead>
@@ -368,6 +368,6 @@ describe("Plantilla.cabeceraTable", function () {
         </thead>
         <tbody>
     `;
-        expect(Plantilla.cabeceraTable()).toBe(expectedOutput);
+        expect(Escalada.cabeceraTable()).toBe(expectedOutput);
     });
 });
