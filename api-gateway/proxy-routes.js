@@ -8,12 +8,12 @@
 
 const ROUTES = [
     {
-        url: '/tenisDMesa',
+        url: '/TenisDMesa',
         proxy: {
             target: "http://localhost:8006",
             changeOrigin: true,
             pathRewrite: {
-                [`^/tenisDMesa`]: '',
+                [`^/TenisDMesa`]: '',
             },
         }
     },

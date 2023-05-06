@@ -172,7 +172,7 @@ TenisDMesa.recupera = async function (callBackFn) {
 
     // Intento conectar con el microservicio personas
     try {
-        const url = Frontend.API_GATEWAY + "/TenisDMesa/getTodos"
+        const url = Frontend.API_GATEWAY + "/TenisDMesa/getTodas"
         response = await fetch(url)
 
     } catch (error) {
@@ -403,7 +403,7 @@ TenisDMesa.buscarPorVarios2 = async function (callBackFn, nombre, localidad, par
     let response = null
     // Intento conectar con el microservicio proyectos
     try {
-        const url = Frontend.API_GATEWAY + "/TenisDMesa/getTodos"
+        const url = Frontend.API_GATEWAY + "/TenisDMesa/getTodas"
         response = await fetch(url)
 
     } catch (error) {
@@ -519,14 +519,14 @@ TenisDMesa.listarUnJugador = function (jugador) {
  * Función principal para responder al evento de elegir la opción "Home"
  */
 TenisDMesa.procesarHome = function () {
-    this.descargarRuta("/tenisDMesa/", this.mostrarHome);
+    this.descargarRuta("/TenisDMesa/", this.mostrarHome);
 }
 
 /**
  * Función principal para responder al evento de elegir la opción "Acerca de"
  */
 TenisDMesa.procesarAcercaDe = function () {
-    this.descargarRuta("/tenisDMesa/acercade", this.mostrarAcercaDe);
+    this.descargarRuta("/TenisDMesa/acercade", this.mostrarAcercaDe);
 }
 
 /**

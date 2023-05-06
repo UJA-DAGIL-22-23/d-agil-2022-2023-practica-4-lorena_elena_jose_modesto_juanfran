@@ -1,5 +1,5 @@
 /**
- * @file ms-plantilla.css
+ * @file ms-TenisDMesa.css
  * @description Estilos aplicables a la visualización de elementos relacionados con el MS Plantilla
  * @author Víctor M. Rivas Santos <vrivas@ujaen.es>
  * @date 03-Feb-2023
@@ -11,13 +11,13 @@
     font-family: 'Source Sans Pro', sans-serif;
 }
 
-table.listado-plantilla {
+table.listado-TenisDMesa {
     width: 100%;
     border: 1px solid rgba(0, 0, 100, 0.8);
 }
 
-table.listado-plantilla thead th,
-table.listado-plantilla tbody th {
+table.listado-TenisDMesa thead th,
+table.listado-TenisDMesa tbody th {
     margin: 3px;
     height: 2.5em;
     background-color: rgba(0, 0, 0, 0.4);
@@ -26,16 +26,16 @@ table.listado-plantilla tbody th {
 }
 
 
-table.listado-plantilla tbody th {
+table.listado-TenisDMesa tbody th {
     background-color: rgba(0, 0, 0, 0.1);
 }
 
-table.listado-plantilla tbody td {
+table.listado-TenisDMesa tbody td {
     padding: 0.5em;
     text-align: center;
 }
 
-table.listado-plantilla tbody tr {
+table.listado-TenisDMesa tbody tr {
     margin: 3px;
     height: 2em;
     background-color: rgba(0, 0, 100, 0.1)
