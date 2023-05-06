@@ -49,7 +49,7 @@ router.get("/test_db", async (req, res) => {
 /**
  * Ruta Listado jugadores 
  */
-router.get("/getTodas", async (req, res) => {
+router.get("/getTodos", async (req, res) => {
     try {
         await callbacks.getTodas(req, res)
     } catch (error) {
