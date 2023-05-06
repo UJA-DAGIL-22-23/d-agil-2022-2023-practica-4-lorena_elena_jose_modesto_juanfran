@@ -8,12 +8,51 @@
 
 const ROUTES = [
     {
-        url: '/plantilla',
+        url: '/tenisDMesa',
+        proxy: {
+            target: "http://localhost:8006",
+            changeOrigin: true,
+            pathRewrite: {
+                [`^/tenisDMesa`]: '',
+            },
+        }
+    },
+    {
+        url: '/Natacion',
+        proxy: {
+            target: "http://localhost:8005",
+            changeOrigin: true,
+            pathRewrite: {
+                [`^/Natacion`]: '',
+            },
+        }
+    },
+    {
+        url: '/Esgrima',
+        proxy: {
+            target: "http://localhost:8004",
+            changeOrigin: true,
+            pathRewrite: {
+                [`^/Esgrima`]: '',
+            },
+        }
+    },
+    {
+        url: '/Escalada',
+        proxy: {
+            target: "http://localhost:8003",
+            changeOrigin: true,
+            pathRewrite: {
+                [`^/Escalada`]: '',
+            },
+        }
+    },{
+        url: '/Ciclismo',
         proxy: {
             target: "http://localhost:8002",
             changeOrigin: true,
             pathRewrite: {
-                [`^/plantilla`]: '',
+                [`^/Ciclismo`]: '',
             },
         }
     }
