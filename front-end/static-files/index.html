@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Aplicación Microservicios Plantilla</title>
+    <title>Aplicación Microservicios Escalada</title>
 
     <!-- Cargamos biblioteca Jasmine -->
 
@@ -23,15 +23,15 @@
     <!-- Barra de navegación de la aplicación -->
     <nav>
         <a href="javascript:TenisDMesa.procesarHome()" class="opcion-principal"
-            title="Llama a la ruta / del MS Plantilla">Home</a>
+            title="Llama a la ruta / del MS Escalada">Home</a>
         <a href="javascript:TenisDMesa.procesarAcercaDe()" class="opcion-principal"
-            title="Llama a la ruta /acercade del MS Plantilla">Acerca de</a>
+            title="Llama a la ruta /acercade del MS Escalada">Acerca de</a>
         <a href="javascript:TenisDMesa.muestraTodos()" class="opcion-principal"
-            title="Llama a la ruta /getTodos del MS Plantilla">Listado jugadores</a>
+            title="Llama a la ruta /getTodos del MS Escalada">Listado jugadores</a>
         <a href="javascript:TenisDMesa.muestraNombres()" class="opcion-principal"
-            title="Llama a la ruta /getTodos del MS Plantilla">Listado jugadores por nombre</a>
+            title="Llama a la ruta /getTodos del MS Escalada">Listado jugadores por nombre</a>
         <a href="javascript:TenisDMesa.muestraNombresAlfabeticamente()" class="opcion-principal"
-            title="Llama a la ruta /getTodos del MS Plantilla y muestra nombres alfabeticamente">Listado nombres alfabeticamente</a>
+            title="Llama a la ruta /getTodos del MS Escalada y muestra nombres alfabeticamente">Listado nombres alfabeticamente</a>
         
         <br></br>
         <div class="dropdown">
@@ -46,7 +46,7 @@
         <br></br>
         <h2>Listar jugador dado su id:</h2>
         <a href="javascript:TenisDMesa.muestraUnJugador('358543439432777933')" class="opcion-principal"
-            title="Llama a la ruta /getTodos del MS Plantilla y muestra todos los datos de un jugador">Listar datos de un jugador</a>
+            title="Llama a la ruta /getTodos del MS Escalada y muestra todos los datos de un jugador">Listar datos de un jugador</a>
   
 
 
@@ -107,15 +107,15 @@
     <!-- Barra de navegación de la aplicación -->
     <nav>
         <a href="javascript:Esgrima.procesarHome()" class="opcion-principal"
-            title="Llama a la ruta / del MS Plantilla">Home</a>
+            title="Llama a la ruta / del MS Escalada">Home</a>
         <a href="javascript:Esgrima.procesarAcercaDe()" class="opcion-principal"
-            title="Llama a la ruta /acercade del MS Plantilla">Acerca de</a>
+            title="Llama a la ruta /acercade del MS Escalada">Acerca de</a>
         <a href="javascript:Esgrima.listar()" class="opcion-principal"
-            title="Llama a la ruta /procesarNombres del MS Plantilla">Procesar Datos Personas</a>
+            title="Llama a la ruta /procesarNombres del MS Escalada">Procesar Datos Personas</a>
         <a href="javascript:Esgrima.listarSoloNombres()" class="opcion-principal"
-            title="Llama a la ruta /procesarNombres del MS Plantilla">Procesar Nombres</a>
+            title="Llama a la ruta /procesarNombres del MS Escalada">Procesar Nombres</a>
         <a href="javascript:Esgrima.listarSoloNombresOrdenados()" class="opcion-principal"
-            title="Llama a la ruta /procesarNombresOrdenados del MS Plantilla">Procesar Nombres Ordenados</a>
+            title="Llama a la ruta /procesarNombresOrdenados del MS Escalada">Procesar Nombres Ordenados</a>
     </nav>
     <br></br>
     <form class="formulario">
@@ -203,6 +203,75 @@
         var checkbox = document.getElementById("cbox1");
         Esgrima.listarBusquedaSimultanea(b1,b2,b3,checkbox);
     }
+    </script>
+
+    <h1>Escalada</h1>
+    <a href="javascript:Escalada.procesarHome()" class="opcion-principal"
+            title="Llama a la ruta / del MS Escalada">Home</a>
+        <a href="javascript:Escalada.procesarAcercaDe()" class="opcion-principal"
+            title="Llama a la ruta /acercade del MS Escalada">Acerca de</a>
+        <a href="javascript:Escalada.listar()" class="opcion-principal mostrar"
+         title="Realiza un listado de todas las personas que hay en la BBDD">Listar personas</a>
+         <a href="javascript:Escalada.listarNombres()" class="opcion-principal mostrar"
+         title="Realiza un listado de todas las personas que hay en la BBDD solo los nombres">Listar nombres personas</a>
+         <a href="javascript:Escalada.listarNombreAlfa()" class="opcion-principal mostrar"
+         title="Realiza un listado de todas las personas que hay en la BBDD en orden alfabetico">Listar personas en orden</a>
+         <a href="javascript:Escalada.mostrar('359174493989503180')" class="opcion-principal mostrar"
+        title="Muestra los datos de una persona como ejemplo">Mostrar una persona de ejemplo</a>
+       
+        <div class="dropdown">
+            <button class="dropbtn">Listar por opción</button>
+            <div class="dropdown-content">
+                <a href="javascript:Escalada.listarOrden('apellido')" class="opcion-principal" title="Realiza un listado de todas las personas que hay en la BBDD en orden alfabetico">Apellido</a>
+                <a href="javascript:Escalada.listarOrden('tipo')" class="opcion-principal" title="Realiza un listado de todas las personas que hay en la BBDD en orden alfabetico">Tipo</a>
+                <a href="javascript:Escalada.listarOrden3('direccion','calle')" class="opcion-principal" title="Realiza un listado de todas las personas que hay en la BBDD en orden alfabetico">Direccion</a>
+                <a href="javascript:Escalada.listarOrden2('numeroParticipacionesOlimpicas')" class="opcion-principal" title="Realiza un listado de todas las personas que hay en la BBDD en orden alfabetico">Participaciones olímpicas</a>
+
+            </div>
+       </div>
+
+        <form>
+            <input type="text" id="search" name="search" placeholder="Nombre">
+            <button type="button" onclick="buscar()">Buscar</button>
+        </form>
+          <script>
+            function buscar() {
+              var searchTerm = document.getElementById("search").value;
+              Escalada.listarBuscar(searchTerm);
+            }
+          </script>
+          
+    <form>
+        <input type="text" id="nomb" name="nomb" placeholder="Nombre">
+        <input type="text" id="tip" name="tip"  placeholder="tipo">
+        <input type="text" id="Parti" name="Parti" placeholder="Num participacion">
+        <input type="text" id="anParti" name="anParti" placeholder="calle">
+        <button type="button" onclick="buscarTipo()">Buscar</button>
+    </form>
+     <script>
+     function buscarTipo() {
+            var searchTerm1 = document.getElementById("nomb").value;
+            var searchTerm2 = document.getElementById("tip").value;
+            var searchTerm3 = document.getElementById("Parti").value;
+            var searchTerm4 = document.getElementById("anParti").value;
+            Escalada.listarBuscarTip(searchTerm1,searchTerm2,searchTerm3,searchTerm4);
+     }
+  </script>
+     <form>
+        <input type="text" id="nom" name="nom" placeholder="Nombre">
+        <input type="text" id="loc" name="loc" placeholder="localidad">
+        <input type="text" id="part" name="part" placeholder="tipo">
+        <input type="text" id="ani" name="ani" placeholder="año">
+        <button type="button" onclick="buscarPorMas()">Buscar por simultaneidad</button>
+    </form>
+    <script>
+        function buscarPorMas() {
+            var searchTerm1 = document.getElementById("nom").value;
+            var searchTerm2 = document.getElementById("loc").value;
+            var searchTerm3 = document.getElementById("part").value;
+            var searchTerm4 = document.getElementById("ani").value;
+            Escalada.listarBuscarMas(searchTerm1,searchTerm2,searchTerm3,searchTerm4);
+        }
     </script>
         
     <!-- 
