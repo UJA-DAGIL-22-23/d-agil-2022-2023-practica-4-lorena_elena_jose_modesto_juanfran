@@ -273,6 +273,84 @@
             Escalada.listarBuscarMas(searchTerm1,searchTerm2,searchTerm3,searchTerm4);
         }
     </script>
+
+    <h1>Natación</h1>
+    <nav>
+        <a href="javascript:Natacion.procesarHome()" class="opcion-principal"
+            title="Llama a la ruta / del MS Natacion">Home</a>
+        <a href="javascript:Natacion.procesarAcercaDe()" class="opcion-principal"
+            title="Llama a la ruta /acercade del MS Natacion">Acerca de</a>
+        <a href="javascript:Natacion.listarNombres()" class="opcion-principal"
+            title="Realiza un listado de nombres de todas las personas que hay en la BBDD">Listado nombres</a> 
+        <a href="javascript:Natacion.listarNombresAlfabetic()" class="opcion-principal"
+            title="Realiza un listado de nombres de todas las personas que hay en la BBDD">Listado nombres alfabéticamente</a>      
+        <a href="javascript:Natacion.listar()" class="opcion-principal"
+            title="Realiza un listado de todas las personas que hay en la BBDD">Listado Datos Personas</a>  
+        <a href="javascript:Natacion.mostrar('359174921749790925')" class="opcion-principal mostrar"
+            title="Muestra los datos de una persona como ejemplo">Mostrar una persona de ejemplo</a>    
+        
+        <div class="dropdown">
+            <button class="dropbtn">Listar por</button>
+            <div class="dropdown-content">
+                <a href="javascript:Natacion.listarPorVarios('Nombre_completo','Apellidos')" class="opcion-principal" title="Realiza un listado de todas las personas que hay en la BBDD en orden alfabetico por apellido">Apellidos</a>
+                <a href="javascript:Natacion.listarPorNum('Num_participaciones_mundiales_JJOO')" class="opcion-principal" title="Realiza un listado de todas las personas que hay en la BBDD en orden alfabetico">Participaciones en JJOO</a>
+                <a href="javascript:Natacion.listarPorVarios('Direccion','localidad')" class="opcion-principal" title="Realiza un listado de todas las personas que hay en la BBDD en orden alfabetico por localidad">Localidad</a>
+                <a href="javascript:Natacion.listarPor('Mejor_estilo_natacion')" class="opcion-principal" title="Realiza un listado de todas las personas que hay en la BBDD en orden alfabetico por mejor estilo de natación">Mejor estilo natación</a>
+            </div>
+       </div>
+        
+
+        <form>
+            <a>Buscar por nombre:</a>
+            <input type="text" id="buscar" name="buscar" placeholder="Nombre" class="busc">
+            <button class="btn" type="button" title="Realiza un listado de todas las personas que se llamen 'Nombre'" onclick="buscar1()">Buscar</button>
+        </form>
+          <script>
+            function buscar1() {
+                var buscar = document.getElementById("buscar").value;
+                console.log(buscar);
+                Natacion.listarBuscar(buscar);
+            }
+          </script>
+
+        <form>
+            <a>Buscar por cuatro criterios:</a>
+            <input type="text" id="nombre" name="nombre" placeholder="Nombre" class="busc">
+            <input type="text" id="localidad" name="localidad" placeholder="Localidad" class="busc">
+            <input type="text" id="estilo" name="estilo" placeholder="Estilo natación" class="busc">
+            <input type="text" id="anio" name="anio" placeholder="Año participaciones mundiales" class="busc">
+            <button class="btn" type="button" onclick="buscarCuatro()" title="Realiza un listado de todas las personas que cumplan con los cuatro campos">Buscar</button>
+        </form>
+        <script>
+            function buscarCuatro() {
+                var searchTerm1 = document.getElementById("nombre").value;
+                var searchTerm2 = document.getElementById("localidad").value;
+                var searchTerm3 = document.getElementById("estilo").value;
+                var searchTerm4 = document.getElementById("anio").value;
+                Natacion.listarBuscarCuatro(searchTerm1,searchTerm2,searchTerm3,searchTerm4);
+            }
+        </script>
+
+        <form>
+            <a>Buscar mínimo por un criterio:</a>
+            <input type="text" id="nom" name="nom" placeholder="Nombre" class="busc">
+            <input type="text" id="local" name="local" placeholder="Localidad" class="busc">
+            <input type="text" id="est" name="est" placeholder="Estilo natación" class="busc">
+            <input type="text" id="pais" name="pais" placeholder="País" class="busc">
+            <button class="btn" type="button" onclick="buscarPorUno()" title="Realiza un listado de todas las personas que cumplan con al menos un campo">Buscar</button>
+        </form>
+        <script>
+            function buscarPorUno() {
+                var searchTerm1 = document.getElementById("nom").value;
+                var searchTerm2 = document.getElementById("local").value;
+                var searchTerm3 = document.getElementById("est").value;
+                var searchTerm4 = document.getElementById("pais").value;
+                Natacion.listarBuscarPorUno(searchTerm1,searchTerm2,searchTerm3,searchTerm4);
+            }
+        </script>
+
+    </nav>
+    
         
     <!-- 
         Article en el que se va a mostrar la info cuando se pinche una opción del menú 
