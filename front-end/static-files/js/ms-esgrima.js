@@ -222,12 +222,14 @@ Esgrima.EsgrimaTablaPersonas.pie = `</tbody></table>`;
  * @param {String} Esgrima Cadena conteniendo HTML en la que se desea cambiar lso campos de la Esgrima por datos
  * @param {Persona} Persona Objeto con los datos de la persona que queremos escribir en el TR
  * @returns La Esgrima del cuerpo de la tabla con los datos actualizados 
- */           
-Esgrima.sustituyeTags = function (Esgrima, persona) {
+ */          
+
+// Victor, 8-may-2023: El parámetro esgrima debe ir en minúsculas, si no, "reemplaza" al objeto global Esgrima dentro de la función 
+Esgrima.sustituyeTags = function (esgrima, persona) {
     let fechaNacimiento=`${persona.data.fecha_nacimiento.dia}/
     ${persona.data.fecha_nacimiento.mes}/${persona.data.fecha_nacimiento.año}`
 
-    return Esgrima
+    return esgrima
         .replace(new RegExp(Esgrima.EsgrimaTags.ID, 'g'), persona.ref['@ref'].id)
         .replace(new RegExp(Esgrima.EsgrimaTags.NOMBRE, 'g'), persona.data.nombre)
         .replace(new RegExp(Esgrima.EsgrimaTags.FECHA_NACIMIENTO, 'g'), fechaNacimiento)
@@ -305,9 +307,9 @@ Esgrima.imprimeSoloNombresOrdenados = function (vector) {
 Esgrima.EsgrimaTablaPersonas.actualizaSoloNombres = function (persona) {
     return Esgrima.sustituyeNombres(this.cuerpoSoloNombre, persona)
 }
-
-Esgrima.sustituyeNombres = function (Esgrima, persona) {
-    return Esgrima
+// Victor, 8-may-2023: El parámetro esgrima debe ir en minúsculas, si no, "reemplaza" al objeto global Esgrima dentro de la función
+Esgrima.sustituyeNombres = function (esgrima, persona) {
+    return esgrima
     .replace(new RegExp(Esgrima.EsgrimaTags.NOMBRE, 'g'), persona.data.nombre)
 }
 
