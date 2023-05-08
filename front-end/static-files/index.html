@@ -24,7 +24,8 @@
 
     <button id="botonMostrar"onclick="Ciclismo()">Ciclismo</button>
     <br></br>
-
+    <button id="botonEsg"onclick="Esgrima()">Esgrima</button>
+    <br></br>
     <div id="cic" style="display:none;">
         <nav>
             <a href="javascript:Ciclismo.procesarHome()" class="opcion-principal"
@@ -87,11 +88,127 @@
         </nav>
     </div>
 
+    <div id="esgr" style="display:none;">
+        <nav>
+            <a href="javascript:Esgrima.procesarHome()" class="opcion-principal"
+                title="Llama a la ruta / del MS Escalada">Home</a>
+            <a href="javascript:Esgrima.procesarAcercaDe()" class="opcion-principal"
+                title="Llama a la ruta /acercade del MS Escalada">Acerca de</a>
+            <a href="javascript:Esgrima.listar()" class="opcion-principal"
+                title="Llama a la ruta /procesarNombres del MS Escalada">Procesar Datos Personas</a>
+            <a href="javascript:Esgrima.listarSoloNombres()" class="opcion-principal"
+                title="Llama a la ruta /procesarNombres del MS Escalada">Procesar Nombres</a>
+            <a href="javascript:Esgrima.listarSoloNombresOrdenados()" class="opcion-principal"
+                title="Llama a la ruta /procesarNombresOrdenados del MS Escalada">Procesar Nombres Ordenados</a>
+        </nav>
+        <br></br>
+        <form class="formulario">
+            <label>Buscar por nombre:</label>
+            <input type="text" id="search" name="search">
+            <button type="button" onclick="buscar()">Buscar</button>
+          </form>
+          <script>
+            function buscar() {
+                var tipo= "nombre";
+              var searchTerm = document.getElementById("search").value;
+              Esgrima.listarBuscar(searchTerm,tipo);
+            }
+          </script>
+          <br></br>
+            <form class="formulario">
+                <label>Buscar por nacionalidad:</label>
+                <input type="text" id="nac" name="search">
+                <button type="button" onclick="buscarNac()">Buscar</button>
+            </form>
+            <script>
+                function buscarNac() {
+                var tipo= "nacionalidad";
+                var searchTerm = document.getElementById("nac").value;
+                Esgrima.listarBuscar(searchTerm,tipo);
+              }
+            </script>
+    
+            <br></br>
+            <form class="formulario">
+                <label>Buscar usuarios cuya altura sea mayor que la introducida:</label>
+                <input type="text" id="altu" name="search">
+                <button type="button" onclick="buscarMasAltos()">Buscar</button>
+            </form>
+            <script>
+                function buscarMasAltos() {
+                var tipo= "altura";
+                var searchTerm = document.getElementById("altu").value;
+                Esgrima.listarBuscar(searchTerm,tipo);
+              }
+            </script>
+    
+            <br></br>
+            <form class="formulario">
+                <label>Buscar usuarios que tengan mas victorias de las escritas:</label>
+                <input type="text" id="vic" name="search">
+                <button type="button" onclick="buscarMasVict()">Buscar</button>
+            </form>
+            <script>
+                function buscarMasVict() {
+                var tipo= "victorias";
+                var searchTerm = document.getElementById("vic").value;
+                Esgrima.listarBuscar(searchTerm,tipo);
+            }
+            </script>
+    
+        <form>
+            <h3>Búsqueda simultánea por varios campos</h3>
+            
+            <label for="pesoEspada">Peso minimo de espada:</label>
+            <input type="text" id="pesoEspada" name="pesoEspada">
+            
+            <br>
+            
+            <label for="sexo">Sexo:</label>
+            <select id="sexo" name="sexo">
+                <option value="masculino">masculino</option>
+                <option value="femenino">femenino</option>
+            </select>
+            
+            <br>
+            
+            <label for="part">Número minimo de participaciones en JJOO:</label>
+            <input type="number" id="part" name="part">
+            
+            <br>
+            <label><input type="checkbox" id="cbox1" value="check" name="comprobar"> Se tienen que cumplir todas</label><br>
+            <button type="button" onclick="busquedaSimultanea()">Buscar</button>
+        </form>
+        <script>
+            function busquedaSimultanea() {
+            var b1 = document.getElementById("pesoEspada").value;
+            var b2 = document.getElementById("sexo").value;
+            var b3 = document.getElementById("part").value;
+            var checkbox = document.getElementById("cbox1");
+            Esgrima.listarBusquedaSimultanea(b1,b2,b3,checkbox);
+        }
+        </script>
+    </div>
     <script>
         var mostrar = false;
         var elemento = document.getElementById("cic");
         var boton = document.getElementById("botonMostrar");
     
+        boton.addEventListener("click", function(){
+            mostrar = !mostrar;
+            if(mostrar){
+                elemento.style.display = "block";
+            } else {
+                elemento.style.display = "none";
+            }
+        });
+    </script>
+
+    <script>
+        var mostrar = false;
+        var elemento = document.getElementById("esgr");
+        var boton = document.getElementById("botonEsg");
+
         boton.addEventListener("click", function(){
             mostrar = !mostrar;
             if(mostrar){
@@ -188,108 +305,7 @@
     </nav>
 
     -->
-
-    <h1>Esgrima</h1>
-    <!-- Barra de navegación de la aplicación -->
-    <nav>
-        <a href="javascript:Esgrima.procesarHome()" class="opcion-principal"
-            title="Llama a la ruta / del MS Escalada">Home</a>
-        <a href="javascript:Esgrima.procesarAcercaDe()" class="opcion-principal"
-            title="Llama a la ruta /acercade del MS Escalada">Acerca de</a>
-        <a href="javascript:Esgrima.listar()" class="opcion-principal"
-            title="Llama a la ruta /procesarNombres del MS Escalada">Procesar Datos Personas</a>
-        <a href="javascript:Esgrima.listarSoloNombres()" class="opcion-principal"
-            title="Llama a la ruta /procesarNombres del MS Escalada">Procesar Nombres</a>
-        <a href="javascript:Esgrima.listarSoloNombresOrdenados()" class="opcion-principal"
-            title="Llama a la ruta /procesarNombresOrdenados del MS Escalada">Procesar Nombres Ordenados</a>
-    </nav>
-    <br></br>
-    <form class="formulario">
-        <label>Buscar por nombre:</label>
-        <input type="text" id="search" name="search">
-        <button type="button" onclick="buscar()">Buscar</button>
-      </form>
-      <script>
-        function buscar() {
-            var tipo= "nombre";
-          var searchTerm = document.getElementById("search").value;
-          Esgrima.listarBuscar(searchTerm,tipo);
-        }
-      </script>
-      <br></br>
-        <form class="formulario">
-            <label>Buscar por nacionalidad:</label>
-            <input type="text" id="nac" name="search">
-            <button type="button" onclick="buscarNac()">Buscar</button>
-        </form>
-        <script>
-            function buscarNac() {
-            var tipo= "nacionalidad";
-            var searchTerm = document.getElementById("nac").value;
-            Esgrima.listarBuscar(searchTerm,tipo);
-          }
-        </script>
-
-        <br></br>
-        <form class="formulario">
-            <label>Buscar usuarios cuya altura sea mayor que la introducida:</label>
-            <input type="text" id="altu" name="search">
-            <button type="button" onclick="buscarMasAltos()">Buscar</button>
-        </form>
-        <script>
-            function buscarMasAltos() {
-            var tipo= "altura";
-            var searchTerm = document.getElementById("altu").value;
-            Esgrima.listarBuscar(searchTerm,tipo);
-          }
-        </script>
-
-        <br></br>
-        <form class="formulario">
-            <label>Buscar usuarios que tengan mas victorias de las escritas:</label>
-            <input type="text" id="vic" name="search">
-            <button type="button" onclick="buscarMasVict()">Buscar</button>
-        </form>
-        <script>
-            function buscarMasVict() {
-            var tipo= "victorias";
-            var searchTerm = document.getElementById("vic").value;
-            Esgrima.listarBuscar(searchTerm,tipo);
-        }
-        </script>
-
-    <form>
-        <h3>Búsqueda simultánea por varios campos</h3>
-        
-        <label for="pesoEspada">Peso minimo de espada:</label>
-        <input type="text" id="pesoEspada" name="pesoEspada">
-        
-        <br>
-        
-        <label for="sexo">Sexo:</label>
-        <select id="sexo" name="sexo">
-            <option value="masculino">masculino</option>
-            <option value="femenino">femenino</option>
-        </select>
-        
-        <br>
-        
-        <label for="part">Número minimo de participaciones en JJOO:</label>
-        <input type="number" id="part" name="part">
-        
-        <br>
-        <label><input type="checkbox" id="cbox1" value="check" name="comprobar"> Se tienen que cumplir todas</label><br>
-        <button type="button" onclick="busquedaSimultanea()">Buscar</button>
-    </form>
-    <script>
-        function busquedaSimultanea() {
-        var b1 = document.getElementById("pesoEspada").value;
-        var b2 = document.getElementById("sexo").value;
-        var b3 = document.getElementById("part").value;
-        var checkbox = document.getElementById("cbox1");
-        Esgrima.listarBusquedaSimultanea(b1,b2,b3,checkbox);
-    }
-    </script>
+    
 
     <h1>Escalada</h1>
     <a href="javascript:Escalada.procesarHome()" class="opcion-principal"
