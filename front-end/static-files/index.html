@@ -18,11 +18,11 @@
 
 </head>
 
-<body>
+<body id="cuerpo">
     <h1>Deportes</h1>
     <!-- Barra de navegación de la aplicación -->
 
-            <button class="opcion-principal" id="toggle-contraste">Cambiar contraste</button>
+            <button id="toggle-contraste">Cambiar contraste</button>
             <button id="botonMostrar"onclick="toggleDeporte('cic')" >Ciclismo</button>
             <button id="botonEsg"onclick="toggleDeporte('esgr')">Esgrima</button>
             <button id="botonNat"onclick="toggleDeporte('nat')">Natación</button>
@@ -433,41 +433,7 @@
         </script>
     
         </div>
-
-        <script>
-            function TenisMesa(){
-            var mostrar = false;
-            var elemento = document.getElementById("tmes");
-            var boton = document.getElementById("botonTMesa");
         
-            boton.addEventListener("click", function(){
-                mostrar = !mostrar;
-                if(mostrar){
-                    elemento.style.display = "block";
-                } else {
-                    elemento.style.display = "none";
-                }
-            });
-        }
-        </script>
-
-    <script>
-        function Ciclismom(){
-        var mostrar = false;
-        var elemento = document.getElementById("cic");
-        var boton = document.getElementById("botonMostrar");
-    
-        boton.addEventListener("click", function(){
-            mostrar = !mostrar;
-            if(mostrar){
-                elemento.style.display = "block";
-            } else {
-                elemento.style.display = "none";
-            }
-        });
-    }
-    </script>
-
     <script>
         function toggleDeporte( deporte ) {
 
@@ -483,40 +449,7 @@
         }
     </script>
 
-<script>
-    function Natacionm(){
-    var mostrar = false;
-    var elemento = document.getElementById("nat");
-    var boton = document.getElementById("botonNat");
-
-    boton.addEventListener("click", function(){
-        mostrar = !mostrar;
-        if(mostrar){
-            elemento.style.display = "block";
-        } else {
-            elemento.style.display = "none";
-        }
-    });
-    }
-</script>
-
-<script>
-    function Escaladam(){
-    var mostrar = false;
-    var elemento = document.getElementById("sca");
-    var boton = document.getElementById("botonEsca");
-
-    boton.addEventListener("click", function(){
-        mostrar = !mostrar;
-        if(mostrar){
-            elemento.style.display = "block";
-        } else {
-            elemento.style.display = "none";
-        }
-    });
-    }
-</script>
-    
+ 
    
 <script>
     var botonContraste = document.getElementById("toggle-contraste");
