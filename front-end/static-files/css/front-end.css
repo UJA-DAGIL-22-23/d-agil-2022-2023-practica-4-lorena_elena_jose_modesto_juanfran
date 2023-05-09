@@ -19,7 +19,24 @@
     display: inline-block;
 }
 
+body {
+    background-color:#efefef;
+ }
 
+ bodi.alto-contraste{
+    background-color:#00b126;
+
+ }
+
+.alto-contraste :not(button) {
+    background-color: #fdf9f9;
+    color: #e40505d4;
+  }
+  
+  .alto-contraste button {
+    background-color: #e70b0b;
+    color: #ffffff;
+  }
 
 .opcion-principal {
     border: 2px solid rgba(100, 100, 100, 0.5);
