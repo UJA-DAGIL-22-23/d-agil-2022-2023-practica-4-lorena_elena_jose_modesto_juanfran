@@ -25,9 +25,9 @@
 
             <button id="botonMostrar"onclick="toggleDeporte('cic')" >Ciclismo</button>
             <button id="botonEsg"onclick="toggleDeporte('esgr')">Esgrima</button>
-            <button id="botonNat"onclick="Natacionm()">Natación</button>
-            <button id="botonEsca"onclick="Escaladam()">Escalada</button>
-            <button id="botonTMesa"onclick="TenisMesa()">Tenis de Mesa</button>
+            <button id="botonNat"onclick="toggleDeporte('nat')">Natación</button>
+            <button id="botonEsca"onclick="toggleDeporte('sca')">Escalada</button>
+            <button id="botonTMesa"onclick="toggleDeporte('tmes')">Tenis de Mesa</button>
         
 
     <div id="tmes" style="display:none;">
@@ -470,6 +470,7 @@
 
     <script>
         function toggleDeporte( deporte ) {
+
             var elemento = document.getElementById(deporte);
             var displayEs = elemento.getAttribute( "style" )
             let dNone = "display:none;"
