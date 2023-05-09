@@ -107,7 +107,6 @@ Esgrima.procesarAcercaDe = function () {
 }
 
 
-
 Esgrima.listar = function () {
     this.recupera(this.imprime);
 }
