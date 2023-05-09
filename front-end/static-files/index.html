@@ -23,8 +23,8 @@
     <!-- Barra de navegación de la aplicación -->
 
 
-            <button id="botonMostrar"onclick="Ciclismom()" >Ciclismo</button>
-            <button id="botonEsg"onclick="Esgrimam()">Esgrima</button>
+            <button id="botonMostrar"onclick="toggleDeporte('cic')" >Ciclismo</button>
+            <button id="botonEsg"onclick="toggleDeporte('esgr')">Esgrima</button>
             <button id="botonNat"onclick="Natacionm()">Natación</button>
             <button id="botonEsca"onclick="Escaladam()">Escalada</button>
             <button id="botonTMesa"onclick="TenisMesa()">Tenis de Mesa</button>
@@ -469,20 +469,17 @@
     </script>
 
     <script>
-        function Esgrimam(){
-        var mostrar = false;
-        var elemento = document.getElementById("esgr");
-        var boton = document.getElementById("botonEsg");
-
-        boton.addEventListener("click", function(){
-            mostrar = !mostrar;
-            if(mostrar){
-                elemento.style.display = "block";
+        function toggleDeporte( deporte ) {
+            var elemento = document.getElementById(deporte);
+            var displayEs = elemento.getAttribute( "style" )
+            let dNone = "display:none;"
+            let dBlock = "display:block;"
+            if( displayEs == dNone ) {
+                elemento.setAttribute( "style", dBlock )
             } else {
-                elemento.style.display = "none";
+                elemento.setAttribute( "style", dNone )
             }
-        });
-    }
+        }
     </script>
 
 <script>
