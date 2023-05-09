@@ -25,7 +25,7 @@ jbm00030@red.ujaen.es
 
 ## Capturas de pantalla Trello
 ### Incremento 1 inicio
-![Tablero trello inicio incremento 1](assets\img\tablero_inicio1.png)
+![Tablero trello inicio incremento 1](./assets/img/tablero_inicio1.png)
 
 
 
