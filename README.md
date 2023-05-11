@@ -5,19 +5,19 @@
 # Práctica 4
 
 ## Datos personales integrantes del grupo
-* Nombre: 
-Lorena Moreno Vilches
-Elena Alonso Tejederas
-Modesto Monzón Vázquez
-Juan Francisco Escudero Toribio
-José Ballester Marín
+* **Nombres:**
+    * Lorena Moreno Vilches
+    * Elena Alonso Tejederas
+    * Modesto Monzón Vázquez
+    * Juan Francisco Escudero Toribio
+    * José Ballester Marín
 
-* Correo electrónico: 
-lmv00019@red.ujaen.es
-eat00004@red.ujaen.es
-mmv00057@red.ujaen.es
-jfet0001@red.ujaen.es
-jbm00030@red.ujaen.es
+* **Correo electrónico:** 
+    * lmv00019@red.ujaen.es
+    * eat00004@red.ujaen.es
+    * mmv00057@red.ujaen.es
+    * jfet0001@red.ujaen.es
+    * jbm00030@red.ujaen.es
 
 ## Enlace tablero Trello
 * https://trello.com/b/c08kND2J/pr%C3%A1ctica-4
