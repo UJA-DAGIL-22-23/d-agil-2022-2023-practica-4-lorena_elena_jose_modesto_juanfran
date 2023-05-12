@@ -15,28 +15,21 @@
 #seccion-principal {
     width: 100%;
 }
+
 .mostrar {
     display: inline-block;
 }
 
-body {
-    background-color:#1148ed6c;
- }
-
- body.alto-contraste{
-    background-color:#00b126;
-
- }
 
 .alto-contraste :not(button) {
-    background-color: #fdf9f9;
-    color: #e40505d4;
-  }
+    color: #02ff02;
+}
   
-  .alto-contraste button {
-    background-color: #e70b0b;
-    color: #ffffff;
-  }
+.alto-contraste button {
+background-color: #02ff02;
+color: #000000;
+    
+}
 
 .opcion-principal {
     border: 2px solid rgba(100, 100, 100, 0.5);
@@ -75,4 +68,8 @@ body {
     margin: 4px 2px; /* Margen */
     cursor: pointer; /* Cursor */
     border-radius: 20px; /* Bordes redondeados */
+}
+
+body.alto-contraste {
+    background-color: #000000;
 }
