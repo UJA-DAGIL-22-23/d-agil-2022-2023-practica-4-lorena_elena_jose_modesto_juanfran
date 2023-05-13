@@ -11,7 +11,6 @@
     <script src="lib/jasmine-4.5.0/jasmine-html.js"></script>
     <script src="lib/jasmine-4.5.0/boot0.js"></script>
     <script src="lib/jasmine-4.5.0/boot1.js"></script>
-
     <!-- Cargamos nuestros CSS -->
     <link rel="stylesheet" href="css/front-end.css">
 
@@ -519,7 +518,7 @@
     
 <div id="acer" style="display:none;">
     <h1>Acerca De</h1>
-    <a href="javascript:Esgrima.procesarAcercaDe()" class="opcion-principal"
+    <!--<a href="javascript:Esgrima.procesarAcercaDe()" class="opcion-principal"
                         title="Llama a la ruta acerca de esgrima">Esgrima</a>
     <a href="javascript:Natacion.procesarAcercaDe()" class="opcion-principal"
                         title="Llama a la ruta acerca de natacion">Natacion</a>
@@ -529,6 +528,8 @@
                         title="Llama a la ruta acerca de natacion">Ciclismo</a>
     <a href="javascript:TenisDMesa.procesarAcercaDe()" class="opcion-principal"
                         title="Llama a la ruta acerca de natacion">Tenis de Mesa</a>
+    -->
+    <button onclick="Esgrima.procesarAcercaDe()">Mostrar acerca de</button>
     </div>
     
         
@@ -541,6 +542,7 @@
         <h2 id="seccion-principal-titulo"></h2>
         <!-- Contenido del article -->
         <div id="seccion-principal-contenido">
+        
         </div>
     </article>
 
@@ -570,13 +572,14 @@
    
     <script src="js/front-end-spec.js"></script>
     <script src="js/ms-tenisDeMesa-spec.js"></script>
+    <script src="js/ms-esgrima-spec.js"></script>
      <!-- 
         VICTOR: 8-MAY 
         Tenéis que arreglar estos SPEC porque cada fichero redefine la constante elementoTitulo
     
     <script src="js/ms-ciclismo-spec.js"></script>
     <script src="js/ms-natacion-spec.js"></script>
-    <script src="js/ms-esgrima-spec.js"></script>
+    
     <script src="js/ms-escalada-spec.js"></script>
         -->
 </body>
