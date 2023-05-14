@@ -55,8 +55,8 @@ Frontend.mostrarTodoAcercaDe = function() {
   }
 
 Frontend.mostrarTodosJugadores = function(){
-    Esgrima.listarSoloNombres();
-    Natacion.listarNombres();
+    Esgrima.recupera(Esgrima.imprimeSoloNombres);
+    Natacion.recupera(Natacion.imprimeNombres);
 }
 
 
@@ -91,3 +91,46 @@ Frontend.mostrarAcercaDe = function(datosDescargados){
    Frontend.AcercaDeMsj += mensajeAMostrar;
    Frontend.Article.actualizar("Acerca De", Frontend.AcercaDeMsj);
 }
+
+Frontend.recuperaTodos = async function (callBackFn) {
+    let responseCic = null
+    let responseEsg = null
+    let responseEscal = null
+    let responseNat = null
+    let responseTeni = null
+
+    // Intento conectar con el microservicio proyectos
+    try {
+        const urlCic = Frontend.API_GATEWAY + "/Ciclismo/sacaCiclistas"
+        const urlEsg = Frontend.API_GATEWAY + "/Esgrima/getTodos"
+        const urlEscal = Frontend.API_GATEWAY + "/Escalada/getTodos"
+        const urlNat = Frontend.API_GATEWAY + "/Natacion/getTodos"
+        const urlTeni = Frontend.API_GATEWAY + "/TenisDMesa/getTodas"
+        responseCic = await fetch(urlCic)
+        responseEsg = await fetch(urlEsg)
+        responseEscal = await fetch(urlEscal)
+        responseNat = await fetch(urlNat)
+        responseTeni = await fetch(urlTeni)
+
+    } catch (error) {
+        alert("Error: No se han podido acceder al API Gateway")
+        console.error(error)
+        //throw error
+    }
+
+    // Muestro todos los proyectos que se han descargado
+    let vectorCic = null
+    let vectorEsg = null
+    let vectorEscal = null
+    let vectorNat = null
+    let vectorTeni = null
+    if (responseCic && responseEsg && responseEscal && responseNat && responseTeni) {
+        vectorCic = await responseCic.json()
+        vectorEsg = await responseEsg.json()
+        vectorEscal  = await responseEscal.json()
+        vectorNat = await responseNat.json()
+        vectorTeni = await responseTeni.json()
+        callBackFn(vectorCic.data,vectorEsg,vectorEscal,vectorNat,vectorTeni)
+    }
+}
+
