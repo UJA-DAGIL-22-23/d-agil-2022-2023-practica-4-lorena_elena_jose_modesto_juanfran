@@ -4,31 +4,42 @@
 <head>
     <title>Aplicación Microservicios Escalada</title>
 
-    <!-- Cargamos biblioteca Jasmine -->
+    <!-- Cargamos biblioteca Jasmine 
 
     <link rel="stylesheet" href="lib/jasmine-4.5.0/jasmine.css">
     <script src="lib/jasmine-4.5.0/jasmine.js"></script>
     <script src="lib/jasmine-4.5.0/jasmine-html.js"></script>
     <script src="lib/jasmine-4.5.0/boot0.js"></script>
     <script src="lib/jasmine-4.5.0/boot1.js"></script>
+-->
     <!-- Cargamos nuestros CSS -->
     <link rel="stylesheet" href="css/front-end.css">
 
 
 </head>
 
-<body>
+<body id="cuerpo">
     <h1>Deportes</h1>
     <!-- Barra de navegación de la aplicación -->
 
-
+            <button id="toggle-contraste">Cambiar contraste</button>
             <button id="botonMostrar"onclick="toggleDeporte('cic')" >Ciclismo</button>
             <button id="botonEsg"onclick="toggleDeporte('esgr')">Esgrima</button>
             <button id="botonNat"onclick="toggleDeporte('nat')">Natación</button>
             <button id="botonEsca"onclick="toggleDeporte('sca')">Escalada</button>
             <button id="botonTMesa"onclick="toggleDeporte('tmes')">Tenis de Mesa</button>
+            
+         
+        <div id="acer" style="display:block;">
+            <h1>Acerca De</h1>
+                <nav>
+                    <a href="javascript:Frontend.mostrarTodoAcercaDe()" class="opcion-principal"
+                    title="Muestra información Acerca De de todos los autores">Acerca De</a>
+                </nav>
+        </div>
+        
 
-    <div id="tmes" style="display:none;">
+        <div id="tmes" style="display:none;">
                 <h1>Tenis de Mesa</h1>
                 
                 <nav>
@@ -432,40 +443,6 @@
     
         </div>
 
-        <script>
-            function TenisMesa(){
-            var mostrar = false;
-            var elemento = document.getElementById("tmes");
-            var boton = document.getElementById("botonTMesa");
-        
-            boton.addEventListener("click", function(){
-                mostrar = !mostrar;
-                if(mostrar){
-                    elemento.style.display = "block";
-                } else {
-                    elemento.style.display = "none";
-                }
-            });
-        }
-        </script>
-
-    <script>
-        function Ciclismom(){
-        var mostrar = false;
-        var elemento = document.getElementById("cic");
-        var boton = document.getElementById("botonMostrar");
-    
-        boton.addEventListener("click", function(){
-            mostrar = !mostrar;
-            if(mostrar){
-                elemento.style.display = "block";
-            } else {
-                elemento.style.display = "none";
-            }
-        });
-    }
-    </script>
-
     <script>
         function toggleDeporte( deporte ) {
 
@@ -481,77 +458,21 @@
         }
     </script>
 
+ 
+
+   
 <script>
-    function Natacionm(){
-    var mostrar = false;
-    var elemento = document.getElementById("nat");
-    var boton = document.getElementById("botonNat");
+    var botonContraste = document.getElementById("toggle-contraste");
+    botonContraste.addEventListener("click", function() {
+    var elementos = document.getElementsByTagName("*");
+    for (var i = 0; i < elementos.length; i++) {
+    elementos[i].classList.toggle("alto-contraste");
+  }
+});
 
-    boton.addEventListener("click", function(){
-        mostrar = !mostrar;
-        if(mostrar){
-            elemento.style.display = "block";
-        } else {
-            elemento.style.display = "none";
-        }
-    });
-    }
+
+
 </script>
-
-<script>
-    function Escaladam(){
-    var mostrar = false;
-    var elemento = document.getElementById("sca");
-    var boton = document.getElementById("botonEsca");
-
-    boton.addEventListener("click", function(){
-        mostrar = !mostrar;
-        if(mostrar){
-            elemento.style.display = "block";
-        } else {
-            elemento.style.display = "none";
-        }
-    });
-    }
-</script>
-    
-
-
-<button onclick="mostrarAcercaDe()">Mostrar Acerca De</button>
-    <!--<a href="javascript:Esgrima.procesarAcercaDe()" class="opcion-principal"
-                        title="Llama a la ruta acerca de esgrima">Esgrima</a>
-    <a href="javascript:Natacion.procesarAcercaDe()" class="opcion-principal"
-                        title="Llama a la ruta acerca de natacion">Natacion</a>
-    <a href="javascript:Escalada.procesarAcercaDe()" class="opcion-principal"
-                        title="Llama a la ruta acerca de natacion">Escalada</a>
-    <a href="javascript:Ciclismo.procesarAcercaDe()" class="opcion-principal"
-                        title="Llama a la ruta acerca de natacion">Ciclismo</a>
-    <a href="javascript:TenisDMesa.procesarAcercaDe()" class="opcion-principal"
-                        title="Llama a la ruta acerca de natacion">Tenis de Mesa</a>
-    -->
-    <script>
-        function mostrarAcercaDe() {
-			var contenidoActual = document.getElementById("seccion-principal-contenido").innerHTML;
-			Esgrima.procesarAcercaDe();
-			var resultado1 = document.getElementById("seccion-principal-contenido").innerHTML;
-            console.log("111");
-            console.log(resultado1);
-            setTimeout(function() {
-                // Llamamos a la segunda función después de 2 segundos
-                Ciclismo.procesarAcercaDe();
-                }, 2000);
-			
-			var resultado2 = document.getElementById("seccion-principal-contenido").innerHTML;
-
-            console.log(resultado2);
-			var resultadoConcatenado = resultado1 + resultado2;
-            console.log("FINAL");
-            console.log(resultadoConcatenado);
-			document.getElementById("seccion-principal-contenido").innerHTML = resultadoConcatenado;
-		}
-      </script>
-    
-    
         
     <!-- 
         Article en el que se va a mostrar la info cuando se pinche una opción del menú 
