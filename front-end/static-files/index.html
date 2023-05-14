@@ -27,7 +27,6 @@
             <button id="botonNat"onclick="toggleDeporte('nat')">Natación</button>
             <button id="botonEsca"onclick="toggleDeporte('sca')">Escalada</button>
             <button id="botonTMesa"onclick="toggleDeporte('tmes')">Tenis de Mesa</button>
-            <button id="acerc"onclick="toggleDeporte('acer')">Acerca de</button>
 
     <div id="tmes" style="display:none;">
                 <h1>Tenis de Mesa</h1>
@@ -516,8 +515,9 @@
     }
 </script>
     
-<div id="acer" style="display:none;">
-    <h1>Acerca De</h1>
+
+
+<button onclick="mostrarAcercaDe()">Mostrar Acerca De</button>
     <!--<a href="javascript:Esgrima.procesarAcercaDe()" class="opcion-principal"
                         title="Llama a la ruta acerca de esgrima">Esgrima</a>
     <a href="javascript:Natacion.procesarAcercaDe()" class="opcion-principal"
@@ -529,8 +529,28 @@
     <a href="javascript:TenisDMesa.procesarAcercaDe()" class="opcion-principal"
                         title="Llama a la ruta acerca de natacion">Tenis de Mesa</a>
     -->
-    <button onclick="Esgrima.procesarAcercaDe()">Mostrar acerca de</button>
-    </div>
+    <script>
+        function mostrarAcercaDe() {
+			var contenidoActual = document.getElementById("seccion-principal-contenido").innerHTML;
+			Esgrima.procesarAcercaDe();
+			var resultado1 = document.getElementById("seccion-principal-contenido").innerHTML;
+            console.log("111");
+            console.log(resultado1);
+            setTimeout(function() {
+                // Llamamos a la segunda función después de 2 segundos
+                Ciclismo.procesarAcercaDe();
+                }, 2000);
+			
+			var resultado2 = document.getElementById("seccion-principal-contenido").innerHTML;
+
+            console.log(resultado2);
+			var resultadoConcatenado = resultado1 + resultado2;
+            console.log("FINAL");
+            console.log(resultadoConcatenado);
+			document.getElementById("seccion-principal-contenido").innerHTML = resultadoConcatenado;
+		}
+      </script>
+    
     
         
     <!-- 
