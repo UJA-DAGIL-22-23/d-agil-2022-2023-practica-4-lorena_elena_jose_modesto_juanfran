@@ -15,11 +15,21 @@
 #seccion-principal {
     width: 100%;
 }
+
 .mostrar {
     display: inline-block;
 }
 
 
+.alto-contraste :not(button) {
+    color: #02ff02;
+}
+  
+.alto-contraste button {
+background-color: #02ff02;
+color: #000000;
+    
+}
 
 .opcion-principal {
     border: 2px solid rgba(100, 100, 100, 0.5);
@@ -58,4 +68,8 @@
     margin: 4px 2px; /* Margen */
     cursor: pointer; /* Cursor */
     border-radius: 20px; /* Bordes redondeados */
+}
+
+body.alto-contraste {
+    background-color: #000000;
 }
