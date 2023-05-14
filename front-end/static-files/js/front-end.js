@@ -54,6 +54,11 @@ Frontend.mostrarTodoAcercaDe = function() {
     TenisDMesa.descargarRuta("/TenisDMesa/acercade", this.mostrarAcercaDe)
   }
 
+Frontend.mostrarTodosJugadores = function(){
+    Esgrima.listarSoloNombres();
+    Natacion.listarNombres();
+}
+
 
   
   /**
