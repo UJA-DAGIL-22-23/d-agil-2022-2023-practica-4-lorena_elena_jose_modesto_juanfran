@@ -54,7 +54,70 @@ Frontend.mostrarTodoAcercaDe = function() {
     TenisDMesa.descargarRuta("/TenisDMesa/acercade", this.mostrarAcercaDe)
   }
 
+Frontend.mostrarTodosJugadores = function(){
+    Frontend.obtenerNombres();
 
+}
+
+Frontend.listarSoloNombresFr = async function () {
+    try {
+      const responseEsg = await fetch(Frontend.API_GATEWAY + "/Esgrima/getTodos");
+      const responseNat = await fetch(Frontend.API_GATEWAY + "/Natacion/getTodos");
+      const responseCic = await fetch(Frontend.API_GATEWAY + "/Ciclismo/sacaCiclistas");
+      const responseEsc = await fetch(Frontend.API_GATEWAY + "/Escalada/getTodas");
+      const responseTen = await fetch(Frontend.API_GATEWAY + "/TenisDMesa/getTodas");
+      const dataEsg = await responseEsg.json();
+      const dataNat = await responseNat.json();
+      const dataCic = await responseCic.json();
+      const dataEsc = await responseEsc.json();
+      const dataTen = await responseTen.json();
+      const nombres = [];
+      dataEsg.data.forEach((persona) => {
+        nombres.push(persona.data.nombre);
+      });
+      dataNat.data.forEach((persona) => {
+        nombres.push(persona.data.Nombre_completo.Nombre);
+      });
+      dataCic.data.forEach((persona) => {
+        nombres.push(persona.data.nombre);
+      });
+      dataEsc.data.forEach((persona) => {
+        nombres.push(persona.data.nombre);
+      });
+      dataTen.data.forEach((persona) => {
+        nombres.push(persona.data.nombre);
+      });
+      return nombres;
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
+  };
+
+
+
+Frontend.obtenerNombres = async function () {
+        const nombres = await Frontend.listarSoloNombresFr();
+        const tabla = crearTabla(nombres);
+      
+  }
+  
+  function crearTabla(vector) {
+    let tabla = ""
+    tabla += Esgrima.EsgrimaTablaPersonas.cabeceraNombre;
+    for (let i = 0; i < vector.length; i++) {
+      let nombre = vector[i];
+        tabla += '<td>' + nombre + '</td>';
+      
+      tabla += '</tr><tr>';
+    }
+    tabla += '</tr></tbody></table>';
+    Frontend.Article.actualizar( "Listado de nombres", tabla )
+  }
+
+  
+
+  
   
   /**
    * Muestra los datos de Acerca De de todos los miembros
@@ -86,3 +149,5 @@ Frontend.mostrarAcercaDe = function(datosDescargados){
    Frontend.AcercaDeMsj += mensajeAMostrar;
    Frontend.Article.actualizar("Acerca De", Frontend.AcercaDeMsj);
 }
+
+

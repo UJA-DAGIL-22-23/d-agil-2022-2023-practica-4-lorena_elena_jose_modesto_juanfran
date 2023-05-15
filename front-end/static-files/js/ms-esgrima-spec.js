@@ -8,12 +8,12 @@
 // SPECS para Jasmine
 
 // Constantes para usar en las pruebas
-const elementoTitulo = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_TITULO)
-const elementoContenido = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_CONTENIDO)
-const TITULO_HOME = "Esgrima Home"
-const TITULO_ACERCA_DE = "Esgrima Acerca de"
+const elementoTituloEsg = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_TITULO)
+const elementoContenidoEsgr = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_CONTENIDO)
+const TITULO_HOME_ESGR = "Esgrima Home"
+const TITULO_ACERCA_DE_ESGR = "Esgrima Acerca de"
 
-const datosDescargadosPrueba = {
+const datosDescargadosPruebaEsgr = {
     mensaje: "Mensaje de prueba descargado",
     autor: "Prueba de autor",
     email: "Prueba de email",
@@ -39,35 +39,35 @@ describe("Esgrima.mostrarHome: ", function () {
     it("muestra datos nulos cuando le pasamos un valor nulo",
         function () {
             Esgrima.mostrarHome()
-            expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Esgrima.datosDescargadosNulos.mensaje)
+            expect(elementoTituloEsg.innerHTML).toBe(TITULO_HOME_ESGR)
+            expect(elementoContenidoEsgr.innerHTML).toBe(Esgrima.datosDescargadosNulos.mensaje)
         })
 
     it("muestra datos nulos cuando le pasamos un valor que no es un objeto",
         function () {
             Esgrima.mostrarHome(23)
-            expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Esgrima.datosDescargadosNulos.mensaje)
+            expect(elementoTituloEsg.innerHTML).toBe(TITULO_HOME_ESGR)
+            expect(elementoContenidoEsgr.innerHTML).toBe(Esgrima.datosDescargadosNulos.mensaje)
         })
 
     it("muestra datos nulos cuando le pasamos un objeto que no tiene campo mensaje",
         function () {
             // Objeto vacío
             Esgrima.mostrarHome({})
-            expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Esgrima.datosDescargadosNulos.mensaje)
+            expect(elementoTituloEsg.innerHTML).toBe(TITULO_HOME_ESGR)
+            expect(elementoContenidoEsgr.innerHTML).toBe(Esgrima.datosDescargadosNulos.mensaje)
 
             // Objeto sin campo mensaje
             Esgrima.mostrarHome({ foo: "bar" })
-            expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Esgrima.datosDescargadosNulos.mensaje)
+            expect(elementoTituloEsg.innerHTML).toBe(TITULO_HOME_ESGR)
+            expect(elementoContenidoEsgr.innerHTML).toBe(Esgrima.datosDescargadosNulos.mensaje)
         })
 
     it("muestra correctamente el título y el mensaje",
         function () {
-            Esgrima.mostrarHome(datosDescargadosPrueba)
-            expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(datosDescargadosPrueba.mensaje)
+            Esgrima.mostrarHome(datosDescargadosPruebaEsgr)
+            expect(elementoTituloEsg.innerHTML).toBe(TITULO_HOME_ESGR)
+            expect(elementoContenidoEsgr.innerHTML).toBe(datosDescargadosPruebaEsgr.mensaje)
         })
 })
 
@@ -76,50 +76,50 @@ describe("Esgrima.mostrarAcercaDe: ", function () {
     it("muestra datos nulos cuando le pasamos un valor nulo",
         function () {
             Esgrima.mostrarAcercaDe()
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Esgrima.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoTituloEsg.innerHTML).toBe(TITULO_ACERCA_DE_ESGR)
+            expect(elementoContenidoEsgr.innerHTML.search(Esgrima.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
         })
 
     it("muestra datos nulos cuando le pasamos un valor que no es un objeto",
         function () {
             Esgrima.mostrarAcercaDe(23)
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Esgrima.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoTituloEsg.innerHTML).toBe(TITULO_ACERCA_DE_ESGR)
+            expect(elementoContenidoEsgr.innerHTML.search(Esgrima.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
         })
 
     it("muestra datos nulos cuando le pasamos un objeto que no tiene campo mensaje o autor o email o fecha ",
         function () {
             // Objeto vacío
             Esgrima.mostrarAcercaDe({})
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Esgrima.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoTituloEsg.innerHTML).toBe(TITULO_ACERCA_DE_ESGR)
+            expect(elementoContenidoEsgr.innerHTML.search(Esgrima.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
 
             // Objeto sin campo mensaje
             Esgrima.mostrarAcercaDe({ autor: "un autor", email: "un email", fecha: "una fecha" })
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Esgrima.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoTituloEsg.innerHTML).toBe(TITULO_ACERCA_DE_ESGR)
+            expect(elementoContenidoEsgr.innerHTML.search(Esgrima.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
             // Objeto sin campo autor
             Esgrima.mostrarAcercaDe({ mensaje: "un mensaje", email: "un email", fecha: "una fecha" })
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Esgrima.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoTituloEsg.innerHTML).toBe(TITULO_ACERCA_DE_ESGR)
+            expect(elementoContenidoEsgr.innerHTML.search(Esgrima.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
             // Objeto sin campo email
             Esgrima.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", fecha: "una fecha" })
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Esgrima.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoTituloEsg.innerHTML).toBe(TITULO_ACERCA_DE_ESGR)
+            expect(elementoContenidoEsgr.innerHTML.search(Esgrima.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
             // Objeto sin campo fecha
             Esgrima.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", email: "un email" })
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Esgrima.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoTituloEsg.innerHTML).toBe(TITULO_ACERCA_DE_ESGR)
+            expect(elementoContenidoEsgr.innerHTML.search(Esgrima.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
         })
     it("muestra correctamente el título y el mensaje conteniendo el autor, el email y la fecha",
         function () {
-            Esgrima.mostrarAcercaDe(datosDescargadosPrueba)
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
+            Esgrima.mostrarAcercaDe(datosDescargadosPruebaEsgr)
+            expect(elementoTituloEsg.innerHTML).toBe(TITULO_ACERCA_DE_ESGR)
 
             // Comprobamos que al buscar el autor, el email y la fecha de prueba los encuentra dentro del contenido del article
-            expect(elementoContenido.innerHTML.search(datosDescargadosPrueba.autor) >= 0).toBeTrue()
-            expect(elementoContenido.innerHTML.search(datosDescargadosPrueba.email) >= 0).toBeTrue()
-            expect(elementoContenido.innerHTML.search(datosDescargadosPrueba.fecha) >= 0).toBeTrue()
+            expect(elementoContenidoEsgr.innerHTML.search(datosDescargadosPruebaEsgr.autor) >= 0).toBeTrue()
+            expect(elementoContenidoEsgr.innerHTML.search(datosDescargadosPruebaEsgr.email) >= 0).toBeTrue()
+            expect(elementoContenidoEsgr.innerHTML.search(datosDescargadosPruebaEsgr.fecha) >= 0).toBeTrue()
         })
 })
 
@@ -299,9 +299,9 @@ describe("Imprime Solo Nombres ", function () {
     it("debería devolver correctamente solo los nombres",
         function () {
             Esgrima.imprimeSoloNombres(vector);
-            let tit=elementoContenido.innerHTML
-            expect(elementoTitulo.innerHTML).toBe("Listado de nombres");
-            expect(elementoContenido.innerHTML).toBe(EsgrimaEsperada);
+            let tit=elementoContenidoEsgr.innerHTML
+            expect(elementoTituloEsg.innerHTML).toBe("Listado de nombres");
+            expect(elementoContenidoEsgr.innerHTML).toBe(EsgrimaEsperada);
         });
 });
 
@@ -346,9 +346,9 @@ describe("Imprime Solo Nombres Ordenados", function () {
     it("debería devolver correctamente solo los nombres",
         function () {
             Esgrima.imprimeSoloNombresOrdenados(vector);
-            let tit=elementoContenido.innerHTML
-            expect(elementoTitulo.innerHTML).toBe("Listado de nombres");
-            expect(elementoContenido.innerHTML).toBe(EsgrimaEsperada);
+            let tit=elementoContenidoEsgr.innerHTML
+            expect(elementoTituloEsg.innerHTML).toBe("Listado de nombres");
+            expect(elementoContenidoEsgr.innerHTML).toBe(EsgrimaEsperada);
         });
 });
 
@@ -388,8 +388,8 @@ describe("Imprime", function () {
     it("debería devolver correctamente todos los datos del vector de personas",
         function () {
             Esgrima.imprime(vector);
-            let tit=elementoContenido.innerHTML
-            expect(elementoTitulo.innerHTML).toBe("Listado de nombres");
+            let tit=elementoContenidoEsgr.innerHTML
+            expect(elementoTituloEsg.innerHTML).toBe("Listado de nombres");
             expect(tit.includes("Juan Francisco Escudero Toribio")).toBeTrue();
             expect(tit.includes("español")).toBeTrue();
             expect(tit.includes("80")).toBeTrue();
@@ -434,8 +434,8 @@ describe("Imprime Una persona", function () {
     it("debería devolver correctamente todos los datos del vector de personas",
         function () {
             Esgrima.imprimeUnaPersona(d);
-            let tit=elementoContenido.innerHTML
-            expect(elementoTitulo.innerHTML).toBe("Mostrar una persona");
+            let tit=elementoContenidoEsgr.innerHTML
+            expect(elementoTituloEsg.innerHTML).toBe("Mostrar una persona");
             expect(tit.includes("Juan Francisco Escudero Toribio")).toBeTrue();
             expect(tit.includes("español")).toBeTrue();
             expect(tit.includes("80")).toBeTrue();
@@ -594,7 +594,7 @@ describe('Esgrima.sustituyeNombres', function () {
   })
 
 describe('Esgrima.sustituyeTags', function () {
-    let Esgrima = `
+    let EsgrimapM = `
 <tr title="${Esgrima.EsgrimaTags.ID}">
     <td>${Esgrima.EsgrimaTags.NOMBRE}</td>
     <td>${Esgrima.EsgrimaTags.FECHA_NACIMIENTO}</td>
@@ -628,7 +628,7 @@ let persona = {
     }
 };
     it('debería reemplazar todos los marcadores de posición de nombre en la Esgrima', function () {
-        let resultadoObtenido = Esgrima.sustituyeTags(Esgrima, persona);
+        let resultadoObtenido = Esgrima.sustituyeTags(EsgrimapM, persona);
         expect(resultadoObtenido.includes("123456")).toBeTrue();
         expect(resultadoObtenido.includes("Juan")).toBeTrue();
         expect(resultadoObtenido.includes("Española")).toBeTrue();
