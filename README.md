@@ -39,6 +39,7 @@
 
 ### Incremento 1 final
 ![Tablero trello final incremento 1](./assets/img/H.U5.png)
+![Tablero trello final incremento 1](./assets/img/H.U5.png)
 
 -------
 
