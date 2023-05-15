@@ -36,21 +36,39 @@
 #### H.U 03
 ![H.U 03](./assets/img/H.U3.png)
 
+
+### Incremento 1 final
+![Tablero trello final incremento 1](./assets/img/tablero_final1.png)
+
+-------
+
+### Incremento 2 inicio
+![Tablero trello final incremento 1](./assets/img/tablero_inicio2.png)
+
 #### H.U 04
 ![H.U 04](./assets/img/H.U4.png)
 
 #### H.U 05
 ![H.U 05](./assets/img/H.U5.png)
 
-### Incremento 1 final
-![Tablero trello final incremento 1](./assets/img/H.U5.png)
+#### H.U 06
+![H.U 06](./assets/img/H.U6.png)
 
+#### H.U 10
+![H.U 10](./assets/img/H.U10.png)
+
+
+### Incremento 2 final
+![Tablero trello final incremento 1](./assets/img/tablero_final2.png)
+
+
+### Incremento 3 inicio
+![Tablero trello inicio incremento 3](./assets/img/tablero_final2.png)
+
+
+### H.U 7
+![H.U 7](./assets/img/H.U7.png)
 -------
-
-### Incremento 2 inicio
-![Tablero trello final incremento 1](./assets/img/H.U5.png)
-
-
 
 
 
