@@ -63,15 +63,29 @@ Frontend.listarSoloNombresFr = async function () {
     try {
       const responseEsg = await fetch(Frontend.API_GATEWAY + "/Esgrima/getTodos");
       const responseNat = await fetch(Frontend.API_GATEWAY + "/Natacion/getTodos");
+      const responseCic = await fetch(Frontend.API_GATEWAY + "/Ciclismo/sacaCiclistas");
+      const responseEsc = await fetch(Frontend.API_GATEWAY + "/Escalada/getTodas");
+      const responseTen = await fetch(Frontend.API_GATEWAY + "/TenisDMesa/getTodas");
       const dataEsg = await responseEsg.json();
       const dataNat = await responseNat.json();
+      const dataCic = await responseCic.json();
+      const dataEsc = await responseEsc.json();
+      const dataTen = await responseTen.json();
       const nombres = [];
       dataEsg.data.forEach((persona) => {
         nombres.push(persona.data.nombre);
       });
-      console.log(dataNat)
       dataNat.data.forEach((persona) => {
         nombres.push(persona.data.Nombre_completo.Nombre);
+      });
+      dataCic.data.forEach((persona) => {
+        nombres.push(persona.data.nombre);
+      });
+      dataEsc.data.forEach((persona) => {
+        nombres.push(persona.data.nombre);
+      });
+      dataTen.data.forEach((persona) => {
+        nombres.push(persona.data.nombre);
       });
       return nombres;
     } catch (error) {
