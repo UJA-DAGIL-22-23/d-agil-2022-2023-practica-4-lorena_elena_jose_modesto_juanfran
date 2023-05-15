@@ -55,11 +55,44 @@ Frontend.mostrarTodoAcercaDe = function() {
   }
 
 Frontend.mostrarTodosJugadores = function(){
-    Esgrima.recupera(Esgrima.imprimeSoloNombres);
-    Natacion.recupera(Natacion.imprimeNombres);
+    Frontend.obtenerNombres();
+
 }
 
+Frontend.listarSoloNombresFr = async function () {
+    try {
+      const responseEsg = await fetch(Frontend.API_GATEWAY + "/Esgrima/getTodos");
+      const responseNat = await fetch(Frontend.API_GATEWAY + "/Natacion/getTodos");
+      const dataEsg = await responseEsg.json();
+      const dataNat = await responseNat.json();
+      const nombres = [];
+      dataEsg.data.forEach((persona) => {
+        nombres.push(persona.data.nombre);
+      });
+      console.log(dataNat)
+      dataNat.data.forEach((persona) => {
+        nombres.push(persona.data.Nombre_completo.Nombre);
+      });
+      return nombres;
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
+  };
 
+
+
+Frontend.obtenerNombres = async function () {
+    try {
+      const nombres = await Frontend.listarSoloNombresFr();
+      console.log("FIN")
+      console.log(nombres);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  
+  
   
   /**
    * Muestra los datos de Acerca De de todos los miembros
@@ -92,45 +125,4 @@ Frontend.mostrarAcercaDe = function(datosDescargados){
    Frontend.Article.actualizar("Acerca De", Frontend.AcercaDeMsj);
 }
 
-Frontend.recuperaTodos = async function (callBackFn) {
-    let responseCic = null
-    let responseEsg = null
-    let responseEscal = null
-    let responseNat = null
-    let responseTeni = null
-
-    // Intento conectar con el microservicio proyectos
-    try {
-        const urlCic = Frontend.API_GATEWAY + "/Ciclismo/sacaCiclistas"
-        const urlEsg = Frontend.API_GATEWAY + "/Esgrima/getTodos"
-        const urlEscal = Frontend.API_GATEWAY + "/Escalada/getTodos"
-        const urlNat = Frontend.API_GATEWAY + "/Natacion/getTodos"
-        const urlTeni = Frontend.API_GATEWAY + "/TenisDMesa/getTodas"
-        responseCic = await fetch(urlCic)
-        responseEsg = await fetch(urlEsg)
-        responseEscal = await fetch(urlEscal)
-        responseNat = await fetch(urlNat)
-        responseTeni = await fetch(urlTeni)
-
-    } catch (error) {
-        alert("Error: No se han podido acceder al API Gateway")
-        console.error(error)
-        //throw error
-    }
-
-    // Muestro todos los proyectos que se han descargado
-    let vectorCic = null
-    let vectorEsg = null
-    let vectorEscal = null
-    let vectorNat = null
-    let vectorTeni = null
-    if (responseCic && responseEsg && responseEscal && responseNat && responseTeni) {
-        vectorCic = await responseCic.json()
-        vectorEsg = await responseEsg.json()
-        vectorEscal  = await responseEscal.json()
-        vectorNat = await responseNat.json()
-        vectorTeni = await responseTeni.json()
-        callBackFn(vectorCic.data,vectorEsg,vectorEscal,vectorNat,vectorTeni)
-    }
-}
 
