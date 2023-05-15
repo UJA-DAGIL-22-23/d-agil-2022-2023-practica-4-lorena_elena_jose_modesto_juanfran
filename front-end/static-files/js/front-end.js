@@ -59,6 +59,11 @@ Frontend.mostrarTodosJugadores = function(){
 
 }
 
+Frontend.mostrarTodosJugadoresOrdenados = function(){
+  Frontend.obtenerNombresOrdenados();
+
+}
+
 Frontend.listarSoloNombresFr = async function () {
     try {
       const responseEsg = await fetch(Frontend.API_GATEWAY + "/Esgrima/getTodos");
@@ -100,7 +105,14 @@ Frontend.obtenerNombres = async function () {
         const nombres = await Frontend.listarSoloNombresFr();
         const tabla = crearTabla(nombres);
       
-  }
+}
+
+Frontend.obtenerNombresOrdenados = async function () {
+  const nombres = await Frontend.listarSoloNombresFr();
+  nombres.sort();
+  const tabla = crearTabla(nombres);
+
+}
   
   function crearTabla(vector) {
     let tabla = ""
