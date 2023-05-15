@@ -97,15 +97,26 @@ Frontend.listarSoloNombresFr = async function () {
 
 
 Frontend.obtenerNombres = async function () {
-    try {
-      const nombres = await Frontend.listarSoloNombresFr();
-      console.log("FIN")
-      console.log(nombres);
-    } catch (error) {
-      console.error(error);
-    }
+        const nombres = await Frontend.listarSoloNombresFr();
+        const tabla = crearTabla(nombres);
+      
   }
   
+  function crearTabla(vector) {
+    let tabla = ""
+    tabla += Esgrima.EsgrimaTablaPersonas.cabeceraNombre;
+    for (let i = 0; i < vector.length; i++) {
+      let nombre = vector[i];
+        tabla += '<td>' + nombre + '</td>';
+      
+      tabla += '</tr><tr>';
+    }
+    tabla += '</tr></tbody></table>';
+    Frontend.Article.actualizar( "Listado de nombres", tabla )
+  }
+
+  
+
   
   
   /**
