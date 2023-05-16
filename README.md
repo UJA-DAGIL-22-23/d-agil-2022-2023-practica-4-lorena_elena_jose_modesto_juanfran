@@ -77,6 +77,15 @@
 ### Incremento 2 final
 ![Tablero trello final incremento 1](./assets/img/tablero_final2.png)
 
+### Incremento 3 inicial
+![Tablero trello inicial incremento 3](./assets/img/tablero_final2.png)
+
+### H.U 7
+![H.U 7](./assets/img/H.U7.png)
+
+### H.U 8
+![H.U 8](./assets/img/H.U8.png)
+
 -------
 
 

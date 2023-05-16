@@ -8,12 +8,12 @@
 // SPECS para Jasmine
 
 // Constantes para usar en las pruebas
-const elementoTitulo = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_TITULO)
-const elementoContenido = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_CONTENIDO)
-const TITULO_HOME = "Ciclismo Home"
-const TITULO_ACERCA_DE = "Ciclismo Acerca de"
+const elementoTituloCiclis = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_TITULO)
+const elementoContenidoCiclis = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_CONTENIDO)
+const TITULO_HOME_C = "Ciclismo Home"
+const TITULO_ACERCA_DE_C = "Ciclismo Acerca de"
 
-const datosDescargadosPrueba = {
+const datosDescargadosPruebaCiclis = {
     mensaje: "Mensaje de prueba descargado",
     autor: "Prueba de autor",
     email: "Prueba de email",
@@ -39,14 +39,14 @@ describe("Ciclismo.mostrarHome: ", function () {
     it("muestra datos nulos cuando le pasamos un valor nulo",
         function () {
             Ciclismo.mostrarHome()
-            expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
+            expect(elementoTituloCiclis.innerHTML).toBe(TITULO_HOME_C)
             expect(elementoContenido.innerHTML).toBe(Ciclismo.datosDescargadosNulos.mensaje)
         })
 
     it("muestra datos nulos cuando le pasamos un valor que no es un objeto",
         function () {
             Ciclismo.mostrarHome(23)
-            expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
+            expect(elementoTituloCiclis.innerHTML).toBe(TITULO_HOME_C)
             expect(elementoContenido.innerHTML).toBe(Ciclismo.datosDescargadosNulos.mensaje)
         })
 
@@ -54,19 +54,19 @@ describe("Ciclismo.mostrarHome: ", function () {
         function () {
             // Objeto vacío
             Ciclismo.mostrarHome({})
-            expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
+            expect(elementoTituloCiclis.innerHTML).toBe(TITULO_HOME_C)
             expect(elementoContenido.innerHTML).toBe(Ciclismo.datosDescargadosNulos.mensaje)
 
             // Objeto sin campo mensaje
             Ciclismo.mostrarHome({ foo: "bar" })
-            expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
+            expect(elementoTituloCiclis.innerHTML).toBe(TITULO_HOME_C)
             expect(elementoContenido.innerHTML).toBe(Ciclismo.datosDescargadosNulos.mensaje)
         })
 
     it("muestra correctamente el título y el mensaje",
         function () {
             Ciclismo.mostrarHome(datosDescargadosPrueba)
-            expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
+            expect(elementoTituloCiclis.innerHTML).toBe(TITULO_HOME_C)
             expect(elementoContenido.innerHTML).toBe(datosDescargadosPrueba.mensaje)
         })
 })
@@ -76,14 +76,14 @@ describe("Ciclismo.mostrarAcercaDe: ", function () {
     it("muestra datos nulos cuando le pasamos un valor nulo",
         function () {
             Ciclismo.mostrarAcercaDe()
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
+            expect(elementoTituloCiclis.innerHTML).toBe(TITULO_ACERCA_DE_C)
             expect(elementoContenido.innerHTML.search(Ciclismo.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
         })
 
     it("muestra datos nulos cuando le pasamos un valor que no es un objeto",
         function () {
             Ciclismo.mostrarAcercaDe(23)
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
+            expect(elementoTituloCiclis.innerHTML).toBe(TITULO_ACERCA_DE_C)
             expect(elementoContenido.innerHTML.search(Ciclismo.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
         })
 
@@ -91,30 +91,30 @@ describe("Ciclismo.mostrarAcercaDe: ", function () {
         function () {
             // Objeto vacío
             Ciclismo.mostrarAcercaDe({})
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
+            expect(elementoTituloCiclis.innerHTML).toBe(TITULO_ACERCA_DE_C)
             expect(elementoContenido.innerHTML.search(Ciclismo.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
 
             // Objeto sin campo mensaje
             Ciclismo.mostrarAcercaDe({ autor: "un autor", email: "un email", fecha: "una fecha" })
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
+            expect(elementoTituloCiclis.innerHTML).toBe(TITULO_ACERCA_DE_C)
             expect(elementoContenido.innerHTML.search(Ciclismo.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
             // Objeto sin campo autor
             Ciclismo.mostrarAcercaDe({ mensaje: "un mensaje", email: "un email", fecha: "una fecha" })
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
+            expect(elementoTituloCiclis.innerHTML).toBe(TITULO_ACERCA_DE_C)
             expect(elementoContenido.innerHTML.search(Ciclismo.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
             // Objeto sin campo email
             Ciclismo.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", fecha: "una fecha" })
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
+            expect(elementoTituloCiclis.innerHTML).toBe(TITULO_ACERCA_DE_C)
             expect(elementoContenido.innerHTML.search(Ciclismo.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
             // Objeto sin campo fecha
             Ciclismo.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", email: "un email" })
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
+            expect(elementoTituloCiclis.innerHTML).toBe(TITULO_ACERCA_DE_C)
             expect(elementoContenido.innerHTML.search(Ciclismo.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
         })
     it("muestra correctamente el título y el mensaje conteniendo el autor, el email y la fecha",
         function () {
             Ciclismo.mostrarAcercaDe(datosDescargadosPrueba)
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
+            expect(elementoTituloCiclis.innerHTML).toBe(TITULO_ACERCA_DE_C)
 
             // Comprobamos que al buscar el autor, el email y la fecha de prueba los encuentra dentro del contenido del article
             expect(elementoContenido.innerHTML.search(datosDescargadosPrueba.autor) >= 0).toBeTrue()

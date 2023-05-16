@@ -8,12 +8,12 @@
 // SPECS para Jasmine
 
 // Constantes para usar en las pruebas
-const elementoTitulo = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_TITULO)
-const elementoContenido = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_CONTENIDO)
-const TITULO_HOME = "Escalada Home"
-const TITULO_ACERCA_DE = "Escalada Acerca de"
+const elementoTituloEscalada = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_TITULO)
+const elementoContenidoEscalada = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_CONTENIDO)
+const TITULO_HOMEscalada = "Escalada Home"
+const TITULO_ACERCA_DEscalada = "Escalada Acerca de"
 
-const datosDescargadosPrueba = {
+const datosDescargadosPruebaescalada = {
     mensaje: "Mensaje de prueba descargado",
     autor: "Prueba de autor",
     email: "Prueba de email",
@@ -38,35 +38,35 @@ describe("Escalada.mostrarHome: ", function () {
     it("muestra datos nulos cuando le pasamos un valor nulo",
         function () {
             Escalada.mostrarHome()
-            expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Escalada.dDescargadosNulos.mensaje)
+            expect(elementoTituloEscalada.innerHTML).toBe(TITULO_HOMEscalada)
+            expect(elementoContenidoEscalada.innerHTML).toBe(Escalada.dDescargadosNulos.mensaje)
         })
 
     it("muestra datos nulos cuando le pasamos un valor que no es un objeto",
         function () {
             Escalada.mostrarHome(23)
-            expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Escalada.dDescargadosNulos.mensaje)
+            expect(elementoTituloEscalada.innerHTML).toBe(TITULO_HOMEscalada)
+            expect(elementoContenidoEscalada.innerHTML).toBe(Escalada.dDescargadosNulos.mensaje)
         })
 
     it("muestra datos nulos cuando le pasamos un objeto que no tiene campo mensaje",
         function () {
             // Objeto vacío
             Escalada.mostrarHome({})
-            expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Escalada.dDescargadosNulos.mensaje)
+            expect(elementoTituloEscalada.innerHTML).toBe(TITULO_HOMEscalada)
+            expect(elementoContenidoEscalada.innerHTML).toBe(Escalada.dDescargadosNulos.mensaje)
 
             // Objeto sin campo mensaje
             Escalada.mostrarHome({ foo: "bar" })
-            expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Escalada.dDescargadosNulos.mensaje)
+            expect(elementoTituloEscalada.innerHTML).toBe(TITULO_HOMEscalada)
+            expect(elementoContenidoEscalada.innerHTML).toBe(Escalada.dDescargadosNulos.mensaje)
         })
 
     it("muestra correctamente el título y el mensaje",
         function () {
-            Escalada.mostrarHome(datosDescargadosPrueba)
-            expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(datosDescargadosPrueba.mensaje)
+            Escalada.mostrarHome(datosDescargadosPruebaescalada)
+            expect(elementoTituloEscalada.innerHTML).toBe(TITULO_HOMEscalada)
+            expect(elementoContenidoEscalada.innerHTML).toBe(datosDescargadosPruebaescalada.mensaje)
         })
 })
 
@@ -75,51 +75,51 @@ describe("Escalada.mostrarAcercaDe: ", function () {
     it("muestra datos nulos cuando le pasamos un valor nulo",
         function () {
             Escalada.mostrarAcercaDe()
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Escalada.dDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoTituloEscalada.innerHTML).toBe(TITULO_ACERCA_DEscalada)
+            expect(elementoContenidoEscalada.innerHTML.search(Escalada.dDescargadosNulos.mensaje) >= 0).toBeTrue()
         })
 
     it("muestra datos nulos cuando le pasamos un valor que no es un objeto",
         function () {
             Escalada.mostrarAcercaDe(23)
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Escalada.dDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoTituloEscalada.innerHTML).toBe(TITULO_ACERCA_DEscalada)
+            expect(elementoContenidoEscalada.innerHTML.search(Escalada.dDescargadosNulos.mensaje) >= 0).toBeTrue()
         })
 
     it("muestra datos nulos cuando le pasamos un objeto que no tiene campo mensaje o autor o email o fecha ",
         function () {
             // Objeto vacío
             Escalada.mostrarAcercaDe({})
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Escalada.dDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoTituloEscalada.innerHTML).toBe(TITULO_ACERCA_DEscalada)
+            expect(elementoContenidoEscalada.innerHTML.search(Escalada.dDescargadosNulos.mensaje) >= 0).toBeTrue()
 
             // Objeto sin campo mensaje
             Escalada.mostrarAcercaDe({ autor: "un autor", email: "un email", fecha: "una fecha" })
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Escalada.dDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoTituloEscalada.innerHTML).toBe(TITULO_ACERCA_DEscalada)
+            expect(elementoContenidoEscalada.innerHTML.search(Escalada.dDescargadosNulos.mensaje) >= 0).toBeTrue()
             // Objeto sin campo autor
             Escalada.mostrarAcercaDe({ mensaje: "un mensaje", email: "un email", fecha: "una fecha" })
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Escalada.dDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoTituloEscalada.innerHTML).toBe(TITULO_ACERCA_DEscalada)
+            expect(elementoContenidoEscalada.innerHTML.search(Escalada.dDescargadosNulos.mensaje) >= 0).toBeTrue()
             // Objeto sin campo email
             Escalada.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", fecha: "una fecha" })
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Escalada.dDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoTituloEscalada.innerHTML).toBe(TITULO_ACERCA_DEscalada)
+            expect(elementoContenidoEscalada.innerHTML.search(Escalada.dDescargadosNulos.mensaje) >= 0).toBeTrue()
             // Objeto sin campo fecha
             Escalada.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", email: "un email" })
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Escalada.dDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoTituloEscalada.innerHTML).toBe(TITULO_ACERCA_DEscalada)
+            expect(elementoContenidoEscalada.innerHTML.search(Escalada.dDescargadosNulos.mensaje) >= 0).toBeTrue()
         })
 
     it("muestra correctamente el título y el mensaje conteniendo el autor, el email y la fecha",
         function () {
-            Escalada.mostrarAcercaDe(datosDescargadosPrueba)
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
+            Escalada.mostrarAcercaDe(datosDescargadosPruebaescalada)
+            expect(elementoTituloEscalada.innerHTML).toBe(TITULO_ACERCA_DEscalada)
             
             // Comprobamos que al buscar el autor, el email y la fecha de prueba los encuentra dentro del contenido del article
-            expect(elementoContenido.innerHTML.search(datosDescargadosPrueba.autor) >= 0).toBeTrue()
-            expect(elementoContenido.innerHTML.search(datosDescargadosPrueba.email) >= 0).toBeTrue()
-            expect(elementoContenido.innerHTML.search(datosDescargadosPrueba.fecha) >= 0).toBeTrue()
+            expect(elementoContenidoEscalada.innerHTML.search(datosDescargadosPruebaescalada.autor) >= 0).toBeTrue()
+            expect(elementoContenidoEscalada.innerHTML.search(datosDescargadosPruebaescalada.email) >= 0).toBeTrue()
+            expect(elementoContenidoEscalada.innerHTML.search(datosDescargadosPruebaescalada.fecha) >= 0).toBeTrue()
           
         })
     })
