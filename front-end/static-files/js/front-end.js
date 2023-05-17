@@ -163,3 +163,25 @@ Frontend.mostrarAcercaDe = function(datosDescargados){
 }
 
 
+
+Frontend.buscarNombresCadena = async function (texto) {
+  const nombres = await Frontend.listarSoloNombresFr();
+  let vector = [];
+  
+  for(var i=0; i<nombres.length; i++){
+    if(nombres[i].toLowerCase().includes(texto.toLowerCase())){
+      vector.push(nombres[i]);
+    }
+  }
+  
+  const tabla = crearTabla(vector);
+}
+
+
+
+
+
+
+
+
+
