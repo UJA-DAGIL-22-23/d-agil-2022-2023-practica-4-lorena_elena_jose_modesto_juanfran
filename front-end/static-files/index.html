@@ -53,6 +53,22 @@
                     title="Muestra todos los jugadores">Mostrar todos los jugadores Ordenados</a>
                 </nav>
         </div>
+
+        <div>
+            <h1>Buscar dada una cadena:</h1>
+            <form>
+                <input type="text" id="buscarCadena" name="buscarCadena" placeholder="Nombre" class="busc">
+                <button class="btn" type="button" title="Realiza un listado de todas las personas que su nombre contenga la siguiente cadena'" onclick="buscar3()">Buscar</button>
+            </form>
+            <script>
+                function buscar3() {
+                    var buscar = document.getElementById("buscarCadena").value;
+                    console.log(buscar);
+                    Frontend.buscarNombresCadena(buscar);
+                }
+            </script>
+        </div>
+
         
 
         <div id="tmes" style="display:none;">
@@ -227,7 +243,7 @@
           </form>
           <script>
             function buscar() {
-                var tipo= "nombre";
+              var tipo= "nombre";
               var searchTerm = document.getElementById("search").value;
               Esgrima.listarBuscar(searchTerm,tipo);
             }
