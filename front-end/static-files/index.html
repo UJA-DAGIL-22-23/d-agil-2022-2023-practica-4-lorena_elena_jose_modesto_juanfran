@@ -4,14 +4,14 @@
 <head>
     <title>Aplicación Microservicios Escalada</title>
 
-    <!-- Cargamos biblioteca Jasmine 
+    <!--Cargamos biblioteca Jasmine -->
 
     <link rel="stylesheet" href="lib/jasmine-4.5.0/jasmine.css">
     <script src="lib/jasmine-4.5.0/jasmine.js"></script>
     <script src="lib/jasmine-4.5.0/jasmine-html.js"></script>
     <script src="lib/jasmine-4.5.0/boot0.js"></script>
     <script src="lib/jasmine-4.5.0/boot1.js"></script>
--->
+    
     <!-- Cargamos nuestros CSS -->
     <link rel="stylesheet" href="css/front-end.css">
 
@@ -37,6 +37,38 @@
                     title="Muestra información Acerca De de todos los autores">Acerca De</a>
                 </nav>
         </div>
+
+        <div id="mostrJug" style="display:block;">
+            <h1>Mostrar todos los jugadores</h1>
+                <nav>
+                    <a href="javascript:Frontend.mostrarTodosJugadores()" class="opcion-principal"
+                    title="Muestra todos los jugadores">Mostrar todos los jugadores</a>
+                </nav>
+        </div>
+
+        <div id="mostrJugOrden" style="display:block;">
+            <h1>Mostrar todos los jugadores Ordenados</h1>
+                <nav>
+                    <a href="javascript:Frontend.mostrarTodosJugadoresOrdenados()" class="opcion-principal"
+                    title="Muestra todos los jugadores">Mostrar todos los jugadores Ordenados</a>
+                </nav>
+        </div>
+
+        <div>
+            <h1>Buscar dada una cadena:</h1>
+            <form>
+                <input type="text" id="buscarCadena" name="buscarCadena" placeholder="Nombre" class="busc">
+                <button class="btn" type="button" title="Realiza un listado de todas las personas que su nombre contenga la siguiente cadena'" onclick="buscar3()">Buscar</button>
+            </form>
+            <script>
+                function buscar3() {
+                    var buscar = document.getElementById("buscarCadena").value;
+                    console.log(buscar);
+                    Frontend.buscarNombresCadena(buscar);
+                }
+            </script>
+        </div>
+
         
 
         <div id="tmes" style="display:none;">
@@ -211,7 +243,7 @@
           </form>
           <script>
             function buscar() {
-                var tipo= "nombre";
+              var tipo= "nombre";
               var searchTerm = document.getElementById("search").value;
               Esgrima.listarBuscar(searchTerm,tipo);
             }
@@ -483,6 +515,7 @@
         <h2 id="seccion-principal-titulo"></h2>
         <!-- Contenido del article -->
         <div id="seccion-principal-contenido">
+        
         </div>
     </article>
 
@@ -512,15 +545,11 @@
    
     <script src="js/front-end-spec.js"></script>
     <script src="js/ms-tenisDeMesa-spec.js"></script>
-     <!-- 
-        VICTOR: 8-MAY 
-        Tenéis que arreglar estos SPEC porque cada fichero redefine la constante elementoTitulo
-    
-    <script src="js/ms-ciclismo-spec.js"></script>
-    <script src="js/ms-natacion-spec.js"></script>
     <script src="js/ms-esgrima-spec.js"></script>
+    <script src="js/ms-ciclismo-spec.js"></script>
     <script src="js/ms-escalada-spec.js"></script>
-        -->
+    <script src="js/ms-natacion-spec.js"></script>
+   
 </body>
 
 </html>

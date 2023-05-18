@@ -22,36 +22,74 @@
 ## Enlace tablero Trello
 * https://trello.com/b/c08kND2J/pr%C3%A1ctica-4
 
+-------
+
+## Descripción *Sprint Retrospective*
+
+
+
+-------
 
 ## Capturas de pantalla Trello
 ### Incremento 1 inicio
+> En este segundo incremento realizaremos las historias de usuario 1,2 y 3
 ![Tablero trello inicio incremento 1](./assets/img/tablero_inicio1.png)
 
 #### H.U 01
+> En esta Historia de Usuario se pretende mostrar toda la funcionaliad de la práctica individual de **Lorena Moreno Vilches**
 ![H.U 01](./assets/img/H.U1.png)
 
 #### H.U 02
+> En esta Historia de Usuario se pretende mostrar toda la funcionaliad de la práctica individual de **Jose Ballester Marín**
 ![H.U 02](./assets/img/H.U2.png)
 
 #### H.U 03
+> En esta Historia de Usuario se pretende mostrar toda la funcionaliad de la práctica individual de **Elena Alonso Tejederas**
 ![H.U 03](./assets/img/H.U3.png)
 
-#### H.U 04
-![H.U 04](./assets/img/H.U4.png)
-
-#### H.U 05
-![H.U 05](./assets/img/H.U5.png)
 
 ### Incremento 1 final
-![Tablero trello final incremento 1](./assets/img/H.U5.png)
+![Tablero trello final incremento 1](./assets/img/tablero_final1.png)
 
 -------
 
 ### Incremento 2 inicio
-![Tablero trello final incremento 1](./assets/img/H.U5.png)
+> En este segundo incremento realizaremos las historias de usuario 4,5,6 y 10
+![Tablero trello final incremento 1](./assets/img/tablero_final1.png)
+
+#### H.U 04
+> En esta Historia de Usuario se pretende mostrar toda la funcionaliad de la práctica individual de **Modesto Monzón Vázquez**
+![H.U 04](./assets/img/H.U4.png)
+
+#### H.U 05
+> En esta Historia de Usuario se pretende mostrar toda la funcionaliad de la práctica individual de **Juan Francisco Escudero Toribio**
+![H.U 05](./assets/img/H.U5.png)
+
+#### H.U 06
+> En esta Historia de Usuario se pretende mostrar la información de los desarrolladores de la aplicación al hacer clic en el botón *"Acerca de"*
+![H.U 06](./assets/img/H.U6.png)
+
+#### H.U 10
+> En esta Historia de Usuario se pretende modificar la visualización de la aplicación al hacer clic en el botón *"Cambiar Contraste"*
+![H.U 10](./assets/img/H.U10.png)
 
 
+### Incremento 2 final
+![Tablero trello final incremento 1](./assets/img/tablero_final2.png)
 
+### Incremento 3 inicial
+![Tablero trello inicial incremento 3](./assets/img/tablero_final2.png)
+
+### H.U 7
+![H.U 7](./assets/img/H.U7.png)
+
+### H.U 8
+![H.U 8](./assets/img/H.U8.png)
+
+### H.U 9
+![H.U 9](./assets/img/H.U9.png)
+
+-------
 
 
 

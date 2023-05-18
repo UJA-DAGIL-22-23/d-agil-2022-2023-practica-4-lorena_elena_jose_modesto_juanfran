@@ -54,7 +54,82 @@ Frontend.mostrarTodoAcercaDe = function() {
     TenisDMesa.descargarRuta("/TenisDMesa/acercade", this.mostrarAcercaDe)
   }
 
+Frontend.mostrarTodosJugadores = function(){
+    Frontend.obtenerNombres();
 
+}
+
+Frontend.mostrarTodosJugadoresOrdenados = function(){
+  Frontend.obtenerNombresOrdenados();
+
+}
+
+Frontend.listarSoloNombresFr = async function () {
+    try {
+      const responseEsg = await fetch(Frontend.API_GATEWAY + "/Esgrima/getTodos");
+      const responseNat = await fetch(Frontend.API_GATEWAY + "/Natacion/getTodos");
+      const responseCic = await fetch(Frontend.API_GATEWAY + "/Ciclismo/sacaCiclistas");
+      const responseEsc = await fetch(Frontend.API_GATEWAY + "/Escalada/getTodas");
+      const responseTen = await fetch(Frontend.API_GATEWAY + "/TenisDMesa/getTodas");
+      const dataEsg = await responseEsg.json();
+      const dataNat = await responseNat.json();
+      const dataCic = await responseCic.json();
+      const dataEsc = await responseEsc.json();
+      const dataTen = await responseTen.json();
+      const nombres = [];
+      dataEsg.data.forEach((persona) => {
+        nombres.push(persona.data.nombre);
+      });
+      dataNat.data.forEach((persona) => {
+        nombres.push(persona.data.Nombre_completo.Nombre);
+      });
+      dataCic.data.forEach((persona) => {
+        nombres.push(persona.data.nombre);
+      });
+      dataEsc.data.forEach((persona) => {
+        nombres.push(persona.data.nombre);
+      });
+      dataTen.data.forEach((persona) => {
+        nombres.push(persona.data.nombre);
+      });
+      return nombres;
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
+  };
+
+
+
+Frontend.obtenerNombres = async function () {
+        const nombres = await Frontend.listarSoloNombresFr();
+        const tabla = crearTabla(nombres);
+      
+}
+
+Frontend.obtenerNombresOrdenados = async function () {
+  const nombres = await Frontend.listarSoloNombresFr();
+  nombres.sort();
+  const tabla = crearTabla(nombres);
+
+}
+  
+  function crearTabla(vector) {
+    let tabla = ""
+    tabla += Esgrima.EsgrimaTablaPersonas.cabeceraNombre;
+    for (let i = 0; i < vector.length; i++) {
+      let nombre = vector[i];
+        tabla += '<td>' + nombre + '</td>';
+      
+      tabla += '</tr><tr>';
+    }
+    tabla += '</tr></tbody></table>';
+    Frontend.Article.actualizar( "Listado de nombres", tabla )
+  }
+
+  
+
+  
   
   /**
    * Muestra los datos de Acerca De de todos los miembros
@@ -86,3 +161,92 @@ Frontend.mostrarAcercaDe = function(datosDescargados){
    Frontend.AcercaDeMsj += mensajeAMostrar;
    Frontend.Article.actualizar("Acerca De", Frontend.AcercaDeMsj);
 }
+
+
+
+Frontend.listarSoloDeportesFr = async function () {
+  try {
+    const responseEsg = await fetch(Frontend.API_GATEWAY + "/Esgrima/getTodos");
+    const responseNat = await fetch(Frontend.API_GATEWAY + "/Natacion/getTodos");
+    const responseCic = await fetch(Frontend.API_GATEWAY + "/Ciclismo/sacaCiclistas");
+    const responseEsc = await fetch(Frontend.API_GATEWAY + "/Escalada/getTodas");
+    const responseTen = await fetch(Frontend.API_GATEWAY + "/TenisDMesa/getTodas");
+    const dataEsg = await responseEsg.json();
+    const dataNat = await responseNat.json();
+    const dataCic = await responseCic.json();
+    const dataEsc = await responseEsc.json();
+    const dataTen = await responseTen.json();
+    const nombres = [];
+    const deportes = [];
+    dataEsg.data.forEach((persona) => {
+      nombres.push(persona.data.nombre);
+      deportes.push("Esgrima");
+    });
+    dataNat.data.forEach((persona) => {
+      nombres.push(persona.data.Nombre_completo.Nombre);
+      deportes.push("Natacion");
+    });
+    dataCic.data.forEach((persona) => {
+      nombres.push(persona.data.nombre);
+      deportes.push("Ciclismo");
+    });
+    dataEsc.data.forEach((persona) => {
+      nombres.push(persona.data.nombre);
+      deportes.push("Escalada");
+    });
+    dataTen.data.forEach((persona) => {
+      nombres.push(persona.data.nombre);
+      deportes.push("Tenis de mesa");
+    });
+    return deportes;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
+function crearTablaDep(vectorN, vectorD) {
+  let tabla = `<table width="100%" class="listado-personas">
+  <thead>
+      <th width="100%">Nombre</th> 
+      <th width="100%">Deporte</th> 
+  </thead>
+  <tbody>
+`;
+   
+  for (let i = 0; i < vectorN.length; i++) {
+    let nombre = vectorN[i];
+    let deporte = vectorD[i];
+      tabla += '<td>' + nombre + '</td>';
+      tabla += '<td>' + deporte + '</td>' ;
+    
+    tabla += '</tr><tr>';
+  }
+  tabla += '</tr></tbody></table>';
+  Frontend.Article.actualizar( "Listado de nombres", tabla )
+}
+
+Frontend.buscarNombresCadena = async function (texto) {
+  const nombres = await Frontend.listarSoloNombresFr();
+  const deportes = await Frontend.listarSoloDeportesFr();
+  let vectorN = [];
+  let vectorD = [];
+  
+  for(var i=0; i<nombres.length; i++){
+    if(nombres[i].toLowerCase().includes(texto.toLowerCase())){
+      vectorN.push(nombres[i]);
+      vectorD.push(deportes[i]);
+    }
+  }
+  
+  const tabla = crearTablaDep(vectorN, vectorD);
+}
+
+
+
+
+
+
+
+
+
