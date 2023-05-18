@@ -61,3 +61,31 @@ describe("Frontend.Article.actualizar: ", function () {
         })
 
 })
+describe("Frontend.mostrarTodoAcercaDe: ", function () {
+    beforeEach(function () {
+        spyOn(Natacion, "descargarRuta");
+        spyOn(Esgrima, "descargarRuta");
+        spyOn(Ciclismo, "descargarRuta");
+        spyOn(Escalada, "descargarRuta");
+        spyOn(TenisDMesa, "descargarRuta");
+        spyOn(Frontend, "mostrarAcercaDe");
+    });
+
+    it("llama a las rutas correspondientes y muestra los datos de Acerca De", function () {
+        Frontend.mostrarTodoAcercaDe();
+
+        expect(Natacion.descargarRuta).toHaveBeenCalledWith("/Natacion/acercade", Frontend.mostrarAcercaDe);
+        expect(Esgrima.descargarRuta).toHaveBeenCalledWith("/Esgrima/acercade", Frontend.mostrarAcercaDe);
+        expect(Ciclismo.descargarRuta).toHaveBeenCalledWith("/Ciclismo/acercaDe", Frontend.mostrarAcercaDe);
+        expect(Escalada.descargarRuta).toHaveBeenCalledWith("/Escalada/acercaDe", Frontend.mostrarAcercaDe);
+        expect(TenisDMesa.descargarRuta).toHaveBeenCalledWith("/TenisDMesa/acercade", Frontend.mostrarAcercaDe);
+    });
+
+    it("establece el mensaje de AcercaDeMsj como vacío al inicio", function () {
+        Frontend.mostrarTodoAcercaDe();
+
+        expect(Frontend.AcercaDeMsj).toBe("");
+    });
+});
+
+  
