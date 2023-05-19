@@ -25,11 +25,33 @@
 -------
 
 ## Descripción *Sprint Retrospective*
+### Que hemos hecho bien
+    * Hemos implementado las historias de usuario correctamente
+    * La comunicación entre todos los miembros ha sido correcta
+    * Se ha respetado el orden a la hora de realizar cambios en el repositorio
+    * Hemos decidido entre todos que historias de usuario implementar
 
+### Que hay que mejorar 
+    * Hay que realizar un trabajo más progresivo
+    * Realizar las HU necesarias para alcanzar el mínimo de nota y no para tener mas de lo posible y ahorrar trabajo. (Simplicidad es esencial)
+    * Hay que prestar más atención a los movimientos del Trello
+    * Podemos mejorar nuestro código para hacerlo más eficiente
+    * Mejoraremos el aspecto visual de la interfaz con bootstrap
+    * Añadir validación de datos a los formularios con Alpine js
+
+### Compromisos
+    * Trabajar diariamente en el proyecto
+    * Hacer HU necesarias para la nota
+    * Prestar más atención a los movimientos que hay que realizar en Trello
+    * Mejoraremos nuestro código para hacerlo que sea más eficiente
+    * Introducir estilo a los botones y las tablas con bootstrap
+    * Los formularios serán seguros para añadir deportistas a la BBDD
+    
 
 
 -------
 
+## Descripción *Sprint Review*
 ## Capturas de pantalla Trello
 ### Incremento 1 inicio
 > En este segundo incremento realizaremos las historias de usuario 1,2 y 3
@@ -81,13 +103,20 @@
 ![Tablero trello inicial incremento 3](./assets/img/tablero_final2.png)
 
 ### H.U 7
+> En esta Historia de Usuario se pretende ver un listado de todos los nombres de los jugadores de todos los deportes
 ![H.U 7](./assets/img/H.U7.png)
 
 ### H.U 8
+> En esta Historia de Usuario se pretende ver un listado con todos los nombres de los jugadores de todos los deportes ordenados alfabéticamente 
 ![H.U 8](./assets/img/H.U8.png)
 
 ### H.U 9
+> En esta Historia de Usuario se pretende mostrar un listado de todos los nombres de los jugadores y su deporte que contengan la cadena introducida 
 ![H.U 9](./assets/img/H.U9.png)
+
+
+### Incremento 3 Final
+![Tablero trello final](./assets/img/incremento3final.png)
 
 -------
 
