@@ -25,8 +25,14 @@
 -------
 
 ## Descripción *Sprint Retrospective*
+### Que hemos hecho bien
+    * Hemos implementado las historias de usuario correctamente
 
+### Que hay que mejorar 
+    * Hay que realizar un trabajo más progresivo
 
+### Compromisos
+    * Trabajar diariamente en el proyecto
 
 -------
 
