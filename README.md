@@ -45,6 +45,8 @@
     * Prestar más atención a los movimientos que hay que realizar en Trello
     * Mejoraremos nuestro código para hacerlo que sea más eficiente
     * Introducir estilo a los botones y las tablas con bootstrap
+    * Los formularios serán seguros para añadir deportistas a la BBDD
+    
 
 
 -------
