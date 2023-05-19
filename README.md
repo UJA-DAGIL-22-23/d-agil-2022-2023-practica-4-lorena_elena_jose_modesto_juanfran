@@ -30,6 +30,7 @@
     * La comunicación entre todos los miembros ha sido correcta
     * Se ha respetado el orden a la hora de realizar cambios en el repositorio
     * Hemos decidido entre todos que historias de usuario implementar
+    * Hemos logrado cumplir con los objetivos establecidos para el Sprint
 
 ### Que hay que mejorar 
     * Hay que realizar un trabajo más progresivo
@@ -38,6 +39,7 @@
     * Podemos mejorar nuestro código para hacerlo más eficiente
     * Mejoraremos el aspecto visual de la interfaz con bootstrap
     * Añadir validación de datos a los formularios con Alpine js
+    * Documentaremos adecuadamente el código en el momento en que se realicen las funciones
 
 ### Compromisos
     * Trabajar diariamente en el proyecto
@@ -46,7 +48,7 @@
     * Mejoraremos nuestro código para hacerlo que sea más eficiente
     * Introducir estilo a los botones y las tablas con bootstrap
     * Los formularios serán seguros para añadir deportistas a la BBDD
-    
+    * Realizaremos reuniones de seguimiento periódicas para evaluar el progreso del proyecto
 
 
 -------
@@ -100,6 +102,7 @@
 ![Tablero trello final incremento 1](./assets/img/tablero_final2.png)
 
 ### Incremento 3 inicial
+> En este último incremento realizaremos las historias de usuario 7,8 y 9
 ![Tablero trello inicial incremento 3](./assets/img/tablero_final2.png)
 
 ### H.U 7
