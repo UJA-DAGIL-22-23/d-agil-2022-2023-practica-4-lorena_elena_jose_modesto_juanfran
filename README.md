@@ -41,6 +41,7 @@
     * Trabajar diariamente en el proyecto
     * Hacer HU necesarias para la nota
     * Prestar más atención a los movimientos que hay que realizar en Trello
+    * Mejoraremos nuestro código para hacerlo que sea más eficiente
 
 -------
 
