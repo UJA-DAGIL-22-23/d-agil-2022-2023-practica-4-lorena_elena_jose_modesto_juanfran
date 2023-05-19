@@ -27,12 +27,15 @@
 ## Descripción *Sprint Retrospective*
 ### Que hemos hecho bien
     * Hemos implementado las historias de usuario correctamente
+    * La comunicación entre todos los miembros ha sido correcta
 
 ### Que hay que mejorar 
     * Hay que realizar un trabajo más progresivo
+    * Realizar las HU necesarias para alcanzar el mínimo de nota y no para tener mas de lo posible y ahorrar trabajo. (Simplicidad es esencial)
 
 ### Compromisos
     * Trabajar diariamente en el proyecto
+    * Hacer HU necesarias para la nota
 
 -------
 
