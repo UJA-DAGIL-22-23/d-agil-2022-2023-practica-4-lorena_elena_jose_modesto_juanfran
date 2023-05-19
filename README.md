@@ -30,6 +30,7 @@
 
 -------
 
+## Descripción *Sprint Review*
 ## Capturas de pantalla Trello
 ### Incremento 1 inicio
 > En este segundo incremento realizaremos las historias de usuario 1,2 y 3
@@ -81,12 +82,15 @@
 ![Tablero trello inicial incremento 3](./assets/img/tablero_final2.png)
 
 ### H.U 7
+> En esta Historia de Usuario se pretende ver un listado de todos los nombres de los jugadores de todos los deportes
 ![H.U 7](./assets/img/H.U7.png)
 
 ### H.U 8
+> En esta Historia de Usuario se pretende ver un listado con todos los nombres de los jugadores de todos los deportes ordenados alfabéticamente 
 ![H.U 8](./assets/img/H.U8.png)
 
 ### H.U 9
+> En esta Historia de Usuario se pretende mostrar un listado de todos los nombres de los jugadores y su deporte que contengan la cadena introducida 
 ![H.U 9](./assets/img/H.U9.png)
 
 -------
