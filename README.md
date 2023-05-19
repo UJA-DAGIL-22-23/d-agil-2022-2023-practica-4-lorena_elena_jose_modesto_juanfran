@@ -29,6 +29,7 @@
     * Hemos implementado las historias de usuario correctamente
     * La comunicación entre todos los miembros ha sido correcta
     * Se ha respetado el orden a la hora de realizar cambios en el repositorio
+    * Hemos decidido entre todos que historias de usuario implementar
 
 ### Que hay que mejorar 
     * Hay que realizar un trabajo más progresivo
