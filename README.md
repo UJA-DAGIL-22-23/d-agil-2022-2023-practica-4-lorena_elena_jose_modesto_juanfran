@@ -100,6 +100,7 @@
 ![Tablero trello final incremento 1](./assets/img/tablero_final2.png)
 
 ### Incremento 3 inicial
+> En este último incremento realizaremos las historias de usuario 7,8 y 9
 ![Tablero trello inicial incremento 3](./assets/img/tablero_final2.png)
 
 ### H.U 7
