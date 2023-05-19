@@ -35,6 +35,7 @@
     * Hay que realizar un trabajo más progresivo
     * Realizar las HU necesarias para alcanzar el mínimo de nota y no para tener mas de lo posible y ahorrar trabajo. (Simplicidad es esencial)
     * Hay que prestar más atención a los movimientos del Trello
+    * Podemos mejorar nuestro código para hacerlo más eficiente
 
 ### Compromisos
     * Trabajar diariamente en el proyecto
