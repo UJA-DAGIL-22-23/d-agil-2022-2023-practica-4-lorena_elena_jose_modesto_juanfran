@@ -28,14 +28,17 @@
 ### Que hemos hecho bien
     * Hemos implementado las historias de usuario correctamente
     * La comunicación entre todos los miembros ha sido correcta
+    * Se ha respetado el orden a la hora de realizar cambios en el repositorio
 
 ### Que hay que mejorar 
     * Hay que realizar un trabajo más progresivo
     * Realizar las HU necesarias para alcanzar el mínimo de nota y no para tener mas de lo posible y ahorrar trabajo. (Simplicidad es esencial)
+    * Hay que prestar más atención a los movimientos del Trello
 
 ### Compromisos
     * Trabajar diariamente en el proyecto
     * Hacer HU necesarias para la nota
+    * Prestar más atención a los movimientos que hay que realizar en Trello
 
 -------
 
@@ -101,6 +104,10 @@
 ### H.U 9
 > En esta Historia de Usuario se pretende mostrar un listado de todos los nombres de los jugadores y su deporte que contengan la cadena introducida 
 ![H.U 9](./assets/img/H.U9.png)
+
+
+### Incremento 3 Final
+![Tablero trello final](./assets/img/incremento3final.png)
 
 -------
 
