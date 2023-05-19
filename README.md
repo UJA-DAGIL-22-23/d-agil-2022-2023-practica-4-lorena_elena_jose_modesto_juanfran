@@ -37,6 +37,7 @@
     * Hay que prestar más atención a los movimientos del Trello
     * Podemos mejorar nuestro código para hacerlo más eficiente
     * Mejoraremos el aspecto visual de la interfaz con bootstrap
+    * Añadir validación de datos a los formularios con Alpine js
 
 ### Compromisos
     * Trabajar diariamente en el proyecto
@@ -44,6 +45,7 @@
     * Prestar más atención a los movimientos que hay que realizar en Trello
     * Mejoraremos nuestro código para hacerlo que sea más eficiente
     * Introducir estilo a los botones y las tablas con bootstrap
+
 
 -------
 
