@@ -36,12 +36,14 @@
     * Realizar las HU necesarias para alcanzar el mínimo de nota y no para tener mas de lo posible y ahorrar trabajo. (Simplicidad es esencial)
     * Hay que prestar más atención a los movimientos del Trello
     * Podemos mejorar nuestro código para hacerlo más eficiente
+    * Mejoraremos el aspecto visual de la interfaz con bootstrap
 
 ### Compromisos
     * Trabajar diariamente en el proyecto
     * Hacer HU necesarias para la nota
     * Prestar más atención a los movimientos que hay que realizar en Trello
     * Mejoraremos nuestro código para hacerlo que sea más eficiente
+    * 
 
 -------
 
